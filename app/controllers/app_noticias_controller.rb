@@ -29,14 +29,13 @@ class AppNoticiasController < ApplicationController
         @profiles_all = Profile.obtener_profiles_entidad_actual(session[:profile_id]);
         
         if(@profiles_all.nil?)
-                    flash[:notice]= "No hay perfiles disponibles para asociar los contenidos"
-                    uri = session[:original_uri]
-                    redirect_to(uri || { :controller => "app_noticias" })
+            flash[:notice]= "No hay perfiles disponibles para asociar los contenidos"
+            uri = session[:original_uri]
+            redirect_to(uri || { :controller => "app_noticias" })
         end
         
   end
 
- 
   # GET /apps/edit
   def edit
     
@@ -59,12 +58,14 @@ class AppNoticiasController < ApplicationController
        
         # Obtengo todos los profiles de la Organización
         #@profiles = Profile.find(:all, :conditions => "entidad_id = #{}");
-        @profiles_all = Profile.obtener_profiles_entidad_actual(session[:profile_id]);
+        if(!session[:profile_id].nil?)
+          @profiles_all = Profile.obtener_profiles_entidad_actual(session[:profile_id]);
+        end
         
         if(@profiles_all.nil?)
-                    flash[:notice]= "No hay perfiles disponibles para asociar los contenidos"
-                    uri = session[:original_uri]
-                    redirect_to(uri || { :controller => "app_noticias" })
+            flash[:notice]= "No hay perfiles disponibles para asociar los contenidos"
+            uri = session[:original_uri]
+            redirect_to(uri || { :controller => "app_noticias" })
         end
     
   end

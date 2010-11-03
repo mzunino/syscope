@@ -1,0 +1,109 @@
+
+<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
+
+
+ <%= f.hidden_field :id %>
+
+<p>
+	<%= label_tag "Título / Descripción:" %>
+    <%= f.text_field :descripcion, :size => 15 %>
+</p>
+<p>
+	<%= label_tag "Fecha del contenido:" %>
+    <%= f.text_field :fecha, :size => 15 %>
+</p>
+<hr />
+<p>
+	<%= label_tag "Fecha inicio emisión:" %>sdfdsf
+    <%= f.text_field :fecha_inicio, :size => 14 %>
+</p>
+<p>
+	<%= label_tag "Fecha fin de emisión:" %>
+    <%= f.text_field :fecha_fin, :size => 14 %>
+</p>
+<p>
+	<%= label_tag "Rotación:" %>
+    <%= f.text_field :rotacion, :size => 2 %>
+</p>
+<p>
+
+<%= label_tag "Seleccione un Template :" %>
+<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+	
+<hr />
+
+
+<!-- start div partial elementos -->
+	
+<%
+	@contenedor_elementos = "contenedor_elementos"
+
+%>
+
+<div id="contenedor_elementos"> 
+
+	 <% 
+			if !@elementos.nil? 
+					@elementos.each do |elemento| -%>
+			 
+			
+						<% fields_for "elemento[]", elemento do |subfield| %>
+						
+						 	<div id="elemento_id_<%= elemento.id %>">
+								  <%= subfield.hidden_field :id %>
+								  <%= subfield.hidden_field :contenido_id %>
+								
+								  <p><%= subfield.label :ubicacion, 'Ubicacion:' %><br/>
+								  <%= subfield.text_field :ubicacion %></p>
+								  
+								  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
+								  <%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+			
+								  <p><%= subfield.label :valor, 'Valor:' %><br/>
+								  <%= subfield.text_field :valor %></p>
+							</div>
+								  
+						 <% end -%>
+			
+						<hr />
+				<% end 
+		end %>
+
+</div>
+
+<div>
+	<input type="hidden" value="0" id="elementsCount" />
+	<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
+</div>
+
+<hr />
+
+<!-- ends div partial elementos -->
+
+<!-- starts div partial profiles -->
+
+<p>	
+		<% @profiles_all.each do |profile| -%>
+				
+			<% if @hash_profiles_asociados[profile.id].nil?  %>
+					<%= check_box_tag 'profiles[]', profile.id, false %> 
+			<% else %>
+					<%= check_box_tag 'profiles[]', profile.id, true %>
+			<% end %>
+			
+			<%= profile.descripcion %>
+			<br />
+	<% end %>	
+</p>
+	
+<!-- ends div partial profiles -->	
+	
+<p><%= submit_tag 'save' %></p>
+
+<% end -%>
+
+<hr />
+	

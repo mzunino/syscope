@@ -1,0 +1,35 @@
+<h1>Editing contenido</h1>
+
+<% form_for(@contenido) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tipo_id, 'Tipo de Contenido' %>
+    <%= f.collection_select :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </p>
+  <p>
+    <%= f.label :rotacion %><br />
+    <%= f.text_field :rotacion %>
+  </p>
+  <p>
+    <%= f.label :fecha %><br />
+    <%= f.text_field :fecha %>
+  </p>
+
+
+  <p>
+    <%= f.label :app_id %><br />
+    <%= f.collection_select :app_id, App.find(:all), :id, :nombre %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @contenido %> |
+<%= link_to 'Back', contenidos_path %>

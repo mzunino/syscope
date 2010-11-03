@@ -1,60 +1,108 @@
-<p>
-	<%= label @form, :descripcion , "Título / Descripción:" %>
-    <%= @form.text_field :descripcion, :size => 15 %>
-</p>
-<p>
-	<%= label @form, :fecha , "Fecha del contenido:" %>
-    <%= @form.text_field :fecha, :size => 15 %>
-</p>
-<hr />
-<p>
-	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
-    <%= @form.text_field :fecha_inicio, :size => 14 %>
-</p>
-<p>
-	<%= label @form, :fecha_fin , "Fecha fin de emisión:" %>
-    <%= @form.text_field :fecha_fin, :size => 14 %>
-</p>
-<p>
-	<%= label @form, :rotacion , "Rotación:" %>
-    <%= @form.text_field :rotacion, :size => 2 %>
-</p>
-<p>
-
-<%= label @form, :app_id , "Seleccione la aplicación a la que pertenece :" %>
-<%= @form.collection_select  :app_id, App.find(:all), :id, :nombre %>
+<div id="admin_contenidos">
+	<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
 	
-</p>
-
-<hr />
-<p>
-
-<%= label @form, :tipo_template_id , "Seleccione un Template :" %>
-<%= @form.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
-
-<%#= collection_select ( nil, :template_id,
-					TipoContenido.find(:all), :id, :descripcion,
-					{:prompt => "Seleccione un template"}, 
-					{:onchange => "#{remote_function(:url => {:controller => 'app_noticias', :action => "ejemplo_ajax"}, 
-					:with => "'template_id='+value")}"}) 
-%>  
+	<fieldset>
+	    <legend>Información del contenido:</legend>
+			<%= f.hidden_field :id %>
+			<p>
+				<%= label_tag "Título / Descripción:" %>
+			    <%= f.text_field :descripcion, :size => 15 %>
+			</p>
+			<p>
+				<%= label_tag "Fecha del contenido:" %>
+			    <%= f.text_field :fecha, :size => 15 %>
+			</p>
+			<hr />
+			<p>
+				<%= label_tag "Fecha inicio emisión:" %>
+			    <%= f.text_field :fecha_inicio, :size => 14 %>
+			</p>
+			<p>
+				<%= label_tag "Fecha fin de emisión:" %>
+			    <%= f.text_field :fecha_fin, :size => 14 %>
+			</p>
+			<p>
+				<%= label_tag "Rotación:" %>
+			    <%= f.text_field :rotacion, :size => 2 %>
+			</p>
+			<p>
+				<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+				<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+			</p>
 	
-</p>
+	</fieldset>
+	<fieldset>
+		<legend>Template a utilizar: </legend>
+			<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+	</fieldset>
 		
+		
+	<fieldset>
+		<legend>Elementos del contenido: </legend>
+	
+		<!-- start div partial elementos -->
+		<%
+			@contenedor_elementos = "contenedor_elementos"
+		%>
+		<div id="contenedor_elementos"> 
+			 <% 
+					if !@elementos.nil? 
+							@elementos.each do |elemento| -%>
+					 
+					
+								<% fields_for "elemento[]", elemento do |subfield| %>
+								
+								 	<div id="elemento_id_<%= elemento.id %>">
+										  <%= subfield.hidden_field :id %>
+										  <%= subfield.hidden_field :contenido_id %>
+										
+										  <p><%= subfield.label :ubicacion, 'Ubicacion:' %><br/>
+										  <%= subfield.text_field :ubicacion %></p>
+										  
+										  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
+										  <%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+					
+										  <p><%= subfield.label :valor, 'Valor:' %><br/>
+										  <%= subfield.text_field :valor %></p>
+									</div>
+										  
+								 <% end -%>
+					
+								<hr />
+						<% end 
+				end %>
+	
+		</div>
+		<div>
+			<input type="hidden" value="0" id="elementsCount" />
+			<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
+		</div>
+	
+	</fieldset>
+	
+	<fieldset>
+		<legend>Elementos del contenido: </legend>
+	
+		<p>	
+			<% @profiles_all.each do |profile| -%>
+					
+				<% if @hash_profiles_asociados[profile.id].nil?  %>
+						<%= check_box_tag 'profiles[]', profile.id, false %> 
+				<% else %>
+						<%= check_box_tag 'profiles[]', profile.id, true %>
+				<% end %>
+				
+				<%= profile.descripcion %>
+				<br />
+			<% end %>	
+		</p>
+	</fieldset>
+		
+	<!-- ends div partial profiles -->	
+		
+	<p><%= submit_tag 'save' %></p>
+	
+	<% end -%>
 
-<hr />
-
-<p>
-    <label >Carga de elementos:</label><br/>
-	Aca deben cargarse la cantidad de elementos que se deseen
-</p>
-
-<p>
-		<%= label @form, :elemento_tipo_id , "Seleccione un Tipo de elemento :" %>
-		<%= @form.collection_select ( :tipo_id, TipoElemento.find(:all), :id, :descripcion) %>
-</p>
-
-
-
-
-
+</div>
+	

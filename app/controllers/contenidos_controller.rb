@@ -9,6 +9,11 @@ class ContenidosController < ApplicationController
       format.xml  { render :xml => @contenidos }
     end
   end
+  
+  # Muestra el formulario para la creación o alteración de un contenido
+  def admin_contenido
+  
+  end
 
   # GET /contenidos/1
   # GET /contenidos/1.xml

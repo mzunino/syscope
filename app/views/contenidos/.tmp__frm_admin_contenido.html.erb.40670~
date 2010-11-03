@@ -1,0 +1,60 @@
+<p>
+	<%= label @form, :descripcion , "Título / Descripción:" %>
+    <%= @form.text_field :descripcion, :size => 15 %>
+</p>
+<p>
+	<%= label @form, :fecha , "Fecha del contenido:" %>
+    <%= @form.text_field :fecha, :size => 15 %>
+</p>
+<hr />
+<p>
+	<%= label @form, :fecha_inicio , "Fecha inicio emisión:" %>
+    <%= @form.text_field :fecha_inicio, :size => 14 %>
+</p>
+<p>
+	<%= label @form, :fecha_fin , "Fecha fin de emisión:" %>
+    <%= @form.text_field :fecha_fin, :size => 14 %>
+</p>
+<p>
+	<%= label @form, :rotacion , "Rotación:" %>
+    <%= @form.text_field :rotacion, :size => 2 %>
+</p>
+<p>
+
+<%= label @form, :app_id , "Seleccione la aplicación a la que pertenece :" %>
+<%= @form.collection_select  :app_id, App.find(:all), :id, :nombre %>
+	
+</p>
+
+<hr />
+<p>
+
+<%= label @form, :tipo_template_id , "Seleccione un Template :" %>
+<%= @form.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+<%#= collection_select ( nil, :template_id,
+					TipoContenido.find(:all), :id, :descripcion,
+					{:prompt => "Seleccione un template"}, 
+					{:onchange => "#{remote_function(:url => {:controller => 'app_noticias', :action => "ejemplo_ajax"}, 
+					:with => "'template_id='+value")}"}) 
+%>  
+	
+</p>
+		
+
+<hr />
+
+<p>
+    <label >Carga de elementos:</label><br/>
+	Aca deben cargarse la cantidad de elementos que se deseen
+</p>
+
+<p>
+		<%= label @form, :elemento_tipo_id , "Seleccione un Tipo de elemento :" %>
+		<%= @form.collection_select ( :tipo_id, TipoElemento.find(:all), :id, :descripcion) %>
+</p>
+
+
+
+
+

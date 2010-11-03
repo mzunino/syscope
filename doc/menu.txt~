@@ -1,0 +1,92 @@
+
+Versión 1 - Syscope (Sistema de cooperativas)
+
+Pantalla principal (sin logueo)
+===============================
+
+Inicio
+
+Novedades
+
+Información Institucional
+
+Contacto
+
+Login
+
+--------------------------------------
+
+Menú principal usuario cooperativa:
+
+Inicio
+
+Contenidos
+	-> Novedades
+	-> Documentos
+	-> Fotos
+	-> Información cooperativa
+	-> Historia
+
+Mensajería
+	-> Bandeja de Entrada
+	-> Enviar nuevo
+
+Asistencias
+	-> Listado reuniones	=> Permite revisar las asistencias a las reuniones 
+
+	-> Justificar Falta 	=> Establecer justificativos en las que no concurra
+
+Gestión de Cuenta	
+	-> Visualizar pagos
+		--> Marcados
+		--> Autorizados
+		--> Comentados
+	-> Enviar pago
+
+Logout
+
+
+
+-------------------------------------------
+
+Menu usuario admin cooperativa:
+
+
+opciones a definir:
+		--> Mantener Perfiles de la entidad
+		--> Mantener usuarios de dichos perfiles
+		--> Moderar contenidos a publicar 
+		--> Envío/Recepción de mensajes
+		--> Control de asistencias
+		--> Gestión de cuenta de usuarios
+		
+--------------------------------------------
+
+Menu usuario publisher:
+	Contenidos
+		--> Crear nuevos contenidos
+		--> Modificar contenidos existentes
+		--> 
+
+
+Menu admin del sitio:
+
+opciones a definir:
+
+	--> Mantenimiento de todas las tableas.
+	--> Publicación de contenidos generales
+	--> Recepción de mensajes
+
+
+
+
+		
+
+
+
+
+
+
+
+
+

@@ -387,6 +387,37 @@ font: 250% sans-serif;
 
 /*** Fin de pantalla de administracion de contenidos ***/
 
-   
+
+/** Formulario de aministración de contenidos **/
+
+#admin_contenidos {
+	padding: 1em;
+}
+#admin_contenidos fieldset {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color : #ffffff;
+  border : 1px solid #000000;
+  padding : 5px;
+  margin-top : 10px;
+}
+
+#admin_contenidos legend {
+  color: #dfd;
+  background: #141;
+  /* font-family: sans-serif; */
+  padding: 0.2em 1em;
+}
+
+#admin_contenidos label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  padding-top: 0.2em;
+  margin-right: 0.1em;
+  display: block;
+}
+ 
+/** Fin de formulario de abm de contenidos **/ 
 
 
