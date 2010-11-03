@@ -1,0 +1,23 @@
+<p>
+  <b>App:</b>
+  <%=h @func_app.app_id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%=h @func_app.nombre %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%=h @func_app.action %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @func_app.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_func_app_path(@func_app) %> |
+<%= link_to 'Back', func_apps_path %>

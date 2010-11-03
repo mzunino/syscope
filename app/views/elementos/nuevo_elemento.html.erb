@@ -1,0 +1,27 @@
+<div id="div_nuevo_modal">
+
+<%
+	elemento = Elemento.new()
+	elemento.id = @id_elemento_actual
+%>
+
+<% fields_for "elemento[]", elemento do |subfield| %>
+			<p>
+			    <%= subfield.label :valor %>
+			    <br/>
+			    <%= subfield.text_field :valor %>
+			</p>
+			<p>
+			    <%= subfield.label :tipo_id, 'Tipo de Elemento:' %>
+			    <%= subfield.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+			</p>
+			<p>
+			    <%= subfield.label :ubicacion %>
+			    <br/>
+			    <%= subfield.text_field :ubicacion %>
+			</p>
+<% end %>				
+				  					  
+</div>
+<a link="javascript:;" onClick="agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
+

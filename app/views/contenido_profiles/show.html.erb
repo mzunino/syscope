@@ -1,0 +1,17 @@
+<p>
+  <b>Contenido:</b>
+  <%=h Contenido.find(@contenido_profile.contenido_id).descripcion %>
+</p>
+
+<p>
+  <b>Profile:</b>
+<% if @contenido_profile.profile_id.nil? %> 
+	<%= h "Contenido Público"%>
+<%   else %>
+	<%= h Profile.find(@contenido_profile.profile_id).descripcion %>
+<%   end %>
+</p>
+
+
+<%= link_to 'Edit', edit_contenido_profile_path(@contenido_profile) %> |
+<%= link_to 'Back', contenido_profiles_path %>

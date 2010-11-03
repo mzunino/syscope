@@ -1,0 +1,24 @@
+window_sizes 1274 749 208 1060 611 64
+diagrams
+  active  classdiagram_ref 129154 // Manejador de Contenidos
+    1066 613 100 4 0 0
+end
+show_stereotypes
+selected attribute_ref 148354 // entidad_id
+open
+  class_ref 129154 // Perfil
+  class_ref 129282 // Container
+  class_ref 129410 // Contenido
+  class_ref 129666 // RendererNoticias
+  class_ref 129794 // RendererMenu
+  class_ref 134530 // RendererAdmin
+  class_ref 135682 // Elemento
+  class_ref 135810 // TipoElemento
+  class_ref 136962 // TipoContenido
+  class_ref 138114 // App
+  class_ref 138242 // AppNoticiasController
+  class_ref 138370 // AppCuentasController
+  class_ref 139522 // Funcionalidad
+  class_ref 140674 // Entidad
+end
+end

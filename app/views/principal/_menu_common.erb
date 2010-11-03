@@ -1,0 +1,20 @@
+<%= link_to 'Inicio', :controller => 'principal' %><br />
+<% if @nombre_usuario %>
+     <p>Usuario Logueado: <%= @nombre_usuario %></p>
+<% else %>
+    <%= link_to 'Login', :controller => 'admin/login' %><br />
+<% end %>
+
+<div class="depot-form">
+  <fieldset>
+    <legend>Menu Sin Login</legend>
+	<p>
+	       Este amigo carga el <br />
+	       menu usuario anónimo
+	       	</p>
+  </fieldset>
+</div>
+<hr />
+<% if @user %>
+   <%= link_to 'Logout', :controller => :admin, :action => 'logout' %>
+<% end %>

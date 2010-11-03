@@ -1,0 +1,26 @@
+<h1>Listing func_apps</h1>
+
+<table>
+  <tr>
+    <th>App</th>
+    <th>Nombre</th>
+    <th>Action</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @func_apps.each do |func_app| %>
+  <tr>
+    <td><%=h func_app.app_id %></td>
+    <td><%=h func_app.nombre %></td>
+    <td><%=h func_app.action %></td>
+    <td><%=h func_app.descripcion %></td>
+    <td><%= link_to 'Show', func_app %></td>
+    <td><%= link_to 'Edit', edit_func_app_path(func_app) %></td>
+    <td><%= link_to 'Destroy', func_app, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New func_app', new_func_app_path %>

@@ -1,0 +1,31 @@
+<h1>Editing app</h1>
+
+<% form_for(@app) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :controller %><br />
+    <%= f.text_field :controller %>
+  </p>
+
+  <p>
+    <%= f.label :nivel %>
+
+    <%= f.select :nivel, Profile::NIVELES_DE_USUARIO, :selected => @profile.nivel %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @app %> |
+<%= link_to 'Back', apps_path %>

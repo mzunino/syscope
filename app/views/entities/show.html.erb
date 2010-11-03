@@ -1,0 +1,13 @@
+<p>
+  <b>Nombre:</b>
+  <%=h @entity.nombre %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @entity.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_entity_path(@entity) %> |
+<%= link_to 'Back', entities_path %>

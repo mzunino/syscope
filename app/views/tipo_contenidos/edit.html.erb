@@ -1,0 +1,20 @@
+<h1>Editing tipo_contenido</h1>
+
+<% form_for(@tipo_contenido) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :template %><br />
+    <%= f.text_field :template %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tipo_contenido %> |
+<%= link_to 'Back', tipo_contenidos_path %>

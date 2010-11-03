@@ -1,0 +1,13 @@
+<p>
+  <b>Template:</b>
+  <%=h @tipo_contenido.template %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @tipo_contenido.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_tipo_contenido_path(@tipo_contenido) %> |
+<%= link_to 'Back', tipo_contenidos_path %>

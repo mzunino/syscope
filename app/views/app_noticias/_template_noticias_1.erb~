@@ -1,0 +1,68 @@
+<% 
+  # Inicializo el Hash de elementos
+  hashElementosUbicacion = {}
+  for @elemento in @elementos -%>
+
+    <%
+
+	# Voy a buscar el tipo del elemento actual para obtener el renderer que 
+	# procederá a dibujarlo
+        render_elemento = TipoElemento.find(@elemento.tipo_id).template
+
+	# Me fijo si previamente no hay un elemento cargado en la misma ubicacion
+	# En caso de ser así se debería rotar entre ellos, de acuerdo a un parametro
+	# rotación que funciona como los contenidos
+	if hashElementosUbicacion[@elemento.ubicacion].nil?
+		hashElementosUbicacion[@elemento.ubicacion] = Array.new
+	end
+
+	# Cargo en el vector de elementos que tengo en el Hash para mostrar 
+	# en las posiciones estipuladas mas abajo en el código Html
+	hashElementosUbicacion[@elemento.ubicacion] << render(:partial => render_elemento , :object => @elemento)
+
+    %>
+
+<% end %>
+
+
+<!-- Procedo a dibujar el contenido de la noticia --> 
+<!-- <a href="#" onclick="Effect.toggle('tag_<%=@noticia.id%>', 'appear'); return false;">tag_<%= @noticia.id %></a> -->
+
+
+<% 
+
+	@contenido_modal = "app_noticias/mostrar_noticia/#{@noticia.id}"
+ 
+ 	if (!@modo_listado.nil?)
+		style = "contenedor-noticia-listado" 
+		es_modal = true
+	else
+		style = "contenedor-noticia"
+		es_modal = false
+	end
+%>
+
+  <div> 
+
+      <div class="<%=style%>">
+	<% if(es_modal) %>
+          <fieldset>
+            <legend><%= @noticia.descripcion %></legend>
+	<% end %>
+            <div class="contenido-noticia">
+  		        <hr />
+  		            <%= mostrarElemento(hashElementosUbicacion, 1,0)  %>
+  	        	    <%= mostrarElemento(hashElementosUbicacion, 2,0)  %>
+  		        <hr />
+            </div>
+	<% if(es_modal)  %>
+		<input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/> 
+	  </fieldset>
+	<% end %>
+	<%= button_to "Prueba" , :controller => 'contenidos', :action => :admin, :id => nil %>
+	<% #=  link_to 'Nuevo contenido', :controller => 'contenidos', :action => :admin %>
+      </div>
+
+  </div>
+
+

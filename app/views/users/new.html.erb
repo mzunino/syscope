@@ -1,0 +1,38 @@
+<div class="depot-form">
+
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <fieldset>
+  <legend>Alta de usuario</legend>
+
+  <div>
+    <%= f.label :name, 'Nombre' %>:
+    <%= f.text_field :name, :size => 40 %>
+  </div>
+
+  <div>
+    <%= f.label :password, 'Password' %>:
+    <%= f.password_field :password, :size => 40 %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, 'Confirmación' %>:
+    <%= f.password_field :password_confirmation, :size => 40 %>
+  </div>
+
+  <div>
+    <%= f.label :profile, 'Perfil' %>
+    <%= f.collection_select :profile_id, Profile.find(:all), :id, :identificador, :prompt => "Seleccione un perfil " %>
+  </div>
+
+  <div>
+    <%= f.submit "Add User", :class => "submit" %>
+  </div>
+
+
+  </fieldset>
+<% end %>
+
+</div>

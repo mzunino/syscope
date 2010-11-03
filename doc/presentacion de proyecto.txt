@@ -1,0 +1,33 @@
+Requerimientos:
+
+
+Es requerido un sistema que sea capaz de manejar diversidad de contenidos, con manejo fácil y práctico de la información presentada en el sitio. La misma debe ser extendida mediante la implementación de aplicaciones que se irán agregando a medida de su desarrollo (se detallan mas adelante).
+
+- Aspecto configurable 100% mediante estilos
+
+- Portabilidad y transferibilidad del sitio.
+
+- Sistema de backup para la información
+
+Finalidad de la herramienta:
+
+Genérico:
+
+1) Flexibilidad y rapidez para levantar un sitio cualquiera sea su contenido mediante la configuración de layouts y estilos utilizando un framework de contenidos.
+
+2) Upload de archivos a picasa o server similar.
+
+Aplicaciónes específicas cooperativas:
+
+1) App. Avisos y Mensajería - Envío de correos electrónicos, sms, etc. 
+
+2) App. Control de asistencias - Donde se podrán establecer multas y demás estipulados en el reglamento
+
+3) App. Contable - Manejo de cuentas corrientes de los integrantes. Pagos realizados, gráficas, etc.
+
+
+
+
+
+
+

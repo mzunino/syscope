@@ -1,0 +1,38 @@
+<h1>New profile</h1>
+
+<% form_for(@profile) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :identificador %><br />
+    <%= f.text_field :identificador %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+
+  <p>
+    <%= f.label :container_id, 'Contenedor' %>
+    <%= f.collection_select :container_id, Container.find(:all), :id, :descripcion, :prompt => "Seleccione un Contenedor" %>
+  </p>
+
+  <p>
+    <%= f.label :entity_id, 'Entidad' %>
+    <%= f.collection_select :entity_id, Entity.find(:all), :id, :nombre, :prompt => "Seleccione una entidad" %>
+  </p>
+
+  <p>
+    <%= f.label :nivel, 'Nivel de usuario' %>
+    <%= f.select :nivel, Profile::NIVELES_DE_USUARIO, :selected => 0 %>
+  </p>
+	
+
+  <p>
+    <%= f.submit 'Crear' %>
+  </p>
+
+
+<% end %>
+
+<%= link_to 'Volver', profiles_path %>

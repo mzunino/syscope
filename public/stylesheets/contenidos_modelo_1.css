@@ -1,0 +1,392 @@
+/* Global styles */
+
+/* body */
+
+body{
+
+ font-family: smaller sans-serif;
+/*
+ background: url(/images/cope_vira_1.jpg); 
+*/
+
+}
+
+.div_eliminar{
+	  clear: both;
+	
+}
+
+h1 {
+        /* font:  150% sans-serif; */
+        font:  150% ; 
+        color: #226;
+}
+
+#columns {
+  clear: both;
+ border-bottom: 5px solid;
+}
+
+
+#tabla-principal{
+  clear: both;
+  height: 3000px;
+  width: 100%;
+}
+
+#td-menu {
+   vertical-align: top;
+   height: auto;
+   width: 12em;
+}
+
+
+#td-main {
+   vertical-align: top;
+   height: auto;
+   width: auto;
+}
+
+#tabla-principal tr {
+   height: auto;
+}
+
+#main {
+
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  margin-left: 0.1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  background-color:rgba(226,226,226,0.2);
+  width: 98%;
+  height: 3000px;
+
+
+}
+
+#marco_noticia {
+
+  padding: 1em;
+
+}
+
+#div-main {
+
+ vertical-align: top;
+
+}
+
+#lista_templates div {
+	
+	border-style:solid;
+	
+}
+#main h1  {
+        /* font:  150% sans-serif; */
+        font:  150% ; 
+        color: #226;
+        border-bottom: 3px dotted #77d;
+}
+
+
+#side {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  width: 12em;
+  height: 3000px;
+/*
+  background-color:rgba(141,0,0,0.5);
+*/
+  float: left;
+  margin-right: 3px;
+
+}
+
+#side hr{
+  color: #bfb;
+  margin-left: 0.1em;
+  margin-right: 1em;
+}
+
+#side a {
+  color: #bfb;
+  font-size: small;
+}
+
+/* Styles for main page */
+
+
+#banner {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color:rgba(282,282,282,0.5);
+ clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px ;
+  text-align: center;
+  height: 60px;
+  margin-bottom: 3px;
+  /*
+font: 250% sans-serif;
+*/
+}
+
+#banner img {
+  float: left;
+  padding-left: 10px;
+}
+
+#notice {
+  border: 2px solid red;
+  border-radius: 5px;
+  -moz-border-radius: 5px;  font:  small sans-serif
+  height:auto;
+  max-height: 400px;
+  padding: 1em;
+  margin-bottom: 2em;
+  margin-right: 1em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+
+#contenido_modal {
+	height: 400px;
+	border:5px;
+	overflow: auto;
+}
+
+
+.btn_cerrar_modal{
+   float: right;
+   clear: both;
+   margin-top: 0.2em;
+   margin-right: 0.2em;
+   margin-bottom: 0.2em;
+   font-size:10px;
+   font-weight:bold;
+   color:#336666;
+   background-color:#FFFFFF;
+   border-style:solid;
+   border-color:#330000;
+   border-width:1px;
+}
+
+/* START:form */
+/* Styles for order form */
+
+
+/* END:form */
+
+/* The error box */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: #EEFFEE;
+  display: inline;
+}
+
+.fieldWithErrors * {
+  background-color: red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* Agregados por mi */
+
+
+#datetime {
+  text-align: right;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 10px;
+  margin: -7px;
+  color: #fff;
+  margin-right: 2em;
+  vertical-align: top;
+}
+
+#cotizacion_dolar {
+  text-align: right;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 10px;
+  margin: -7px;
+  color: #fff;
+  margin-right: 2em;
+  vertical-align: top;
+}
+
+#border {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+        background-color : #ffffff;
+        border : 1px solid #000000;
+        padding-left : 5px;
+        padding-right : 5px;
+}
+
+
+/*        V2        */
+.outer{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+
+.menu-form fieldset {
+  background: #000000;
+  margin-right: 1em;
+}
+
+.menu-form legend {
+  color: #dfd;
+  background: #141;
+  /* font-family: sans-serif; */
+  padding: 0.2em 1em;
+}
+
+.menu-form label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  padding-top: 0.2em;
+  margin-right: 0.1em;
+  display: block;
+}
+
+.menu-form select, .depot-form textarea, .depot-form input {
+  margin-left: 0.5em;
+}
+
+.menu-form .submit {
+  margin-left: 1em;
+}
+
+.menu-form {
+  margin-left: 0.1em;
+  margin-right: 1em;
+}
+
+.menu-form div {
+  margin: 0.3em 0;
+}	
+
+
+
+.menu button{
+	clear: both;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+	text-decoration: none;
+	font-weight:normal;
+	border-style:solid;
+    border-width:1px;
+	padding:1px;
+	width:100%;
+	margin-bottom:2px;
+
+	/*
+		background: url(/images/seleccionado.jpg) ;
+		background-repeat:no-repeat;
+		padding: 8px 0 0 50px;
+	*/
+	}	
+	
+.menu button:hover{
+	background-color: #999999;
+	
+	}
+
+.menu .button_func {
+        clear: both;
+        voice-family: "\"}\"";
+        voice-family: inherit;
+        text-decoration: none;
+        font-weight: normal;
+        border-style: solid;
+        border-width: 1px;
+        padding: 1px;
+        width: 80%;
+		margin-left: 20%;
+        margin-bottom: 2px;
+        /*
+         background: url(/images/seleccionado.jpg) ;
+         background-repeat:no-repeat;
+         padding: 8px 0 0 50px;
+         */
+    }
+    
+.menu .button_func:hover {
+        background-color: #999999;
+    }
+
+/*** Inicio Administracion de contenidos ***/
+
+
+
+/*
+.tabla_tipos_contenidos {
+	float:left;
+	border-style:solid;
+	border-width:1px; 
+	
+}
+
+*/
+
+
+.tipo_contenido_muestra {
+	float:left;
+	margin-right:5em;
+	max-width:auto;
+	max-height:100px;
+}
+
+.desc_tipo_contenido_muestra{
+	float:left;
+	width:2em;
+	height:auto;
+	margin-right:3em;
+}
+
+/*** Fin de pantalla de administracion de contenidos ***/
+
+   
+
+

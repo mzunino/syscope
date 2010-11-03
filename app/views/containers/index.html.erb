@@ -1,0 +1,22 @@
+<h1>Listado de contenedores</h1>
+
+<table>
+  <tr>
+    <th>Template</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @containers.each do |container| %>
+  <tr>
+    <td><%=h container.template %></td>
+    <td><%=h container.descripcion %></td>
+    <td><%= link_to 'Show', container %></td>
+    <td><%= link_to 'Edit', edit_container_path(container) %></td>
+    <td><%= link_to 'Destroy', container, :confirm => '¿Estas seguro de continuar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Contenedor', new_container_path %>

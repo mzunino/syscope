@@ -1,0 +1,28 @@
+<h1>Listing contenido_profiles</h1>
+
+<table>
+  <tr>
+    <th>Contenido</th>
+    <th>Profile</th>
+  </tr>
+
+<% @contenido_profiles.each do |contenido_profile| %>
+  <tr>
+	<td><%=h Contenido.find(contenido_profile.contenido_id).descripcion %></td>
+	<td>
+		<% if contenido_profile.profile_id.nil? %>
+		        <%= h "Contenido Público"%>
+		<%   else %>
+		        <%= h Profile.find(contenido_profile.profile_id).descripcion %>
+		<%   end %>
+	</td>
+    <td><%= link_to 'Show', contenido_profile %></td>
+    <td><%= link_to 'Edit', edit_contenido_profile_path(contenido_profile) %></td>
+    <td><%= link_to 'Destroy', contenido_profile, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contenido_profile', new_contenido_profile_path %>

@@ -1,0 +1,26 @@
+<h1>Listing elementos</h1>
+
+<table>
+  <tr>
+    <th>Contenido</th>
+    <th>Valor</th>
+    <th>Tipo</th>
+    <th>Ubicacion</th>
+  </tr>
+
+<% @elementos.each do |elemento| %>
+  <tr>
+    <td><%=h elemento.contenido_id %></td>
+    <td><%=h elemento.valor %></td>
+    <td><%=h elemento.tipo_id %></td>
+    <td><%=h elemento.ubicacion %></td>
+    <td><%= link_to 'Show', elemento %></td>
+    <td><%= link_to 'Edit', edit_elemento_path(elemento) %></td>
+    <td><%= link_to 'Destroy', elemento, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New elemento', new_elemento_path %>

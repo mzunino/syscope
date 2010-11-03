@@ -1,0 +1,22 @@
+<h1>Listing tipo_elementos</h1>
+
+<table>
+  <tr>
+    <th>Template</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @tipo_elementos.each do |tipo_elemento| %>
+  <tr>
+    <td><%=h tipo_elemento.template %></td>
+    <td><%=h tipo_elemento.descripcion %></td>
+    <td><%= link_to 'Show', tipo_elemento %></td>
+    <td><%= link_to 'Edit', edit_tipo_elemento_path(tipo_elemento) %></td>
+    <td><%= link_to 'Destroy', tipo_elemento, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tipo_elemento', new_tipo_elemento_path %>

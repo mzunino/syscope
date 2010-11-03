@@ -1,0 +1,30 @@
+<h1>New elemento</h1>
+
+<% form_for(@elemento) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :contenido_id, 'Contenido asociado:' %>
+    <%= f.collection_select :contenido_id, Contenido.find(:all), :id, :descripcion %>
+  </p>
+
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+
+  <p>
+    <%= f.label :tipo_id, 'Tipo de Elemento:' %>
+    <%= f.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+  </p>
+
+  <p>
+    <%= f.label :ubicacion %><br />
+    <%= f.text_field :ubicacion %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', elementos_path %>

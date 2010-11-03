@@ -1,0 +1,72 @@
+#!/bin/sh
+## SCRIPT de IPTABLES - ejemplo del manual de iptables
+## Ejemplo de script para proteger la propia máquina
+## Pello Xabier Altadill Izura
+## www.pello.info - pello@pello.info
+
+PARAM=$1
+
+
+if [ "$PARAM" = "stop" ]; then
+
+	echo "Apagando el firewall..."
+
+	sudo iptables -F ; sudo iptables -X
+
+	echo "Apagado..."
+
+	sudo iptables -L -n
+
+	exit 0
+
+elif [ "$PARAM" = "start" ]; then
+
+	echo "Iniciando Firewall..."
+	
+	## FLUSH de reglas
+	sudo iptables -F
+	sudo iptables -X
+	sudo iptables -Z
+	sudo iptables -t nat -F
+	
+	## Establecemos politica por defecto
+	sudo iptables -P INPUT ACCEPT
+	sudo iptables -P OUTPUT ACCEPT
+	sudo iptables -P FORWARD ACCEPT
+	sudo iptables -t nat -P PREROUTING ACCEPT
+	sudo iptables -t nat -P POSTROUTING ACCEPT
+	
+	## Empezamos a filtrar
+	
+	# El localhost se deja (por ejemplo conexiones locales a mysql)
+	sudo /sbin/iptables -A INPUT -i lo -j ACCEPT
+	
+	# A nuestra IP le dejamos todo
+	MI_IP=`sudo ifconfig | grep P-t-P | cut -d":" -f2 | cut -d " " -f 1`
+	sudo iptables -A INPUT -s $MI_IP -j ACCEPT
+	
+	# A un colega le dejamos entrar al mysql para que mantenga la BBDD
+	#iptables -A INPUT -s 231.45.134.23 -p tcp --dport 3306 -j ACCEPT
+	
+	# Dejo la conexión con GOOGLE
+	sudo iptables -A INPUT -s 200.40.30.245 -p tcp --dport 445 -j ACCEPT
+	
+	# A un diseñador le dejamos usar el FTP
+	#iptables -A INPUT -s 80.37.45.194 -p tcp -dport 20:21 -j ACCEPT
+	
+	# El puerto 80 de www debe estar abierto, es un servidor web.
+	#iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+	
+	# Y el resto, lo cerramos
+	sudo iptables -A INPUT -p tcp --dport 20:21 -j DROP
+	sudo iptables -A INPUT -p tcp --dport 3306 -j DROP
+	sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+	sudo iptables -A INPUT -p tcp --dport 10000 -j DROP
+	sudo iptables -A INPUT -p tcp --dport 3000 -j DROP
+	
+	echo "Firewall levantado : "
+fi	
+
+
+sudo iptables -L -n
+# Fin del script

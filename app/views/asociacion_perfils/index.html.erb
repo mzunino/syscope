@@ -1,0 +1,22 @@
+<h1>Listing asociacion_perfils</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @asociacion_perfils.each do |asociacion_perfil| %>
+  <tr>
+    <td><%=h asociacion_perfil.nombre %></td>
+    <td><%=h asociacion_perfil.descripcion %></td>
+    <td><%= link_to 'Show', asociacion_perfil %></td>
+    <td><%= link_to 'Edit', edit_asociacion_perfil_path(asociacion_perfil) %></td>
+    <td><%= link_to 'Destroy', asociacion_perfil, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New asociacion_perfil', new_asociacion_perfil_path %>

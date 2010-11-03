@@ -1,0 +1,36 @@
+<tipos-template>
+	<formatos>
+		<formato id="1" valor=",00" tipo="numerico" locale="es_ES"
+			desc="Solo dos caracteres decimales" />
+		<formato id="2" valor=".00" tipo="numerico" locale="en_US"
+			desc="Solo dos caracteres decimales" />
+		<formato id="3" valor="##" tipo="numerico" locale="es_ES"
+			desc="Solo muestra parte entera" />
+		<formato id="4" valor="#.00" tipo="numerico" locale="en_US"
+			desc="Parte entera con dos decimales" />
+		<formato id="5" valor="#.00" tipo="numerico" locale="es_ES"
+			desc="Parte entera con dos decimales" />
+		<formato id="6" valor="#.###.###,00" tipo="numerico"
+			locale="es_ES" desc="Formato para los miles." />
+
+		<formato id="7" valor="YYYYMMDD" tipo="fecha" locale="" desc="" />
+		<formato id="8" valor="DDMMYYYY" tipo="fecha" locale="" desc="" />
+		<!-- La lista de posibles formatos puede serguir -->
+	</formatos>
+
+	<tipo-template nombre="Etiqueta" desc="Usado en flejes">
+		<script nombre="codigoInterno" desc="Codigo interno del articulo" formato="" />
+		<script nombre="codigoBarras" desc="Codigo de barras del articulo" formato="" />
+        <script nombre="descripcion" desc="Descripcion del articulo" formato="" />
+        <script nombre="precio" desc="Precio del articulo" formato="2" />
+        <script nombre="unidadMedida" desc="Unidad de medida" formato="" />
+        <!--script nombre="moneda" desc="Moneda" formato="" /-->
+        <script nombre="imagen" desc="Imagen del articulo" formato="" />
+
+	</tipo-template>
+	<tipo-template nombre="Cartel" desc="Usado en cartel">
+        <script nombre="descripcion" desc="Descripcion del articulo" formato="" />
+        <script nombre="precio" desc="Precio del articulo" formato="2" />
+        <script nombre="imagen" desc="Imagen del articulo" formato="" />
+	</tipo-template>
+</tipos-template>

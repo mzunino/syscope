@@ -1,0 +1,13 @@
+<p>
+  <b>Template:</b>
+  <%=h @tipo_elemento.template %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @tipo_elemento.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_tipo_elemento_path(@tipo_elemento) %> |
+<%= link_to 'Back', tipo_elementos_path %>

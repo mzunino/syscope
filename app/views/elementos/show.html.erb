@@ -1,0 +1,23 @@
+<p>
+  <b>Contenido:</b>
+  <%=h Contenido.find(@elemento.contenido_id).descripcion %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @elemento.valor %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%=h TipoElemento.find(@elemento.tipo_id).descripcion %>
+</p>
+
+<p>
+  <b>Ubicacion:</b>
+  <%=h @elemento.ubicacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_elemento_path(@elemento) %> |
+<%= link_to 'Back', elementos_path %>

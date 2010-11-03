@@ -1,0 +1,4 @@
+page.replace_html("contenedor_template_muestra" , :partial => @tipo_template.template)
+page["contenedor_template_muestra"].visual_effect :highlight,
+                                   :startcolor => "#88ff88" ,
+                                   :endcolor => "#114411"

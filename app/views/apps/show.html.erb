@@ -1,0 +1,23 @@
+<p>
+  <b>Id:</b>
+  <%=h @app.id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%=h @app.nombre %>
+</p>
+
+<p>
+  <b>Controller:</b>
+  <%=h @app.controller %>
+</p>
+
+<p>
+  <b>Nivel de usuario:</b>
+  <%=h Profile::NIVELES_DE_USUARIO[@app.nivel][0] %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

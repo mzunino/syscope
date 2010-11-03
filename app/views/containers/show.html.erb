@@ -1,0 +1,13 @@
+<p>
+  <b>Template:</b>
+  <%=h @container.template %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @container.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_container_path(@container) %> |
+<%= link_to 'Volver', containers_path %>

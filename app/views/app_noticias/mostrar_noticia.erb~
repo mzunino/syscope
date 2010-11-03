@@ -1,0 +1,4 @@
+<div id="marco_noticia">
+
+	<%= render(:partial => "generar_contenido", :locals => { :noticia_id => params[:id], :profile_id => @profile_id, :modal_abierto => @modal_abierto }) %>
+</div>

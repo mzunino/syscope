@@ -1,0 +1,20 @@
+<h1>Editing tipo_elemento</h1>
+
+<% form_for(@tipo_elemento) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :template %><br />
+    <%= f.text_field :template %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tipo_elemento %> |
+<%= link_to 'Back', tipo_elementos_path %>

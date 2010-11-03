@@ -1,0 +1,156 @@
+format 66
+
+classcanvas 128002 class_ref 129154 // Perfil
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 179 55 2000
+end
+classcanvas 128258 class_ref 129410 // Contenido
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 348 232 2000
+end
+note 129026 "El atributo template es html estático que representa la estructura del documento, que será completado con la lista de contenidos asociados al contenedor."
+  xyzwh 542 103 2000 245 94
+classcanvas 129282 class_ref 129282 // Container
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 422 122 3005
+end
+note 132354 "El contenido esta compuesto por una parte estática y una parte variable. La parte estática esta definida por el formato correspondiente al html a generar, y la parte variable dependerá del grupo al que pertenezca el usuario que esté consultando por este contenido."
+  xyzwh 543 442 2000 283 143
+classcanvas 132610 class_ref 130946 // Usuario
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 19 269 2000
+end
+note 132994 "Un usuario pertenece a un grupo, que determinará los contenidos que le serán admitidos.
+"
+  xyzwh 16 4 2000 93 178
+classcanvas 140290 class_ref 135682 // Elemento
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 524 295 2000
+end
+classcanvas 140418 class_ref 135810 // TipoElemento
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 674 292 2000
+end
+classcanvas 141186 class_ref 136962 // TipoContenido
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 344 458 2000
+end
+classcanvas 141698 class_ref 138114 // App
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 110 440 2000
+end
+classcanvas 142338 class_ref 138242 // AppNoticiasController
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 194 662 2000
+end
+classcanvas 144130 class_ref 138370 // AppCuentasController
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 13 661 2000
+end
+classcanvas 144898 class_ref 139522 // Funcionalidad
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 366 541 2000
+end
+classcanvas 145922 class_ref 140674 // Entidad
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+  xyz 319 6 2000
+end
+note 146306 "La entidad corresponde a la empresa o asociación representada por el modelo
+"
+  xyzwh 542 23 2000 227 76
+relationcanvas 131970 relation_ref 129282 // <directional composition>
+  decenter_begin 736
+  from ref 128002 z 1999 to ref 129282
+  no_role_a no_role_b
+  multiplicity_a_pos 404 155 3000 no_multiplicity_b
+end
+relationcanvas 132738 relation_ref 130818 // <directional composition>
+  decenter_begin 286
+  from ref 132610 z 1999 to point 152 307
+  line 133506 z 1999 to point 152 114
+  line 133634 z 1999 to ref 128002
+  no_role_a no_role_b
+  multiplicity_a_pos 161 124 3000 no_multiplicity_b
+end
+relationcanvas 140546 relation_ref 139138 // <directional composition>
+  decenter_begin 726
+  from ref 128258 z 2001 to ref 140290
+  no_role_a no_role_b
+  multiplicity_a_pos 508 356 3000 multiplicity_b_pos 446 356 3000
+end
+relationcanvas 140930 relation_ref 139266 // <directional composition>
+  decenter_begin 298
+  from ref 140290 z 2001 to ref 140418
+  no_role_a no_role_b
+  multiplicity_a_pos 656 334 3000 multiplicity_b_pos 616 334 3000
+end
+relationcanvas 141314 relation_ref 140418 // <directional composition>
+  decenter_begin 493
+  from ref 128258 z 2001 to ref 141186
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 143362 relation_ref 142210 // <directional composition>
+  decenter_begin 856
+  decenter_end 202
+  from ref 128258 z 2001 to point 262 367
+  line 144514 z 2001 to point 262 455
+  line 144386 z 2001 to ref 141698
+  no_role_a no_role_b
+  multiplicity_a_pos 194 465 3000 no_multiplicity_b
+end
+relationcanvas 143490 relation_ref 142338 // <composition>
+  decenter_begin 632
+  decenter_end 93
+  from ref 128002 z 2001 to point 226 244
+  line 143618 z 2001 to ref 128258
+  no_role_a no_role_b
+  multiplicity_a_pos 332 254 3000 no_multiplicity_b
+end
+relationcanvas 143746 relation_ref 142466 // <composition>
+  decenter_begin 291
+  from ref 128002 z 2001 to point 199 336
+  line 143874 z 2001 to point 145 336
+  line 144002 z 2001 to ref 141698
+  no_role_a no_role_b
+  multiplicity_a_pos 132 418 3000 no_multiplicity_b
+end
+relationcanvas 144642 relation_ref 143746 // <generalisation>
+  from ref 144130 z 2001 to point 80 599
+  line 145410 z 2001 to point 144 599
+  line 145282 z 2001 to ref 141698
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 144770 relation_ref 143874 // <generalisation>
+  from ref 142338 z 2001 to point 260 599
+  line 145154 z 2001 to point 144 599
+  line 145026 z 2001 to ref 141698
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 145538 relation_ref 145026 // <composition>
+  decenter_begin 391
+  from ref 144898 z 2001 to point 226 580
+  line 145666 z 2001 to point 226 482
+  line 145794 z 2001 to ref 141698
+  no_role_a no_role_b
+  multiplicity_a_pos 194 492 3000 no_multiplicity_b
+end
+relationcanvas 146050 relation_ref 146178 // <directional composition>
+  from ref 128002 z 2001 to point 352 115
+  line 146178 z 2001 to ref 145922
+  no_role_a no_role_b
+  multiplicity_a_pos 337 84 3000 multiplicity_b_pos 267 125 3000
+end
+line 129666 -_-_
+  from ref 129282 z 1999 to ref 129026
+line 132482 -_-_ decenter_begin 879 decenter_end 500
+  from ref 128258 z 1999 to point 424 417
+  line 136066 z 1999 to point 682 417
+  line 137218 z 1999 to ref 132354
+line 133122 -_-_
+  from ref 132610 z 1999 to ref 132994
+line 146434 -_-_ decenter_begin 759
+  from ref 145922 z 2001 to ref 146306
+end

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Add/Remove child: Javascript</title>
+<script>
+function addEvent() {
+  var ni = document.getElementById('myDiv');
+  var numi = document.getElementById('theValue');
+  var num = (document.getElementById("theValue").value -1)+ 2;
+  numi.value = num;
+  var divIdName = "my"+num+"Div";
+  var newdiv = document.createElement('div');
+  newdiv.setAttribute("id",divIdName);
+  newdiv.innerHTML = "Element Number " + num + " has been added! <a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">Remove the element &quot;"+divIdName+"&quot;</a>";
+  ni.appendChild(newdiv);
+}
+
+function removeElement(divNum) {
+  var d = document.getElementById('myDiv');
+  var olddiv = document.getElementById(divNum);
+  d.removeChild(olddiv);
+}
+</script>
+<style type="text/css" media="screen">
+  .updated {
+    background: #FFE2AF;
+    color: #000;
+    border: 2px solid #ccc;
+    padding: 1em;
+  }
+</style>
+</head>
+
+<body>
+  <div class="updated">
+    <strong>UPDATE</strong>: There is a newer "up-to-date" version of this tutorial that can be found here: 
+    <a href="http://www.dustindiaz.com/add-remove-elements-reprise/">Add and Remove Elements with JavaScript (reprise)</a>.
+  </div>
+
+	<input type="hidden" value="0" id="theValue" />
+	<p><a href="javascript:;" onclick="addEvent();">Add Some Elements</a></p>
+	<div id="myDiv"> </div>
+</body>
+</html>

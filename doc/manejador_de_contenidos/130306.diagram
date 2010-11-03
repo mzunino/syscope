@@ -1,0 +1,34 @@
+format 58
+
+continuation 128002 "Obtiene Grupo del Usuario"
+  xyzwh 19 127 2000 179 38
+continuation 128130 "Obtiene Contenedor Asociado al Grupo"
+  xyzwh 83 175 2000 248 40
+continuation 128258 "Recupera contenidos del Grupo"
+  xyzwh 488 261 2000 242 32
+continuation 128386 "Agrupa por Ubicación y muestreo"
+  xyzwh 284 217 2000 218 39
+continuation 128514 "Invocación al Renderer Manager"
+  xyzwh 91 38 2000 235 57
+continuation 129666 "Recupera renderer de cada Contenido"
+  xyzwh 370 322 2000 243 36
+continuation 129922 "Recupera el Html a mostrar para el grupo"
+  xyzwh 562 414 2000 257 39
+note 130178 "Ejecuta el método obtenerHtml(grupo) que debe implementar quienes hereden de  AbstractRenderer.
+"
+  xyzwh 155 396 2000 273 76
+line 129154 -_-_
+  from ref 128514 z 1999 to ref 128130
+line 129282 -_-_
+  from ref 128514 z 1999 to ref 128258
+line 129410 -_-_
+  from ref 128514 z 1999 to ref 128386
+line 129538 -_-_
+  from ref 128514 z 1999 to ref 128002
+line 129794 -_-_
+  from ref 128258 z 1999 to ref 129666
+line 130050 -_-_
+  from ref 129666 z 1999 to ref 129922
+line 130306 -_-_
+  from ref 129922 z 1999 to ref 130178
+end

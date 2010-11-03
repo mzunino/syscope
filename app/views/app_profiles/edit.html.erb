@@ -1,0 +1,20 @@
+<h1>Editing app_profile</h1>
+
+<% form_for(@app_profile) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :app_id %><br />
+    <%= f.collection_select :app_id, App.find(:all), :id, :nombre %>
+  </p>
+  <p>
+    <%= f.label :profile_id %><br />
+    <%= f.collection_select :profile_id, Profile.find(:all), :id, :descripcion %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @app_profile %> |
+<%= link_to 'Back', app_profiles_path %>

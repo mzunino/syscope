@@ -1,0 +1,34 @@
+<h1>Editando Perfiles de Usuario:</h1>
+
+<% form_for(@profile) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :identificador %><br />
+    <%= f.text_field :identificador %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+  <p>
+    <%= f.label :container_id %>
+    <%= f.collection_select :container_id, Container.all, :id, :descripcion, :multiple => false%>
+  </p>
+  <p>
+    <%= f.label :entity_id, 'Entidad' %>
+    <%= f.collection_select :entity_id, Entity.find(:all), :id, :nombre, :prompt => "Seleccione una entidad" %>
+  </p>
+  
+  <p>
+    <%= f.label :nivel %>
+
+    <%= f.select :nivel, Profile::NIVELES_DE_USUARIO, :selected => @profile.nivel %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @profile %> |
+<%= link_to 'Back', profiles_path %>

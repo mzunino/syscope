@@ -1,0 +1,22 @@
+<h1>Listing tipo_contenidos</h1>
+
+<table>
+  <tr>
+    <th>Template</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @tipo_contenidos.each do |tipo_contenido| %>
+  <tr>
+    <td><%=h tipo_contenido.template %></td>
+    <td><%=h tipo_contenido.descripcion %></td>
+    <td><%= link_to 'Show', tipo_contenido %></td>
+    <td><%= link_to 'Edit', edit_tipo_contenido_path(tipo_contenido) %></td>
+    <td><%= link_to 'Destroy', tipo_contenido, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tipo_contenido', new_tipo_contenido_path %>

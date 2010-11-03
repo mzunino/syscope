@@ -1,0 +1,23 @@
+<p>
+  <b>Identificador:</b>
+  <%=h @profile.identificador %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @profile.descripcion %>
+</p>
+
+<p>
+  <b>Contenedor asignado:</b>
+  <%=h Container.find(@profile.container_id).template %>
+</p>
+
+<p>
+  <b>Nivel de usuario:</b>
+  <%=h Profile::NIVELES_DE_USUARIO[@profile.nivel][0] %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

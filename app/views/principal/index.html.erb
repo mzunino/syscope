@@ -1,0 +1,36 @@
+
+<h1>Listado de contenidos:</h1>
+
+<% for product in @products -%>
+
+    <div class="contenido">
+	  <fieldset>
+	    <legend><%=product.title%></legend>
+	    <div class="cuerpo_contenido">
+<!--	    <div class="entry_<%=product.id%>">-->
+	    <script type="text/javascript" src="javascripts/jquery.js"></script>
+	    <script type="text/javascript" src="javascripts/thickbox.js"></script>
+	    <link rel="stylesheet" href="stylesheets/thickbox.css" type="text/css" media="screen" />
+		   <a href="<%=product.image_url%>" title="<%= product.title%>" class="thickbox">
+		   <img src="<%=product.image_url%>" alt="<%= product.title%>"/>
+		   </a>	
+	        
+		<h3><%=h product.title %></h3>
+	        <%= product.description %>
+
+<!--<a href="images/auto.jpg" title="add a caption to title attribute / or leave blank" class="thickbox">
+		        	<b>Visualizar</b>
+			 </a>-->
+		<!--<span class="price" ><%= sprintf("$%0.02f" , product.price) %></span>
+
+		<% form_remote_tag :url => { :action => :add_to_cart, :id => product } do %>
+	  		<%= submit_tag "Add to Cart" %>
+		<% end %>
+		-->
+	    <!--</div>-->
+	    </div>
+	</fieldset>
+    </div>
+<% end %>
+
+

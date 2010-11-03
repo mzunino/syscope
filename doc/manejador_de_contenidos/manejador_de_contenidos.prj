@@ -1,0 +1,916 @@
+format 66
+"manejador_de_contenidos"
+  revision 22
+  modified_by 2 "mauricio"
+
+
+  
+  // class settings
+  default_attribute_visibility protected default_relation_visibility protected default_operation_visibility public
+  //class diagram settings
+  draw_all_relations yes hide_attributes no hide_operations no show_members_full_definition no show_members_visibility no show_members_stereotype no show_members_multiplicity no show_members_initialization no show_attribute_modifiers no member_max_width 127 show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers no show_infonote no shadow yes show_stereotype_properties no
+  //use case diagram settings
+  package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes class_drawing_mode actor shadow yes show_stereotype_properties no
+  //sequence diagram settings
+  show_full_operations_definition no write_horizontally yes class_drawing_mode natural drawing_language uml draw_all_relations yes shadow yes show_stereotype_properties no
+  //collaboration diagram settings
+  show_full_operations_definition no show_hierarchical_rank no write_horizontally yes drawing_language uml package_name_in_tab no show_context no draw_all_relations yes shadow yes show_stereotype_properties no
+  //object diagram settings
+   write_horizontally yes package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes show_stereotype_properties no
+  //component diagram settings
+  package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes
+  draw_component_as_icon no show_component_req_prov no show_component_rea no show_stereotype_properties no
+  //deployment diagram settings
+  package_name_in_tab no show_context no write_horizontally yes auto_label_position yes draw_all_relations yes shadow yes
+  draw_component_as_icon no show_component_req_prov no show_component_rea no show_stereotype_properties no
+  //state diagram settings
+  package_name_in_tab no show_context no auto_label_position yes write_trans_label_horizontally yes show_trans_definition no draw_all_relations yes shadow yes
+  show_activities yes region_horizontally yes drawing_language uml show_stereotype_properties no
+  //activity diagram settings
+  package_name_in_tab no show_context no show_opaque_action_definition no auto_label_position yes write_flow_label_horizontally no draw_all_relations yes shadow yes
+  show_infonote yes drawing_language uml show_stereotype_properties no
+  
+  class_color yellow duration_color transparent continuation_color gray note_color blue fragment_color transparent subject_color transparent usecase_color yellow package_color transparent component_color green artifact_color green deploymentnode_color gray state_color yellow stateaction_color transparent activity_color transparent activityregion_color transparent activitypartition_color transparent activityaction_color transparent parameterpin_color white 
+  font_size 9
+  diagram_format A4
+
+  mark_for_import
+  
+  classview 129154 "Contenidos"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 129154 "Manejador de Contenidos"
+      draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 129154 "Perfil"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 129538 "identificador"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 129154 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 129410 // <directional composition>
+	relation 129282 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 129410 // <directional composition>
+	  b parent class_ref 129282 // Container
+      end
+
+      classrelation 132482 // <directional composition>
+	relation 131970 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 132482 // <directional composition>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      attribute 137090 "contenedor"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 137730 // <directional composition>
+	relation 136834 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 137730 // <directional composition>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      attribute 138370 "nivel"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 142466 // <directional composition>
+	relation 141570 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 142466 // <directional composition>
+	  b parent class_ref 138114 // App
+      end
+
+      classrelation 143234 // <composition>
+	relation 142338 *---
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 143234 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 143362 // <composition>
+      end
+
+      classrelation 143490 // <composition>
+	relation 142466 *---
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 143490 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 143618 // <composition>
+      end
+
+      classrelation 147458 // <directional composition>
+	relation 146178 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 147458 // <directional composition>
+	  b multiplicity "*" parent class_ref 140674 // Entidad
+      end
+
+      attribute 148354 "entidad_id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 129282 "Container"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "El atributo template es html estático que representa la estructura del documento, que será completado con la lista de contenidos asociados al contenedor."
+      attribute 129794 "template"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 129154 // <directional composition>
+	relation 129154 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 129154 // <directional composition>
+	  b multiplicity "1" parent class_ref 129410 // Contenido
+      end
+
+      classrelation 136194 // <composition>
+	relation 135426 *---
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 136194 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 136322 // <composition>
+      end
+    end
+
+    class 129410 "Contenido"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 130050 "renderer"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 130178 "ubicacion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 130306 "rotacion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 129922 // <directional composition>
+	relation 129666 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 129922 // <directional composition>
+	  b parent class_ref 129538 // AbstractRenderer
+      end
+
+      classrelation 133762 // <directional composition>
+	relation 133122 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 133762 // <directional composition>
+	  b parent class_ref 129154 // Perfil
+      end
+
+      attribute 134658 "tipoContenido"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 134914 // <composition>
+	relation 134274 *---
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 134914 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 135042 // <composition>
+      end
+
+      classrelation 136322 // <composition>
+	relation_ref 135426 // <composition>
+      end
+
+      classrelation 140034 // <directional composition>
+	relation 139138 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 140034 // <directional composition>
+	  b multiplicity "1" parent class_ref 135682 // Elemento
+      end
+
+      attribute 141314 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 141314 // <directional composition>
+	relation 140418 *-->
+	  a role_name "" protected
+	    classrelation_ref 141314 // <directional composition>
+	  b parent class_ref 136962 // TipoContenido
+      end
+
+      attribute 142722 "fecha"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 144130 "App"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 143106 // <directional composition>
+	relation 142210 *-->
+	  a role_name "" multiplicity "1" package
+	    classrelation_ref 143106 // <directional composition>
+	  b parent class_ref 138114 // App
+      end
+
+      classrelation 143362 // <composition>
+	relation_ref 142338 // <composition>
+      end
+    end
+
+    class 129538 "AbstractRenderer"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 129154 "index"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
+	
+	
+	
+	
+	
+      end
+    end
+
+    class 129666 "RendererNoticias"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129666 // <generalisation>
+	relation 129410 ---|>
+	  a public
+	    classrelation_ref 129666 // <generalisation>
+	  b parent class_ref 129538 // AbstractRenderer
+      end
+
+      classrelation 136450 // <unidirectional association>
+	relation 135554 --->
+	  a role_name "" protected
+	    classrelation_ref 136450 // <unidirectional association>
+	  b parent class_ref 133250 // Noticia
+      end
+
+      operation 131842 "index"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
+	
+	
+	
+	
+	
+      end
+    end
+
+    class 129794 "RendererMenu"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129794 // <generalisation>
+	relation 129538 ---|>
+	  a public
+	    classrelation_ref 129794 // <generalisation>
+	  b parent class_ref 129538 // AbstractRenderer
+      end
+
+      classrelation 136578 // <unidirectional association>
+	relation 135682 --->
+	  a role_name "" protected
+	    classrelation_ref 136578 // <unidirectional association>
+	  b parent class_ref 133378 // ItemMenu
+      end
+
+      operation 131714 "index"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
+	
+	
+	
+	
+	
+      end
+    end
+
+    class 130946 "Usuario"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 131842 "identificador"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 131970 "pass"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 131458 "nombre"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 131586 "apellido"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 131714 "documento"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133250 "perfil"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 131202 // <directional composition>
+	relation 130818 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 131202 // <directional composition>
+	  b parent class_ref 129154 // Perfil
+      end
+    end
+
+    sequencediagram 130306 "Renderer Manager"
+      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+      overlapping_bars size A4
+    end
+
+    class 132098 "ParteContenido"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 135810 "tipo"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 135938 "valor"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 135042 // <composition>
+	relation_ref 134274 // <composition>
+      end
+    end
+
+    objectdiagram 131458 "Objetos"
+       write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    classinstance 128002 "Usuario"
+      type class_ref 130946 // Usuario
+      attributes
+        end
+      relations
+        end
+    end
+
+    class 133250 "Noticia"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 133378 "ItemMenu"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 134530 "RendererAdmin"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 138882 // <generalisation>
+	relation 137986 ---|>
+	  a public
+	    classrelation_ref 138882 // <generalisation>
+	  b parent class_ref 129538 // AbstractRenderer
+      end
+
+      operation 131970 "index"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "perfil" explicit_type "string"
+	    defaultvalue "\"\""
+	
+	
+	
+	
+	
+      end
+    end
+
+    class 135682 "Elemento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 139522 "tipo"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 139650 "valor"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 139778 "ubicacion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 140162 "contenido_id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 140162 // <directional composition>
+	relation 139266 *-->
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 140162 // <directional composition>
+	  b multiplicity "*" parent class_ref 135810 // TipoElemento
+      end
+    end
+
+    class 135810 "TipoElemento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 139906 "template"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 140034 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 136962 "TipoContenido"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 141442 "template"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 141570 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 138114 "App"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 143874 "controller"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 144002 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 142594 // <dependency>
+	relation 141698 -_->
+	  a default
+	    classrelation_ref 142594 // <dependency>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      classrelation 142722 // <dependency>
+	relation 141826 -_->
+	  a default
+	    classrelation_ref 142722 // <dependency>
+	  b parent class_ref 138242 // AppNoticiasController
+      end
+
+      classrelation 143618 // <composition>
+	relation_ref 142466 // <composition>
+      end
+
+      classrelation 143746 // <dependency>
+	relation 142594 -_->
+	  a default
+	    classrelation_ref 143746 // <dependency>
+	  b parent class_ref 138370 // AppCuentasController
+      end
+
+      attribute 145282 "nombre"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 146306 // <composition>
+	relation_ref 145026 // <composition>
+      end
+    end
+
+    class 138242 "AppNoticiasController"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 133122 "index"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 142850 // <dependency>
+	relation 141954 -_->
+	  a default
+	    classrelation_ref 142850 // <dependency>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      classrelation 142978 // <directional composition>
+	relation 142082 *-->
+	  a role_name "" multiplicity "*" protected
+	    classrelation_ref 142978 // <directional composition>
+	  b parent class_ref 129410 // Contenido
+      end
+
+      classrelation 145026 // <generalisation>
+	relation 143874 ---|>
+	  a public
+	    classrelation_ref 145026 // <generalisation>
+	  b parent class_ref 138114 // App
+      end
+    end
+
+    class 138370 "AppCuentasController"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 133250 "index"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 144898 // <generalisation>
+	relation 143746 ---|>
+	  a public
+	    classrelation_ref 144898 // <generalisation>
+	  b parent class_ref 138114 // App
+      end
+    end
+
+    class 139522 "Funcionalidad"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 146562 "nivel"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 146690 "app_id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 146818 "descripcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 146946 "metodo_controller"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 146178 // <composition>
+	relation 145026 *---
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 146178 // <composition>
+	  b role_name "" protected
+	    classrelation_ref 146306 // <composition>
+      end
+    end
+
+    class 140674 "Entidad"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 148098 "nombre"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 148226 "descipcion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+  end
+end

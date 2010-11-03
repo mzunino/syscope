@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  app_id: 1
+  nombre: MyString
+  action: MyString
+  descripcion: MyText
+
+two:
+  app_id: 1
+  nombre: MyString
+  action: MyString
+  descripcion: MyText

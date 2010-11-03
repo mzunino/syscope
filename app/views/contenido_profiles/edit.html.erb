@@ -1,0 +1,20 @@
+<h1>Editing contenido_profile</h1>
+
+<% form_for(@contenido_profile) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :contenido_id %><br />
+    <%= f.collection_select :contenido_id, Contenido.all, :id, :descripcion, :multiple => false%>
+  </p>
+  <p>
+    <%= f.label :profile_id %><br />
+    <%= f.collection_select :profile_id, Profile.all, :id, :descripcion, :multiple => false%>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @contenido_profile %> |
+<%= link_to 'Back', contenido_profiles_path %>

@@ -1,0 +1,15 @@
+<p>
+  <b>App:</b>
+  <%=h @app_profile.app_id %>
+  <%= h App.find(@app_profile.app_id).nombre %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%=h @app_profile.profile_id %>
+  <%= h Profile.find(@app_profile.profile_id).descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_profile_path(@app_profile) %> |
+<%= link_to 'Back', app_profiles_path %>

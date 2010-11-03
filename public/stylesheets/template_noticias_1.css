@@ -1,0 +1,100 @@
+/** Inicio de tipo muestra de template para selección **/
+
+#div_modalidad_muestra{
+	float:left;
+	width:4em;
+	height:4em;
+	margin-bottom: 2em;
+	font: small sans-serif;
+}
+
+#div_modalidad_muestra div{
+	border-style:solid;
+	border-width:1px;
+	border-color: #000;
+	width:100%;
+	height:100%;
+}
+
+/** Fin de tipo muestra de template para selección **/
+
+
+/** Inicio de modalidad normal de muestreo de contenido **/
+
+#div_modalidad_normal{
+	width:98%;
+	max-height:400px;
+	overflow: auto; 
+	padding: 1em;
+	border-style:solid;
+	border-color: #aaa;
+	border-width:1px;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+    margin-bottom: 2em;
+    background-color: rgba(282, 282, 282, 0.7);
+    font: small sans-serif;
+}
+
+#div_modalidad_normal div{
+	margin-bottom: 2em;
+	margin-right: 2em;
+}
+
+#div_modalidad_normal img{
+	width:auto;
+	height:auto;
+    max-width: 100%;
+	min-width:50%;
+	margin-bottom: 2em;
+	margin-right: 2em;
+}
+
+/** Fin de modalidad normal de muestreo de contenido **/
+
+/** Inicio de ventana Modal  * */
+
+#div_modalidad_modal{
+	width:98%;
+	max-height:400px;
+	padding: 1em;
+    font: small sans-serif;
+}
+
+#div_modalidad_modal div{
+	padding:1em;
+}
+
+#div_modalidad_modal img{
+	width:auto;
+	height:auto;
+    max-width: 100%;
+	min-width:50%;
+}
+
+/** Fin de ventana Modal  **/
+	
+	
+	
+	
+/** Inicio parte comun **/	
+	
+#titulo-noticia{
+	clear:both;	
+}
+
+#div_template_1 {
+    float:left;
+	max-width:50%;
+	max-height:50%;
+}
+
+#div_template_2 {
+		/*padding: 1em;*/
+		/*min-height:82%;*/
+		max-height:100%;
+		max-width:100%;
+}
+
+/** Fin parte comun **/
+

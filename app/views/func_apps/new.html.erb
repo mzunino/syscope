@@ -1,0 +1,27 @@
+<h1>Nueva funcionalidad aplicación</h1>
+
+<% form_for(@func_app) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :app_id %><br />
+    <%= f.collection_select :app_id, App.find(:all), :id, :nombre %>
+  </p>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :action %><br />
+    <%= f.text_field :action %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', func_apps_path %>
