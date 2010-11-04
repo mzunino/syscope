@@ -5,9 +5,9 @@
 body{
 
  font-family: smaller sans-serif;
-/*
+
  background: url(/images/cope_vira_1.jpg); 
-*/
+
 
 }
 
@@ -270,11 +270,17 @@ font: 250% sans-serif;
 }
 
 .menu-form fieldset {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
   background: #000000;
   margin-right: 1em;
 }
 
 .menu-form legend {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
   color: #dfd;
   background: #141;
   /* font-family: sans-serif; */
@@ -282,6 +288,9 @@ font: 250% sans-serif;
 }
 
 .menu-form label {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
   width: 5em;
   float: left;
   text-align: right;
@@ -291,10 +300,16 @@ font: 250% sans-serif;
 }
 
 .menu-form select, .depot-form textarea, .depot-form input {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
   margin-left: 0.5em;
 }
 
 .menu-form .submit {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
   margin-left: 1em;
 }
 
@@ -310,6 +325,9 @@ font: 250% sans-serif;
 
 
 .menu button{
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
 	clear: both;
   	voice-family: "\"}\""; 
   	voice-family: inherit;
@@ -334,6 +352,9 @@ font: 250% sans-serif;
 	}
 
 .menu .button_func {
+	  border-radius: 5px;
+	  -moz-border-radius: 5px;
+
         clear: both;
         voice-family: "\"}\"";
         voice-family: inherit;
@@ -396,27 +417,33 @@ font: 250% sans-serif;
 #admin_contenidos fieldset {
   border-radius: 5px;
   -moz-border-radius: 5px;
-  background-color : #ffffff;
+  background-color:rgba(282,282,282,0.7);
   border : 1px solid #000000;
   padding : 5px;
   margin-top : 10px;
 }
 
 #admin_contenidos legend {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
   color: #dfd;
   background: #141;
   /* font-family: sans-serif; */
   padding: 0.2em 1em;
 }
 
-#admin_contenidos label {
-  width: 5em;
+#admin_contenidos div {
+  /* color: #dfd;
+  background: #141; */
+  /* font-family: sans-serif; */
   float: left;
-  text-align: right;
-  padding-top: 0.2em;
-  margin-right: 0.1em;
-  display: block;
+  margin-right: 3px;
+  padding: 1em;
+  text-align: center;
 }
+
+
  
 /** Fin de formulario de abm de contenidos **/ 
 

@@ -1,0 +1,2 @@
+jquery_replace("template_seleccionado" , :partial => @tipo_template.template, :object => @tipo_template.template)
+

@@ -280,7 +280,10 @@ function mostrarModalNuevoRegistro(url){
 }
 
 
-
+function mostrarMensajeHola(){
+	
+	alert("... Hola ....");
+}
 
 
 

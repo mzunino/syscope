@@ -4,36 +4,49 @@
 	<fieldset>
 	    <legend>Información del contenido:</legend>
 			<%= f.hidden_field :id %>
-			<p>
+			<div>
 				<%= label_tag "Título / Descripción:" %>
-			    <%= f.text_field :descripcion, :size => 15 %>
-			</p>
-			<p>
-				<%= label_tag "Fecha del contenido:" %>
-			    <%= f.text_field :fecha, :size => 15 %>
-			</p>
+				<br />
+			    <%= f.text_field :descripcion, :size => 30 %>
+			</div>
 			<hr />
-			<p>
+			<div>
+				<%= label_tag "Fecha del contenido:" %>
+				<br />
+			    <%= f.text_field :fecha, :size => 15 %>
+			</div>
+			<div>
 				<%= label_tag "Fecha inicio emisión:" %>
+				<br />
 			    <%= f.text_field :fecha_inicio, :size => 14 %>
-			</p>
-			<p>
+			</div>
+			<div>
 				<%= label_tag "Fecha fin de emisión:" %>
+				<br />
 			    <%= f.text_field :fecha_fin, :size => 14 %>
-			</p>
-			<p>
+			</div>
+			<div>
 				<%= label_tag "Rotación:" %>
+				<br />
 			    <%= f.text_field :rotacion, :size => 2 %>
-			</p>
-			<p>
+			</div>
+			<div>
 				<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+				<br />
 				<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
-			</p>
+			</div>
 	
 	</fieldset>
 	<fieldset>
 		<legend>Template a utilizar: </legend>
-			<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion %>
+
+		<%#= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {}, {:onchange => 'submit()'} %>
+
+		<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {:prompt => 'Seleccione un tipo de contenido'}, 
+									{:onchange =>  remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value")} %>
+
+			
+		<div id="template_seleccionado"> </div>
 	</fieldset>
 		
 		
@@ -53,17 +66,29 @@
 								<% fields_for "elemento[]", elemento do |subfield| %>
 								
 								 	<div id="elemento_id_<%= elemento.id %>">
-										  <%= subfield.hidden_field :id %>
-										  <%= subfield.hidden_field :contenido_id %>
+										  <div>
+										  		<%= subfield.hidden_field :id %>
+										  		<br />
+										  		<%= subfield.hidden_field :contenido_id %>
+										  </div>
 										
-										  <p><%= subfield.label :ubicacion, 'Ubicacion:' %><br/>
-										  <%= subfield.text_field :ubicacion %></p>
+										  <div>
+										  		<%= subfield.label :ubicacion, 'Ubicacion:' %>
+												<br/>
+										        <%= subfield.text_field :ubicacion %>
+										  </div>
 										  
-										  <p><%= subfield.label :tipo_id, 'Tipo de elemento:' %><br/>
-										  <%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+										  <div>		
+										  		<%= subfield.label :tipo_id, 'Tipo de elemento:' %>
+										  		<br />
+										  		<%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+										  </div>
 					
-										  <p><%= subfield.label :valor, 'Valor:' %><br/>
-										  <%= subfield.text_field :valor %></p>
+										  <div>
+										  		<%= subfield.label :valor, 'Valor:' %>
+										  		<br />
+										  		<%= subfield.text_field :valor %>
+										  </div>
 									</div>
 										  
 								 <% end -%>
@@ -83,7 +108,7 @@
 	<fieldset>
 		<legend>Elementos del contenido: </legend>
 	
-		<p>	
+		<div>	
 			<% @profiles_all.each do |profile| -%>
 					
 				<% if @hash_profiles_asociados[profile.id].nil?  %>
@@ -95,12 +120,14 @@
 				<%= profile.descripcion %>
 				<br />
 			<% end %>	
-		</p>
+		</div>
 	</fieldset>
 		
 	<!-- ends div partial profiles -->	
 		
-	<p><%= submit_tag 'save' %></p>
+	<div>
+		<%= submit_tag 'save' %>
+	</div>
 	
 	<% end -%>
 
