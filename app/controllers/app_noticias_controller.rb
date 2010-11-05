@@ -19,16 +19,7 @@ class AppNoticiasController < ApplicationController
   	# muestra una noticia determinada
   	render(:layout => false)
 	
-end
-
-def mostrar_template
-    
-    @template_id = params[:id]
-
-    respond_to { |format| format.js }
-
-end
-
+  end
 
 
   def new
@@ -143,6 +134,12 @@ end
     
     # obtengo el tipo de template a partir del id pasado
     @tipo_template = TipoContenido.find(params[:id])
+    
+#    @template = ""
+#    if !@tipo_template.template.nil? && !@tipo_template.template.empty?
+#        logger.debug("Tipo template: #{@tipo_template.template}")
+#       # @template = render(:partial => "template_noticias_1")
+#    end
     
     @modo_muestra_template = true
     

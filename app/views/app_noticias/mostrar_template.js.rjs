@@ -1,1 +1,1 @@
-page.replace_html("template_seleccionado" , :partial => "mostrar_noticia" , :object => @template_id)
+page << "$('span#bacon').text('CHunKy');"

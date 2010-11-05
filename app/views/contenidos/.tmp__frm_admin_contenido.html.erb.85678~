@@ -1,0 +1,135 @@
+<div id="admin_contenidos">
+	<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
+	
+	<fieldset>
+	    <legend>Información del contenido:</legend>
+			<%= f.hidden_field :id %>
+			<div>
+				<%= label_tag "Título / Descripción:" %>
+				<br />
+			    <%= f.text_field :descripcion, :size => 30 %>
+			</div>
+			<hr />
+			<div>
+				<%= label_tag "Fecha del contenido:" %>
+				<br />
+			    <%= f.text_field :fecha, :size => 15 %>
+			</div>
+			<div>
+				<%= label_tag "Fecha inicio emisión:" %>
+				<br />
+			    <%= f.text_field :fecha_inicio, :size => 14 %>
+			</div>
+			<div>
+				<%= label_tag "Fecha fin de emisión:" %>
+				<br />
+			    <%= f.text_field :fecha_fin, :size => 14 %>
+			</div>
+			<div>
+				<%= label_tag "Rotación:" %>
+				<br />
+			    <%= f.text_field :rotacion, :size => 2 %>
+			</div>
+			<div>
+				<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+				<br />
+				<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+			</div>
+	
+	</fieldset>
+	<fieldset>
+		<legend>Template a utilizar: </legend>
+
+		<%#= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {}, {:onchange => 'submit()'} %>
+
+		<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {:prompt => 'Seleccione un tipo de contenido'}, 
+									{:onchange =>  remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value")} %>
+
+			
+		<div id="template_seleccionado"> </div>
+	</fieldset>
+		
+		
+	<fieldset>
+		<legend>Elementos del contenido: </legend>
+	
+		<!-- start div partial elementos -->
+		<%
+			@contenedor_elementos = "contenedor_elementos"
+		%>
+		<div id="contenedor_elementos"> 
+			 <% 
+					if !@elementos.nil? 
+							@elementos.each do |elemento| -%>
+					 
+					
+								<% fields_for "elemento[]", elemento do |subfield| %>
+								
+								 	<div id="elemento_id_<%= elemento.id %>">
+										  <div>
+										  		<%= subfield.hidden_field :id %>
+										  		<br />
+										  		<%= subfield.hidden_field :contenido_id %>
+										  </div>
+										
+										  <div>
+										  		<%= subfield.label :ubicacion, 'Ubicacion:' %>
+												<br/>
+										        <%= subfield.text_field :ubicacion %>
+										  </div>
+										  
+										  <div>		
+										  		<%= subfield.label :tipo_id, 'Tipo de elemento:' %>
+										  		<br />
+										  		<%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+										  </div>
+					
+										  <div>
+										  		<%= subfield.label :valor, 'Valor:' %>
+										  		<br />
+										  		<%= subfield.text_field :valor %>
+										  </div>
+									</div>
+										  
+								 <% end -%>
+					
+								<hr />
+						<% end 
+				end %>
+	
+		</div>
+		<div>
+			<input type="hidden" value="0" id="elementsCount" />
+			<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
+		</div>
+	
+	</fieldset>
+	
+	<fieldset>
+		<legend>Elementos del contenido: </legend>
+	
+		<div>	
+			<% @profiles_all.each do |profile| -%>
+					
+				<% if @hash_profiles_asociados[profile.id].nil?  %>
+						<%= check_box_tag 'profiles[]', profile.id, false %> 
+				<% else %>
+						<%= check_box_tag 'profiles[]', profile.id, true %>
+				<% end %>
+				
+				<%= profile.descripcion %>
+				<br />
+			<% end %>	
+		</div>
+	</fieldset>
+		
+	<!-- ends div partial profiles -->	
+		
+	<div>
+		<%= submit_tag 'save' %>
+	</div>
+	
+	<% end -%>
+
+</div>
+	

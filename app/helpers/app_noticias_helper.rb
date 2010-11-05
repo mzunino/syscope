@@ -35,7 +35,7 @@ module AppNoticiasHelper
                     tr_templates += "</td>"
                     
                     tr_templates += "<td > "
-                    tr_templates += render (:partial => tipo.template )
+                    tr_templates += render(:partial => tipo.template )
                     tr_templates += "</td>"
                     
         end   

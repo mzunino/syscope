@@ -2,14 +2,11 @@
 <html>
        <head>
          <title>Sitio Oficial de Contenidos</title>
-	 <%#=javascript_include_tag :defaults%>
-	 <%= javascript_include_tag 'jquery' %>
-	<%= javascript_include_tag 'jquery-ui' %>
-	<%= javascript_include_tag 'jrails' %>
-	 <%#=javascript_include_tag "jquery-1.2.3.min.js"%>
+	 <%=javascript_include_tag :defaults%>
+	 <%=javascript_include_tag "jquery-1.2.3.min.js"%>
 	 <%=javascript_include_tag "customs.js"%>
 	 <%= stylesheet_link_tag "contenidos_modelo_1" , :media => "all" %>
-   	 <%#= stylesheet_link_tag "thickbox" , :media => "all" %>
+   	 <%= stylesheet_link_tag "thickbox" , :media => "all" %>
 	 <%= stylesheet_link_tag "modal" , :media => "all" %>
 	 <%= javascript_include_tag :fckeditor %>
 
