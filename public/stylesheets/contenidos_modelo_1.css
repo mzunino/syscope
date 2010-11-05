@@ -433,14 +433,50 @@ font: 250% sans-serif;
   padding: 0.2em 1em;
 }
 
-#admin_contenidos div {
-  /* color: #dfd;
-  background: #141; */
-  /* font-family: sans-serif; */
+.divs_admin {
   float: left;
   margin-right: 3px;
-  padding: 1em;
+  padding: 0.5em;
   text-align: center;
+  	border : 1px solid #000000;
+}
+
+#template_seleccionado {
+	float: left;
+	border : 1px dashed #000000;
+	padding: 1em;
+	text-align: center;
+	width:50%;
+	height:8em;
+}
+
+.divs_admin_tipo_contenidos {
+	float: left;
+	margin-right: 10px;
+	padding: 0.3em;
+	text-align: left;
+	width:30%;
+	height:100%;
+	max-height: 200px;
+	overflow: auto;
+	border-style:solid;
+	border : 1px solid #000000;
+   vertical-align: middle;
+}
+
+.divs_admin_hr {
+	float:left;
+	clear: both;
+	width:100%;
+	border-style:solid;
+  	border :1px;
+}
+
+.divs_admin_profiles {
+	  float: left;
+	  margin-right: 3px;
+	  padding: 1em;
+	  text-align: left;
 }
 
 

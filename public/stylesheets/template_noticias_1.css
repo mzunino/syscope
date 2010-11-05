@@ -2,8 +2,8 @@
 
 #div_modalidad_muestra{
 	float:left;
-	width:4em;
-	height:4em;
+	width:100%;
+	height:100%;
 	margin-bottom: 2em;
 	font: small sans-serif;
 }

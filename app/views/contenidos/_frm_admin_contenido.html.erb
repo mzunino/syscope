@@ -1,36 +1,36 @@
-<div id="admin_contenidos">
+<div class="divs_admin" id="admin_contenidos">
 	<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
 	
 	<fieldset>
 	    <legend>Información del contenido:</legend>
 			<%= f.hidden_field :id %>
-			<div>
+			<div class="divs_admin">
 				<%= label_tag "Título / Descripción:" %>
 				<br />
 			    <%= f.text_field :descripcion, :size => 30 %>
 			</div>
 			<hr />
-			<div>
+			<div class="divs_admin">
 				<%= label_tag "Fecha del contenido:" %>
 				<br />
 			    <%= f.text_field :fecha, :size => 15 %>
 			</div>
-			<div>
+			<div class="divs_admin">
 				<%= label_tag "Fecha inicio emisión:" %>
 				<br />
 			    <%= f.text_field :fecha_inicio, :size => 14 %>
 			</div>
-			<div>
+			<div class="divs_admin">
 				<%= label_tag "Fecha fin de emisión:" %>
 				<br />
 			    <%= f.text_field :fecha_fin, :size => 14 %>
 			</div>
-			<div>
+			<div class="divs_admin">
 				<%= label_tag "Rotación:" %>
 				<br />
 			    <%= f.text_field :rotacion, :size => 2 %>
 			</div>
-			<div>
+			<div class="divs_admin">
 				<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
 				<br />
 				<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
@@ -40,13 +40,22 @@
 	<fieldset>
 		<legend>Template a utilizar: </legend>
 
-		<%#= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {}, {:onchange => 'submit()'} %>
 
-		<%= f.collection_select  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {:prompt => 'Seleccione un tipo de contenido'}, 
-									{:onchange =>  remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value")} %>
 
-			
-		<div id="template_seleccionado"> </div>
+				<%#= f.check_box  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {:prompt => 'Seleccione un tipo de contenido'}, {:onchange =>  remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value")} %>
+		sd		
+				<div class="divs_admin_tipo_contenidos">	
+					<% @tipo_contenidos_all.each do |tipo| -%>
+							
+						<%= f.radio_button :tipo_id, tipo.id, :onchange => remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value") %>
+						 
+						<%= tipo.template %>
+						<br />
+					<% end %>	
+				</div>
+
+
+		<div id="contenedor_template_seleccionado">Ejemplo Template:<div id="template_seleccionado"></div></div>
 	</fieldset>
 		
 		
@@ -57,48 +66,52 @@
 		<%
 			@contenedor_elementos = "contenedor_elementos"
 		%>
-		<div id="contenedor_elementos"> 
+		<div class="divs_admin" id="contenedor_elementos"> 
 			 <% 
 					if !@elementos.nil? 
 							@elementos.each do |elemento| -%>
 					 
-					
+								
 								<% fields_for "elemento[]", elemento do |subfield| %>
 								
-								 	<div id="elemento_id_<%= elemento.id %>">
-										  <div>
+								 	<div class="divs_admin" id="elemento_id_<%= elemento.id %>">
+										  <div class="divs_admin">
 										  		<%= subfield.hidden_field :id %>
 										  		<br />
 										  		<%= subfield.hidden_field :contenido_id %>
 										  </div>
 										
-										  <div>
+										  <div class="divs_admin">
 										  		<%= subfield.label :ubicacion, 'Ubicacion:' %>
 												<br/>
 										        <%= subfield.text_field :ubicacion %>
 										  </div>
 										  
-										  <div>		
+										  <div class="divs_admin">		
 										  		<%= subfield.label :tipo_id, 'Tipo de elemento:' %>
 										  		<br />
 										  		<%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
 										  </div>
 					
-										  <div>
+										  <div class="divs_admin">
 										  		<%= subfield.label :valor, 'Valor:' %>
 										  		<br />
 										  		<%= subfield.text_field :valor %>
 										  </div>
+										  <div class="divs_admin_hr">
+										  		<hr />
+										  </div>
 									</div>
-										  
+									
+     							  	  
 								 <% end -%>
 					
-								<hr />
+					
 						<% end 
 				end %>
 	
 		</div>
-		<div>
+		<div class="divs_admin">
 			<input type="hidden" value="0" id="elementsCount" />
 			<input type="button" id="button" value="agregar elemento" onClick='mostrarModalNuevoRegistro("/elementos/nuevo_elemento/")'/>
 		</div>
@@ -108,7 +121,7 @@
 	<fieldset>
 		<legend>Elementos del contenido: </legend>
 	
-		<div>	
+		<div class="divs_admin_profiles">	
 			<% @profiles_all.each do |profile| -%>
 					
 				<% if @hash_profiles_asociados[profile.id].nil?  %>
@@ -125,7 +138,7 @@
 		
 	<!-- ends div partial profiles -->	
 		
-	<div>
+	<div class="divs_admin">
 		<%= submit_tag 'save' %>
 	</div>
 	

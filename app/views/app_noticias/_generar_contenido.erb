@@ -22,8 +22,12 @@
 
 			  logger.debug("Contenido de hash elementos renderizados #{@hash_elementos_renderizados.size}")
 
-
-              return render (:partial => render_noticia , :object => @hash_elementos_renderizados )
+			  begin
+					return render (:partial => render_noticia , :object => @hash_elementos_renderizados )
+			  rescue ActionView::MissingTemplate => err
+			        return render (:partial => TipoContenido::TEMPLATE_ESTANDARD , :object => @hash_elementos_renderizados )
+			  end
+              
 
         else
               flash[:notice] = "No tiene privilegios para ver la noticia"

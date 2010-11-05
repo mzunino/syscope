@@ -47,13 +47,17 @@
         		<% if ( !es_modalidad_muestra ) %> 
             			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
 	
-					<% end %>
+				<% else%>
+						Elem. #1
+				<% end %>
 
         </div>
         <div id="div_template_2">
 
             	<% if ( !es_modalidad_muestra ) %> 
             			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
+				<% else %>
+						Elem. #2
 				<% end %>
 
         </div>

@@ -35,6 +35,8 @@ class AppNoticiasController < ApplicationController
             redirect_to(uri || { :controller => "app_noticias" })
         end
         
+        @tipo_contenidos_all = TipoContenido.find(:all)
+        
   end
 
   # GET /apps/edit
@@ -69,6 +71,7 @@ class AppNoticiasController < ApplicationController
             redirect_to(uri || { :controller => "app_noticias" })
         end
     
+        @tipo_contenidos_all = TipoContenido.find(:all)
   end
   
  
@@ -132,19 +135,22 @@ class AppNoticiasController < ApplicationController
   
   def mostrar_formato_template
     
-    # obtengo el tipo de template a partir del id pasado
-    @tipo_template = TipoContenido.find(params[:id])
-    
-#    @template = ""
-#    if !@tipo_template.template.nil? && !@tipo_template.template.empty?
-#        logger.debug("Tipo template: #{@tipo_template.template}")
-#       # @template = render(:partial => "template_noticias_1")
-#    end
+    logger.debug("Arrancó el mostrar_formato_template")
+    begin
+        # obtengo el tipo de template a partir del id pasado
+        @tipo_template = TipoContenido.find(params[:id])
+        
+        logger.debug("Se encontro el tipo template: #{@tipo_template.id} con template: #{@tipo_template.template}")
+    rescue ActiveRecord::RecordNotFound => err
+        logger.debug("Error al buscar el template id : #{params[:id]}")
+        @tipo_template = nil
+    end
     
     @modo_muestra_template = true
-    
-    respond_to { |format| format.js }
 
+    respond_to { |format| format.js }
+    
+    logger.debug("Terminó el mostrar_formato_template")
        
   end
   
