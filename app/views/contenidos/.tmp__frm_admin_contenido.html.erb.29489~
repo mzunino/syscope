@@ -1,4 +1,3 @@
-		
 <div class="divs_admin" id="admin_contenidos">
 	<% form_for :contenido, :url => { :controller => "app_noticias", :action => :save_contenido } do |f| %>
 	
@@ -14,27 +13,17 @@
 			<div class="divs_admin">
 				<%= label_tag "Fecha del contenido:" %>
 				<br />
-				<% 
-					 
-					hoy = Date::today()
-
-					Date::DATE_FORMATS[:formato] = '%d/%m/%Y'
-
-					s_hoy = hoy.to_s :formato
-	
-				%>
-			    <%= f.text_field :fecha, :size => 15, :class => "date-pick", :value => s_hoy %>
-
+			    <%= f.text_field :fecha, :size => 15 %>
 			</div>
 			<div class="divs_admin">
 				<%= label_tag "Fecha inicio emisión:" %>
 				<br />
-			    <%= f.text_field :fecha_inicio, :size => 14, :class => "date-pick" %>
+			    <%= f.text_field :fecha_inicio, :size => 14 %>
 			</div>
 			<div class="divs_admin">
 				<%= label_tag "Fecha fin de emisión:" %>
 				<br />
-			    <%= f.text_field :fecha_fin, :size => 14, :class => "date-pick" %>
+			    <%= f.text_field :fecha_fin, :size => 14 %>
 			</div>
 			<div class="divs_admin">
 				<%= label_tag "Rotación:" %>
