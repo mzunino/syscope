@@ -78,7 +78,9 @@ class AppNoticiasController < ApplicationController
     # GET /app_noticias/save
   def save_contenido
     
+    uri = session[:original_uri]
     
+    logger.debug("La uri original es: #{uri}")
    
     Contenido.transaction do
       
@@ -128,7 +130,7 @@ class AppNoticiasController < ApplicationController
     # force checking of errors even if products failed
     
     flash[:notice] = "Error al dar de alta: " + e
-    render :action => "admin"
+    redirect_to :controller => :app_noticias, :action => "edit"
     
   end
   

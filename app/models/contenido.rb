@@ -5,6 +5,14 @@ class Contenido < ActiveRecord::Base
   has_one :tipo_contenido
   
   validates_presence_of :app_id, :message => 'Se debe especificar una aplicación para este contenido'
+  validate :fecha?
+
+  def fecha?
+    unless Chronic.parse(fecha)
+      errors.add(:fecha, "La fecha ingresada no es correcta")
+    end
+  end
+
   
   protected
   
