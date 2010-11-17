@@ -34,7 +34,7 @@ var FCKeditor = function( instanceName, width, height, toolbarSet, value )
 	this.Height			= height		|| '200' ;
 	this.ToolbarSet		= toolbarSet	|| 'Default' ;
 	this.Value			= value			|| '' ;
-	this.BasePath		= FCKeditor.BasePath ;
+	this.BasePath		= '/javascripts/fckeditor/' ;
 	this.CheckBrowser	= true ;
 	this.DisplayErrors	= true ;
 

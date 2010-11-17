@@ -8,7 +8,10 @@
 			<div class="divs_admin">
 				<%= label_tag "Título / Descripción:" %>
 				<br />
-			    <%= f.text_field :descripcion, :size => 30 %>
+			    <%#= fckeditor_text_field :descripcion, :size => 30 %>
+				<%= fckeditor_text_field 'contenido', 'descripcion' %>
+				  
+				<%#= fckeditor_textarea(:contenido, :descripcion, {}) %>
 			</div>
 			<hr />
 			<div class="divs_admin">

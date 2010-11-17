@@ -115,11 +115,11 @@ class AppNoticiasController < ApplicationController
             flash[:notice] = "El contenido se creó correctamente "
       end
 
-       # Salvando los elementos del contenido
-       actualizarElementosContenido()
-
-       # Salvando asociaciones del contenido con los profiles habilitados
-       asociarContenidoAPerfiles()
+#       # Salvando los elementos del contenido
+#       actualizarElementosContenido()
+#
+#       # Salvando asociaciones del contenido con los profiles habilitados
+#       asociarContenidoAPerfiles()
 
        # Si no hubieron errores vuelvo a la pantalla inicial
       redirect_to :controller => :app_noticias, :action => "index"
