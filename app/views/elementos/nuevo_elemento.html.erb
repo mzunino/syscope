@@ -7,12 +7,6 @@
 
 <% fields_for "elemento[]", elemento do |subfield| %>
 			<p>
-			    <%= subfield.label :valor %>
-			    <br/>
-			    <%#= subfield.text_field :valor %>
-				<%= fckeditor_text_field 'elemento', 'valor' %>
-			</p>
-			<p>
 			    <%= subfield.label :tipo_id, 'Tipo de Elemento:' %>
 			    <%= subfield.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
 			</p>
@@ -21,8 +15,16 @@
 			    <br/>
 			    <%= subfield.text_field :ubicacion %>
 			</p>
+			<p>
+			    <%= subfield.label :valor %>
+			    <br/>
+			    <%#= subfield.text_field :valor %>
+				<textarea id="DataFCKeditor" cols="80" rows="20"></textarea>
+				<%= javascript_tag( "var oFCKeditor = new FCKeditor('DataFCKeditor','100%','100%','Basic2');oFCKeditor.ReplaceTextarea()" ) %>
+			</p>
+
 <% end %>				
-				  					  
+	  					  
 </div>
-<a link="javascript:;" onClick="Toggle('elemento_valor');agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
+<a link="javascript:;" onClick="mostrarValor();agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
 

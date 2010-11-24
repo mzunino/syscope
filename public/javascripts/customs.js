@@ -282,19 +282,38 @@ function mostrarModalNuevoRegistro(url){
 
 function mostrarMensajeHola(){
 	
-	alert("... Hola ....");
+	alert(".... Hola ....");
 }
 
 
-function Toggle(nombre_text_area)
+function mostrarValor() {
+	var oEditor = FCKeditorAPI.GetInstance( 'DataFCKeditor' ) ;
+		//document.getElementById( 'DataTextarea' ).value = oEditor.GetXHTML() ;
+	//alert("elemento: " + oEditor.GetXHTML());
+	
+	var divNuevo = document.getElementById('div_nuevo_modal');
+	
+	
+	
+	var listaElementos = divNuevo.childNodes;
+	
+	alert(divNuevo.childNodes[0].id);
+	var elem = document.getElementsByClassName(divNuevo.childNodes[0]);
+	alert(elem);
+	/*for (elemento in listaElementos){
+		alert("elemento: " + elemento);	
+	}*/
+}
+
+
+
+function Toggle()
 {
 	// Try to get the FCKeditor instance, if available.
 	var oEditor ;
 	if ( typeof( FCKeditorAPI ) != 'undefined' )
 		oEditor = FCKeditorAPI.GetInstance( 'DataFCKeditor' ) ;
-		
-	alert(oEditor.value);
-/*
+
 	// Get the _Textarea and _FCKeditor DIVs.
 	var eTextareaDiv	= document.getElementById( 'Textarea' ) ;
 	var eFCKeditorDiv	= document.getElementById( 'FCKeditor' ) ;
@@ -333,12 +352,26 @@ function Toggle(nombre_text_area)
 		eTextareaDiv.style.display = '' ;
 		eFCKeditorDiv.style.display = 'none' ;
 	}
-*/
 }
 
 
+function CreateEditor()
+{
+	// Copy the value of the current textarea, to the textarea that will be used by the editor.
+	document.getElementById('DataFCKeditor').value = document.getElementById('DataTextarea').value ;
 
+	// Automatically calculates the editor base path based on the _samples directory.
+	// This is usefull only for these samples. A real application should use something like this:
+	// oFCKeditor.BasePath = '/fckeditor/' ;	// '/fckeditor/' is the default value.
+	var sBasePath = document.location.href.substring(0,document.location.href.lastIndexOf('_samples')) ;
 
+	// Create an instance of FCKeditor (using the target textarea as the name).
+	var oFCKeditor = new FCKeditor( 'DataFCKeditor' ) ;
+	oFCKeditor.BasePath = sBasePath ;
+	oFCKeditor.Width = '100%' ;
+	oFCKeditor.Height = '350' ;
+	oFCKeditor.ReplaceTextarea() ;
+}
 
 
 

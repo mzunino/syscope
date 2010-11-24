@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101102224745) do
+ActiveRecord::Schema.define(:version => 20101124173245) do
 
   create_table "app_profiles", :force => true do |t|
     t.integer  "app_id"
@@ -53,11 +53,16 @@ ActiveRecord::Schema.define(:version => 20101102224745) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rotacion"
-    t.integer  "tipo_id",      :null => false
+    t.integer  "tipo_id",        :null => false
     t.date     "fecha"
     t.integer  "app_id"
     t.date     "fecha_inicio"
     t.date     "fecha_fin"
+    t.string   "creador"
+    t.string   "auditor"
+    t.date     "fecha_creado"
+    t.date     "fecha_auditado"
+    t.integer  "estado"
   end
 
   create_table "elementos", :force => true do |t|

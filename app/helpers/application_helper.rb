@@ -2,7 +2,7 @@
 module ApplicationHelper
   
     def fckeditor_text_field(object, method, options = {})
-      text_area(object, method, options ) + javascript_tag( "var oFCKeditor = new FCKeditor('" + object + "_" + method + "',300,300,'Basic2');oFCKeditor.ReplaceTextarea()" )
+      javascript_tag( "var oFCKeditor = new FCKeditor('" + object + "_" + method + "',300,300,'Basic2');oFCKeditor.ReplaceTextarea()" )
     end
 
   

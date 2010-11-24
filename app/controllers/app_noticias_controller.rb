@@ -23,7 +23,31 @@ class AppNoticiasController < ApplicationController
 
 
   def new
-	# Alta de una nueva noticia
+    
+        @contenido = Contenido.buscar_ultimo_tmp(session[:user_id])
+	
+        if @contenido.nil?
+           # Creo un nuevo contenido en estado borrador para que comience la edición del mismo
+                @contenido = Contenido.new() 
+                @contenido.estado = Contenido::ESTADO_TMP
+                logger.debug("Aplicacion elegida:  #{App.find(:all)[0]}")
+                @contenido.app_id = App.find(:all)[0]
+                    
+                hoy = Date::today()
+        
+                @contenido.fecha = hoy
+                @contenido.tipo_id = TipoContenido.find(:all)[0]
+                
+                @contenido.creador = session[:user_id]
+                    
+                # Salvando nuevo contenido
+                @contenido.save!
+                logger.debug("Se esta creando un nuevo contenido, ya que no existe ninguno tmp")
+        else
+          logger.debug("Se esta utilizando el último tmp creado")
+          flash[:notice]= "Se ha recuperado un contenido guardado en borradores, si no se desea guardar debe seleccionar descartar.."
+        end  
+   # Alta de una nueva noticia
 
         @hash_profiles_asociados = {}
         
@@ -156,6 +180,39 @@ class AppNoticiasController < ApplicationController
        
   end
   
+    
+  # DELETE /apps/1
+  # DELETE /apps/1.xml
+  def destroy
+    
+    begin
+        @elementos = Elemento.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
+        
+        for elemento in @elementos
+          elemento.destroy!
+        end
+        
+        @contenidos_profiles = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
+        
+        for cont_prof in @contenidos_profiles
+          cont_prof.destroy!
+        end
+        
+        @contenido = Contenido.find(params[:contenido][:id])
+        @contenido.destroy
+        
+    rescue Exception => err
+        logger.debug("Error al eliminar el contenido : #{params[:contenido][:id]}")
+        @tipo_template = nil
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(apps_url) }
+      format.xml  { head :ok }
+    end
+  end 
+
+  
 private 
 
 
@@ -198,7 +255,7 @@ private
   end
 
   # Asocia una lista de profiles a un contenido determinado
-  # Params: :profiles[], :contenido
+  # Params: :profiles[], :contenido 
   def asociarContenidoAPerfiles
     
           # Se borran asociaciones previas al contenido
@@ -226,6 +283,6 @@ private
                       end
               end 
   end
-
+  
   
 end

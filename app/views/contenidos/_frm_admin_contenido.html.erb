@@ -4,7 +4,7 @@
 	
 	<fieldset>
 	    <legend>Información del contenido:</legend>
-			<%= f.hidden_field :id %>
+			<%= f.text_field :id %>
 			<div class="divs_admin">
 				<%= label_tag "Título / Descripción:" %>
 				<br />
@@ -54,7 +54,7 @@
 
 
 				<%#= f.check_box  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {:prompt => 'Seleccione un tipo de contenido'}, {:onchange =>  remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value")} %>
-		sd		
+				
 				<div class="divs_admin_tipo_contenidos">	
 					<% @tipo_contenidos_all.each do |tipo| -%>
 							
@@ -152,6 +152,10 @@
 	<div class="divs_admin">
 		<%= submit_tag 'save' %>
 	</div>
+	
+	<% if @contenido.estado == Contenido::ESTADO_TMP %>
+		<td><%= link_to 'Descartar temporal', @contenido, :confirm => '¿Estas seguro de descartar las modificaciones realizadas?', :method => :delete %></td>
+	<% end %>
 	
 	<% end -%>
 

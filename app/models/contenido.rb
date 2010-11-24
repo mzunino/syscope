@@ -6,6 +6,13 @@ class Contenido < ActiveRecord::Base
   
   validates_presence_of :app_id, :message => 'Se debe especificar una aplicación para este contenido'
   validate :fecha?
+  
+  
+  # Constantes con los diferentes estados de un contenido
+  ESTADO_TMP = 0
+  ESTADO_SIN_AUDITAR = 1
+  ESTADO_AUDITADO = 2
+
 
   def fecha?
     unless Chronic.parse(fecha)
@@ -15,6 +22,16 @@ class Contenido < ActiveRecord::Base
 
   
   protected
+  
+  
+  def self.buscar_ultimo_tmp(usuario_id)
+    
+    
+    
+    contenido = Contenido.find(:first, :conditions => " creador = #{usuario_id} and estado = #{ESTADO_TMP} ", :order => " fecha desc")
+    
+    return contenido
+  end
   
   def self.contenido_disponible_al_perfil(contenido_id, profile_id)
     

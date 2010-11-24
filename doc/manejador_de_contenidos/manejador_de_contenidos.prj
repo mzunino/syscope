@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 22
+  revision 23
   modified_by 2 "mauricio"
 
 
@@ -319,6 +319,65 @@ format 66
 
       classrelation 143362 // <composition>
 	relation_ref 142338 // <composition>
+      end
+
+      attribute 149506 "creador"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149634 "auditor"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149762 "fecha_creacion"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 149890 "fecha_auditado"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 150018 "estado"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 148610 // <directional composition>
+	relation 147330 *-->
+	  a role_name "" protected
+	    classrelation_ref 148610 // <directional composition>
+	  b parent class_ref 130946 // Usuario
+      end
+
+      classrelation 148738 // <directional composition>
+	relation 147458 *-->
+	  a role_name "" protected
+	    classrelation_ref 148738 // <directional composition>
+	  b parent class_ref 130946 // Usuario
       end
     end
 
