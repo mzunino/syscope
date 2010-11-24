@@ -286,7 +286,55 @@ function mostrarMensajeHola(){
 }
 
 
+function Toggle(nombre_text_area)
+{
+	// Try to get the FCKeditor instance, if available.
+	var oEditor ;
+	if ( typeof( FCKeditorAPI ) != 'undefined' )
+		oEditor = FCKeditorAPI.GetInstance( 'DataFCKeditor' ) ;
+		
+	alert(oEditor.value);
+/*
+	// Get the _Textarea and _FCKeditor DIVs.
+	var eTextareaDiv	= document.getElementById( 'Textarea' ) ;
+	var eFCKeditorDiv	= document.getElementById( 'FCKeditor' ) ;
 
+	// If the _Textarea DIV is visible, switch to FCKeditor.
+	if ( eTextareaDiv.style.display != 'none' )
+	{
+		// If it is the first time, create the editor.
+		if ( !oEditor )
+		{
+			CreateEditor() ;
+		}
+		else
+		{
+			// Set the current text in the textarea to the editor.
+			oEditor.SetData( document.getElementById('DataTextarea').value ) ;
+		}
+
+		// Switch the DIVs display.
+		eTextareaDiv.style.display = 'none' ;
+		eFCKeditorDiv.style.display = '' ;
+
+		// This is a hack for Gecko 1.0.x ... it stops editing when the editor is hidden.
+		if ( oEditor && !document.all )
+		{
+			if ( oEditor.EditMode == FCK_EDITMODE_WYSIWYG )
+				oEditor.MakeEditable() ;
+		}
+	}
+	else
+	{
+		// Set the textarea value to the editor value.
+		document.getElementById('DataTextarea').value = oEditor.GetXHTML() ;
+
+		// Switch the DIVs display.
+		eTextareaDiv.style.display = '' ;
+		eFCKeditorDiv.style.display = 'none' ;
+	}
+*/
+}
 
 
 

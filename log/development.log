@@ -30953,3 +30953,1049 @@ TypeError (can't convert ActiveRecord::Errors into String):
 Rendered rescues/_trace (63.0ms)
 Rendered rescues/_request_and_response (3.2ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 20:45:51) [POST]
+  Parameters: {"authenticity_token"=>"ML6t6t3LPLsi0BH/9W6Qnv0a8LuzFO9tRbevqCaVxmY="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.3ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Load (0.3ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mTipoContenido Load (0.2ms)[0m   [0mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;35;1mContainer Columns (7.0ms)[0m   [0mSHOW FIELDS FROM `containers`[0m
+  [4;36;1mContainer Load (0.2ms)[0m   [0;1mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` [0m
+  [4;36;1mApp Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mTipoContenido Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (44.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;35;1mAppProfile Load (0.2ms)[0m   [0mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;36;1mAppProfile Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `app_profiles`[0m
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (27.5ms)
+Completed in 228ms (View: 145, DB: 20) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#mostrar_formato_template (for 127.0.0.1 at 2010-11-23 20:46:12) [POST]
+  Parameters: {"authenticity_token"=>"ML6t6t3LPLsi0BH/9W6Qnv0a8LuzFO9tRbevqCaVxmY=", "id"=>"1"}
+Arrancó el mostrar_formato_template
+  [4;36;1mTipoContenido Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `tipo_contenidos`[0m
+  [4;35;1mTipoContenido Load (0.2ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+Se encontro el tipo template: 1 con template: template_noticias_1
+Rendering app_noticias/mostrar_formato_template
+Rendered app_noticias/_template_noticias_1 (4.0ms)
+Entro en if
+estoy al final de mostrar_formato_template.js.rjs
+Terminó el mostrar_formato_template
+Completed in 31ms (View: 17, DB: 2) | 200 OK [http://0.0.0.0/app_noticias/mostrar_formato_template]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 20:46:19) [GET]
+  Parameters: {"id"=>"1"}
+Rendering elementos/nuevo_elemento
+  [4;36;1mElemento Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mTipoElemento Load (0.4ms)[0m   [0mSELECT * FROM `tipo_elementos` [0m
+  [4;36;1mTipoElemento Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 46ms (View: 38, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 21:00:19) [POST]
+  Parameters: {"authenticity_token"=>"ML6t6t3LPLsi0BH/9W6Qnv0a8LuzFO9tRbevqCaVxmY="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mTipoContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;35;1mUser Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;35;1mProfile Load (0.1ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;36;1mContainer Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `containers`[0m
+  [4;35;1mContainer Load (0.1ms)[0m   [0mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+
+ActionView::TemplateError (can't convert Symbol into String) on line #11 of app/views/contenidos/_frm_admin_contenido.html.erb:
+8: 			<div class="divs_admin">
+9: 				<%= label_tag "Título / Descripción:" %>
+10: 				<br />
+11: 			    <%= fckeditor_text_field :descripcion, :size => 30 %>
+12: 				
+13: 			</div>
+14: 			<hr />
+
+    app/helpers/application_helper.rb:5:in `fckeditor_text_field'
+    app/views/contenidos/_frm_admin_contenido.html.erb:11
+    app/views/contenidos/_frm_admin_contenido.html.erb:3
+    app/views/app_noticias/new.html.erb:11
+
+Rendered rescues/_trace (169.3ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 21:02:21) [POST]
+  Parameters: {"authenticity_token"=>"ML6t6t3LPLsi0BH/9W6Qnv0a8LuzFO9tRbevqCaVxmY="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mTipoContenido Load (0.1ms)[0m   [0mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;35;1mContainer Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `containers`[0m
+  [4;36;1mContainer Load (0.1ms)[0m   [0;1mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` [0m
+  [4;36;1mApp Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mTipoContenido Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (41.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;35;1mAppProfile Load (0.3ms)[0m   [0mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;36;1mAppProfile Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `app_profiles`[0m
+  [4;35;1mApp Load (0.1ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (0.1ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (19.5ms)
+Completed in 127ms (View: 96, DB: 11) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 21:02:26) [GET]
+  Parameters: {"id"=>"1"}
+Rendering elementos/nuevo_elemento
+  [4;36;1mElemento Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mTipoElemento Load (0.2ms)[0m   [0mSELECT * FROM `tipo_elementos` [0m
+  [4;36;1mTipoElemento Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 35ms (View: 28, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#index (for 127.0.0.1 at 2010-11-23 21:02:51) [GET]
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT `contenidos`.* FROM `contenidos` left join contenido_profiles as cont_pro on contenidos.id = cont_pro.contenido_id WHERE ( cont_pro.contenido_id is null ) [0m
+Entre al controler del index, user: 
+********  Usuario cargado:  
+********  No hay usuario cargado en el sistema 
+Rendering template within layouts/principal_common
+Rendering app_noticias/index
+  [4;36;1mContenido Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `contenidos`[0m
+Buscando si el contenido id: 4 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (0.1ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 4) [0m
+****** EL CONTENIDO 4 se puede mostrar!!!
+  [4;36;1mContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 4) LIMIT 1[0m
+  [4;35;1mTipoContenido Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+  [4;36;1mTipoContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mElemento Load (0.3ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 4) [0m
+  [4;35;1mTipoElemento Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+  [4;36;1mTipoElemento Load (0.1ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.8ms)
+  [4;35;1mTipoElemento Load (0.2ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.9ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (4.2ms)
+Rendered app_noticias/_generar_contenido (61.8ms)
+Buscando si el contenido id: 7 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 7) [0m
+****** EL CONTENIDO 7 se puede mostrar!!!
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.1ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (9.1ms)
+Buscando si el contenido id: 10 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 10) [0m
+****** EL CONTENIDO 10 se puede mostrar!!!
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 10) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.1ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 10) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (7.9ms)
+Buscando si el contenido id: 15 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (0.2ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 15) [0m
+****** EL CONTENIDO 15 se puede mostrar!!!
+  [4;36;1mContenido Load (0.1ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 15) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.1ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 15) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (8.0ms)
+Buscando si el contenido id: 17 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 17) [0m
+****** EL CONTENIDO 17 se puede mostrar!!!
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 17) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.1ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 17) [0m
+Contenido de hash elementos renderizados 0
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (6.8ms)
+Buscando si el contenido id: 19 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 19) [0m
+****** EL CONTENIDO 19 se puede mostrar!!!
+  [4;35;1mContenido Load (0.1ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 19) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.1ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 19) [0m
+Contenido de hash elementos renderizados 0
+Rendered app_noticias/_template_noticias_1 (2.6ms)
+Rendered app_noticias/_generar_contenido (6.7ms)
+Buscando si el contenido id: 21 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 21) [0m
+****** EL CONTENIDO 21 se puede mostrar!!!
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 21) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.1ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 21) [0m
+Contenido de hash elementos renderizados 0
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (6.8ms)
+Rendered principal/_menu_usuario (2.7ms)
+Completed in 234ms (View: 133, DB: 11) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-11-23 21:02:54) [GET]
+********  Usuario cargado:  
+********  No hay usuario cargado en el sistema 
+Rendering template within layouts/principal_common
+Rendering admin/login
+Rendered principal/_menu_usuario (0.6ms)
+Completed in 28ms (View: 21, DB: 1) | 200 OK [http://0.0.0.0/admin/login]
+  [4;36;1mSQL (17.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (19.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-11-23 21:02:56) [POST]
+  Parameters: {"name"=>"usrvira", "commit"=>"Login", "authenticity_token"=>"fsGy3acTNMyf4WBVOdYyX0t3VLgopkL1eDyOrUn7O9E=", "password"=>"1"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`name` = 'usrvira') LIMIT 1[0m
+Se encontro el usuario: usrvira
+Como se encontró el usuario se crea la session
+Redirected to http://0.0.0.0:3000/app_noticias
+Completed in 20ms (DB: 39) | 302 Found [http://0.0.0.0/admin/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#index (for 127.0.0.1 at 2010-11-23 21:02:56) [GET]
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mContenido Load (0.2ms)[0m   [0;1mSELECT `contenidos`.* FROM `contenidos` as contenidos join contenido_profiles as cont_pro on cont_pro.contenido_id = contenidos.id WHERE (profile_id = 2) [0m
+Entre al controler del index, user: 2
+********  Usuario cargado:  
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.3ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;36;1mContainer Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `containers`[0m
+  [4;35;1mContainer Load (0.1ms)[0m   [0mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/index
+  [4;36;1mContenido Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `contenidos`[0m
+Buscando si el contenido id: 20 se puede mostrar al profile id:2
+  [4;35;1mContenidoProfile Load (0.2ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 20 and profile_id = 2)) [0m
+  [4;36;1mContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 20) LIMIT 1[0m
+  [4;35;1mTipoContenido Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+  [4;36;1mTipoContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mElemento Load (0.1ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 20) [0m
+  [4;35;1mTipoElemento Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+  [4;36;1mTipoElemento Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (3.0ms)
+Rendered app_noticias/_generar_contenido (48.2ms)
+Buscando si el contenido id: 1 se puede mostrar al profile id:2
+  [4;36;1mContenidoProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 1 and profile_id = 2)) [0m
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.2ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+  [4;35;1mTipoElemento Load (0.1ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (9.8ms)
+Buscando si el contenido id: 8 se puede mostrar al profile id:2
+  [4;36;1mContenidoProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 8 and profile_id = 2)) [0m
+  [4;35;1mContenido Load (0.1ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 8) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.2ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (8.3ms)
+Buscando si el contenido id: 9 se puede mostrar al profile id:2
+  [4;35;1mContenidoProfile Load (0.2ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 9 and profile_id = 2)) [0m
+  [4;36;1mContenido Load (0.1ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 9) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.3ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (2.7ms)
+Rendered app_noticias/_generar_contenido (9.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;36;1mAppProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;35;1mAppProfile Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `app_profiles`[0m
+  [4;36;1mApp Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mApp Load (0.1ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (29.3ms)
+Completed in 242ms (View: 131, DB: 17) | 200 OK [http://0.0.0.0/app_noticias]
+  [4;36;1mSQL (18.8ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 21:03:18) [POST]
+  Parameters: {"authenticity_token"=>"fsGy3acTNMyf4WBVOdYyX0t3VLgopkL1eDyOrUn7O9E="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.1ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mTipoContenido Load (0.2ms)[0m   [0mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;35;1mContainer Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `containers`[0m
+  [4;36;1mContainer Load (0.1ms)[0m   [0;1mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;35;1mApp Load (0.1ms)[0m   [0mSELECT * FROM `apps` [0m
+  [4;36;1mApp Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mTipoContenido Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (37.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;35;1mAppProfile Load (0.1ms)[0m   [0mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;36;1mAppProfile Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `app_profiles`[0m
+  [4;35;1mApp Load (0.1ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.3ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (21.1ms)
+Completed in 197ms (View: 91, DB: 31) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 21:03:31) [GET]
+  Parameters: {"id"=>"1"}
+Rendering elementos/nuevo_elemento
+  [4;36;1mElemento Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mTipoElemento Load (0.2ms)[0m   [0mSELECT * FROM `tipo_elementos` [0m
+  [4;36;1mTipoElemento Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 28ms (View: 21, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 21:05:00) [GET]
+  Parameters: {"id"=>"2"}
+Rendering elementos/nuevo_elemento
+  [4;35;1mElemento Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mTipoElemento Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_elementos` [0m
+  [4;35;1mTipoElemento Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 31ms (View: 23, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/2]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 21:16:53) [GET]
+  Parameters: {"id"=>"3"}
+Rendering elementos/nuevo_elemento
+  [4;36;1mElemento Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mTipoElemento Load (0.2ms)[0m   [0mSELECT * FROM `tipo_elementos` [0m
+  [4;36;1mTipoElemento Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 28ms (View: 21, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/3]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 21:17:02) [POST]
+  Parameters: {"authenticity_token"=>"fsGy3acTNMyf4WBVOdYyX0t3VLgopkL1eDyOrUn7O9E="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Load (0.1ms)[0m   [0mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mTipoContenido Load (0.7ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;36;1mContainer Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `containers`[0m
+  [4;35;1mContainer Load (0.1ms)[0m   [0mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` [0m
+  [4;35;1mApp Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `apps`[0m
+  [4;36;1mTipoContenido Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (36.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;36;1mAppProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;35;1mAppProfile Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `app_profiles`[0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;35;1mFuncApp Load (0.3ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;36;1mFuncApp Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `func_apps`[0m
+  [4;35;1mApp Load (0.4ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;36;1mFuncApp Load (0.3ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (21.7ms)
+Completed in 128ms (View: 89, DB: 16) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 21:17:07) [GET]
+  Parameters: {"id"=>"1"}
+Rendering elementos/nuevo_elemento
+  [4;35;1mElemento Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mTipoElemento Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_elementos` [0m
+  [4;35;1mTipoElemento Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 28ms (View: 21, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#index (for 127.0.0.1 at 2010-11-23 22:28:49) [GET]
+  [4;36;1mContenido Load (9.2ms)[0m   [0;1mSELECT `contenidos`.* FROM `contenidos` left join contenido_profiles as cont_pro on contenidos.id = cont_pro.contenido_id WHERE ( cont_pro.contenido_id is null ) [0m
+Entre al controler del index, user: 
+********  Usuario cargado:  
+********  No hay usuario cargado en el sistema 
+Rendering template within layouts/principal_common
+Rendering app_noticias/index
+  [4;35;1mContenido Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `contenidos`[0m
+Buscando si el contenido id: 4 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.9ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 4) [0m
+****** EL CONTENIDO 4 se puede mostrar!!!
+  [4;35;1mContenido Load (1.0ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 4) LIMIT 1[0m
+  [4;36;1mTipoContenido Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `tipo_contenidos`[0m
+  [4;35;1mTipoContenido Load (1.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mElemento Load (0.7ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 4) [0m
+  [4;36;1mTipoElemento Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+  [4;35;1mTipoElemento Load (0.4ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.9ms)
+  [4;36;1mTipoElemento Load (0.4ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (1.0ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (7.8ms)
+Rendered app_noticias/_generar_contenido (156.7ms)
+Buscando si el contenido id: 7 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (0.4ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 7) [0m
+****** EL CONTENIDO 7 se puede mostrar!!!
+  [4;36;1mContenido Load (0.5ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (3.1ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (3.0ms)
+Rendered app_noticias/_generar_contenido (78.5ms)
+Buscando si el contenido id: 10 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (0.4ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 10) [0m
+****** EL CONTENIDO 10 se puede mostrar!!!
+  [4;36;1mContenido Load (0.4ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 10) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.4ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 10) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (3.0ms)
+Rendered app_noticias/_generar_contenido (9.4ms)
+Buscando si el contenido id: 15 se puede mostrar al profile id:
+  [4;36;1mContenidoProfile Load (0.3ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 15) [0m
+****** EL CONTENIDO 15 se puede mostrar!!!
+  [4;35;1mContenido Load (0.5ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 15) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.5ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 15) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (2.9ms)
+Rendered app_noticias/_generar_contenido (9.5ms)
+Buscando si el contenido id: 17 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (0.4ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 17) [0m
+****** EL CONTENIDO 17 se puede mostrar!!!
+  [4;36;1mContenido Load (0.5ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 17) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.5ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 17) [0m
+Contenido de hash elementos renderizados 0
+Rendered app_noticias/_template_noticias_1 (2.9ms)
+Rendered app_noticias/_generar_contenido (8.2ms)
+Buscando si el contenido id: 19 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (2.3ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 19) [0m
+****** EL CONTENIDO 19 se puede mostrar!!!
+  [4;36;1mContenido Load (0.4ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 19) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.5ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 19) [0m
+Contenido de hash elementos renderizados 0
+Rendered app_noticias/_template_noticias_1 (2.9ms)
+Rendered app_noticias/_generar_contenido (10.1ms)
+Buscando si el contenido id: 21 se puede mostrar al profile id:
+  [4;35;1mContenidoProfile Load (0.4ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE (contenido_id = 21) [0m
+****** EL CONTENIDO 21 se puede mostrar!!!
+  [4;36;1mContenido Load (0.4ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 21) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.5ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 21) [0m
+Contenido de hash elementos renderizados 0
+Rendered app_noticias/_template_noticias_1 (2.9ms)
+Rendered app_noticias/_generar_contenido (8.2ms)
+Rendered principal/_menu_usuario (7.5ms)
+Completed in 566ms (View: 393, DB: 58) | 200 OK [http://0.0.0.0/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-11-23 22:28:57) [GET]
+********  Usuario cargado:  
+********  No hay usuario cargado en el sistema 
+Rendering template within layouts/principal_common
+Rendering admin/login
+Rendered principal/_menu_usuario (0.6ms)
+Completed in 27ms (View: 20, DB: 1) | 200 OK [http://0.0.0.0/admin/login]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-11-23 22:29:05) [POST]
+  Parameters: {"name"=>"usrvira", "commit"=>"Login", "authenticity_token"=>"t40WvPnEp/DqXIf/x68BUN8yTokmI1xNfA+h3DFpuwo=", "password"=>"1"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`name` = 'usrvira') LIMIT 1[0m
+Se encontro el usuario: usrvira
+Como se encontró el usuario se crea la session
+Redirected to http://0.0.0.0:3000/app_noticias
+Completed in 82ms (DB: 3) | 302 Found [http://0.0.0.0/admin/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#index (for 127.0.0.1 at 2010-11-23 22:29:05) [GET]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mContenido Load (0.6ms)[0m   [0mSELECT `contenidos`.* FROM `contenidos` as contenidos join contenido_profiles as cont_pro on cont_pro.contenido_id = contenidos.id WHERE (profile_id = 2) [0m
+Entre al controler del index, user: 2
+********  Usuario cargado:  
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;35;1mProfile Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (2.6ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;35;1mContainer Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `containers`[0m
+  [4;36;1mContainer Load (0.6ms)[0m   [0;1mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/index
+  [4;35;1mContenido Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `contenidos`[0m
+Buscando si el contenido id: 20 se puede mostrar al profile id:2
+  [4;36;1mContenidoProfile Load (1.1ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 20 and profile_id = 2)) [0m
+  [4;35;1mContenido Load (0.5ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 20) LIMIT 1[0m
+  [4;36;1mTipoContenido Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `tipo_contenidos`[0m
+  [4;35;1mTipoContenido Load (0.2ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mElemento Load (0.6ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 20) [0m
+  [4;36;1mTipoElemento Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+  [4;35;1mTipoElemento Load (0.1ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (3.3ms)
+Rendered app_noticias/_generar_contenido (53.7ms)
+Buscando si el contenido id: 1 se puede mostrar al profile id:2
+  [4;35;1mContenidoProfile Load (0.4ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 1 and profile_id = 2)) [0m
+  [4;36;1mContenido Load (0.3ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.4ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+  [4;36;1mTipoElemento Load (0.1ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (3.1ms)
+Rendered app_noticias/_generar_contenido (11.4ms)
+Buscando si el contenido id: 8 se puede mostrar al profile id:2
+  [4;35;1mContenidoProfile Load (0.4ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 8 and profile_id = 2)) [0m
+  [4;36;1mContenido Load (0.5ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 8) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (1.2ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (3.1ms)
+Rendered app_noticias/_generar_contenido (10.9ms)
+Buscando si el contenido id: 9 se puede mostrar al profile id:2
+  [4;36;1mContenidoProfile Load (0.5ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 9 and profile_id = 2)) [0m
+  [4;35;1mContenido Load (0.5ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 9) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.7ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 9) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (3.1ms)
+Rendered app_noticias/_generar_contenido (80.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;35;1mAppProfile Load (0.6ms)[0m   [0mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;36;1mAppProfile Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `app_profiles`[0m
+  [4;35;1mApp Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `apps`[0m
+  [4;36;1mApp Load (0.7ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;35;1mFuncApp Load (0.4ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;36;1mFuncApp Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `func_apps`[0m
+  [4;35;1mApp Load (0.5ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;36;1mFuncApp Load (0.4ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;35;1mApp Load (0.4ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;36;1mFuncApp Load (0.4ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (38.2ms)
+Completed in 292ms (View: 236, DB: 28) | 200 OK [http://0.0.0.0/app_noticias]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 22:29:10) [POST]
+  Parameters: {"authenticity_token"=>"t40WvPnEp/DqXIf/x68BUN8yTokmI1xNfA+h3DFpuwo="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.4ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Load (0.4ms)[0m   [0mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mTipoContenido Load (0.4ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;36;1mContainer Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `containers`[0m
+  [4;35;1mContainer Load (0.2ms)[0m   [0mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;36;1mApp Load (0.4ms)[0m   [0;1mSELECT * FROM `apps` [0m
+  [4;35;1mApp Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `apps`[0m
+  [4;36;1mTipoContenido Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (44.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;36;1mAppProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;35;1mAppProfile Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `app_profiles`[0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;36;1mFuncApp Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `func_apps`[0m
+  [4;35;1mApp Load (3.0ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;35;1mApp Load (2.0ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (115.6ms)
+Completed in 238ms (View: 200, DB: 18) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 22:29:17) [GET]
+  Parameters: {"id"=>"1"}
+Rendering elementos/nuevo_elemento
+  [4;35;1mElemento Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mTipoElemento Load (0.7ms)[0m   [0;1mSELECT * FROM `tipo_elementos` [0m
+  [4;35;1mTipoElemento Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 40ms (View: 32, DB: 3) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/1]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 22:57:00) [GET]
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mTipoContenido Load (0.2ms)[0m   [0mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Load (1.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;35;1mContainer Columns (4.2ms)[0m   [0mSHOW FIELDS FROM `containers`[0m
+  [4;36;1mContainer Load (0.2ms)[0m   [0;1mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` [0m
+  [4;36;1mApp Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mTipoContenido Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (38.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;35;1mAppProfile Load (0.1ms)[0m   [0mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;36;1mAppProfile Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `app_profiles`[0m
+  [4;35;1mApp Load (0.1ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (1.1ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (20.9ms)
+Completed in 135ms (View: 92, DB: 19) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-23 22:57:38) [GET]
+
+ActionController::RoutingError (No route matches "/javascrips/fckeditor/editor/fckeditor.html" with {:method=>:get}):
+  server:3
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-23 23:13:10) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/fckeditor/_samples/html" with {:method=>:get}):
+  server:3
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#index (for 127.0.0.1 at 2010-11-23 23:22:53) [GET]
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mContenido Load (0.1ms)[0m   [0;1mSELECT `contenidos`.* FROM `contenidos` as contenidos join contenido_profiles as cont_pro on cont_pro.contenido_id = contenidos.id WHERE (profile_id = 2) [0m
+Entre al controler del index, user: 2
+********  Usuario cargado:  
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.1ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;36;1mContainer Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `containers`[0m
+  [4;35;1mContainer Load (0.1ms)[0m   [0mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/index
+  [4;36;1mContenido Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `contenidos`[0m
+Buscando si el contenido id: 20 se puede mostrar al profile id:2
+  [4;35;1mContenidoProfile Load (0.1ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 20 and profile_id = 2)) [0m
+  [4;36;1mContenido Load (0.1ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 20) LIMIT 1[0m
+  [4;35;1mTipoContenido Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+  [4;36;1mTipoContenido Load (0.1ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mElemento Load (0.1ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 20) [0m
+  [4;35;1mTipoElemento Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+  [4;36;1mTipoElemento Load (12.6ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (3.2ms)
+Rendered app_noticias/_generar_contenido (112.7ms)
+Buscando si el contenido id: 1 se puede mostrar al profile id:2
+  [4;36;1mContenidoProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 1 and profile_id = 2)) [0m
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.2ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+  [4;35;1mTipoElemento Load (0.2ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (2.9ms)
+Rendered app_noticias/_generar_contenido (10.8ms)
+Buscando si el contenido id: 8 se puede mostrar al profile id:2
+  [4;36;1mContenidoProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 8 and profile_id = 2)) [0m
+  [4;35;1mContenido Load (0.2ms)[0m   [0mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 8) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;35;1mElemento Load (0.2ms)[0m   [0mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 1
+Rendered app_noticias/_template_noticias_1 (3.0ms)
+Rendered app_noticias/_generar_contenido (9.0ms)
+Buscando si el contenido id: 9 se puede mostrar al profile id:2
+  [4;35;1mContenidoProfile Load (0.1ms)[0m   [0mSELECT * FROM `contenido_profiles` WHERE ((contenido_id = 9 and profile_id = 2)) [0m
+  [4;36;1mContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `contenidos` WHERE (`contenidos`.`id` = 9) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_contenidos` WHERE (`tipo_contenidos`.`id` = 1) [0m
+  [4;36;1mElemento Load (0.2ms)[0m   [0;1mSELECT * FROM `elementos` WHERE (`elementos`.`contenido_id` = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 2) [0m
+Rendered app_noticias/_render_imagen (0.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tipo_elementos` WHERE (`tipo_elementos`.`id` = 1) [0m
+Rendered app_noticias/_render_texto (0.2ms)
+Contenido de hash elementos renderizados 2
+Rendered app_noticias/_template_noticias_1 (2.9ms)
+Rendered app_noticias/_generar_contenido (9.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;36;1mAppProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;35;1mAppProfile Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `app_profiles`[0m
+  [4;36;1mApp Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mApp Load (0.1ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (30.3ms)
+Completed in 240ms (View: 185, DB: 30) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 23:22:58) [POST]
+  Parameters: {"authenticity_token"=>"fsGy3acTNMyf4WBVOdYyX0t3VLgopkL1eDyOrUn7O9E="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mTipoContenido Load (0.1ms)[0m   [0mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;35;1mContainer Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `containers`[0m
+  [4;36;1mContainer Load (0.2ms)[0m   [0;1mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` [0m
+  [4;36;1mApp Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `apps`[0m
+  [4;35;1mTipoContenido Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (39.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;35;1mAppProfile Load (0.2ms)[0m   [0mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;36;1mAppProfile Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `app_profiles`[0m
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;35;1mFuncApp Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `func_apps`[0m
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;36;1mApp Load (0.1ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;35;1mFuncApp Load (0.1ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (105.1ms)
+Completed in 210ms (View: 176, DB: 13) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;36;1mSQL (15.7ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 23:23:33) [GET]
+  Parameters: {"id"=>"1"}
+Rendering elementos/nuevo_elemento
+  [4;36;1mElemento Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `elementos`[0m
+  [4;35;1mTipoElemento Load (0.3ms)[0m   [0mSELECT * FROM `tipo_elementos` [0m
+  [4;36;1mTipoElemento Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 29ms (View: 23, DB: 18) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/1]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing AppNoticiasController#new (for 127.0.0.1 at 2010-11-23 23:58:44) [POST]
+  Parameters: {"authenticity_token"=>"fsGy3acTNMyf4WBVOdYyX0t3VLgopkL1eDyOrUn7O9E="}
++-+-+-+-+-+-+- Entrando a obtener_profiles_entidad_actual profile: 2+-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mProfile Load (0.4ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) [0m
++-+-+-+-+-+-+- Buscando profiles para la entidad: 1 +-+-+-+-+-+-+-+-+-
+  [4;35;1mProfile Load (0.6ms)[0m   [0mSELECT * FROM `profiles` WHERE (entity_id = 1) [0m
++-+-+-+-+-+-+- Se encontraron 3 profiles para la entidad 1 +-+-+-+-+-+-+-+-+-
+  [4;36;1mTipoContenido Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_contenidos` [0m
+********  Usuario cargado:  
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+********  Id profile: usrvira
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.`id` = 2) LIMIT 1[0m
+********  Perfil del usuario cargado con perfil: 
+  [4;36;1mContainer Columns (4.8ms)[0m   [0;1mSHOW FIELDS FROM `containers`[0m
+  [4;35;1mContainer Load (0.2ms)[0m   [0mSELECT * FROM `containers` WHERE (`containers`.`id` = 1) [0m
+El template asignado para el perfil es: principal_coop_virazon
+Rendering template within layouts/principal_coop_virazon
+Rendering app_noticias/new
+  [4;36;1mApp Load (0.2ms)[0m   [0;1mSELECT * FROM `apps` [0m
+  [4;35;1mApp Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `apps`[0m
+  [4;36;1mTipoContenido Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `tipo_contenidos`[0m
+Rendered contenidos/_frm_admin_contenido (40.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Con la condicion: profile_id = 2
+  [4;36;1mAppProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `app_profiles` WHERE (profile_id = 2) [0m
+  [4;35;1mAppProfile Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `app_profiles`[0m
+  [4;36;1mApp Load (0.7ms)[0m   [0;1mSELECT * FROM `apps` WHERE (`apps`.`id` = 1) [0m
+  [4;35;1mFuncApp Load (0.2ms)[0m   [0mSELECT * FROM `func_apps` WHERE (app_id = 1) [0m
+  [4;36;1mFuncApp Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `func_apps`[0m
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 2) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 2) [0m
+  [4;35;1mApp Load (0.2ms)[0m   [0mSELECT * FROM `apps` WHERE (`apps`.`id` = 4) [0m
+  [4;36;1mFuncApp Load (0.2ms)[0m   [0;1mSELECT * FROM `func_apps` WHERE (app_id = 4) [0m
+Rendered principal/_menu_usuario (23.1ms)
+Completed in 229ms (View: 179, DB: 21) | 200 OK [http://0.0.0.0/app_noticias/new]
+  [4;35;1mSQL (1.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options.. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:18)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from /home/mauricio/ws_Rails/syscope/app/controllers/application_controller.rb:21)
+
+
+Processing ElementosController#nuevo_elemento (for 127.0.0.1 at 2010-11-23 23:58:47) [GET]
+  Parameters: {"id"=>"2"}
+Rendering elementos/nuevo_elemento
+  [4;35;1mElemento Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `elementos`[0m
+  [4;36;1mTipoElemento Load (0.2ms)[0m   [0;1mSELECT * FROM `tipo_elementos` [0m
+  [4;35;1mTipoElemento Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tipo_elementos`[0m
+Completed in 42ms (View: 35, DB: 4) | 200 OK [http://0.0.0.0/elementos/nuevo_elemento/2]

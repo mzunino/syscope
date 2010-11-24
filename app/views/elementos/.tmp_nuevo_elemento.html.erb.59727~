@@ -9,8 +9,7 @@
 			<p>
 			    <%= subfield.label :valor %>
 			    <br/>
-			    <%#= subfield.text_field :valor %>
-				<%= fckeditor_text_field 'elemento', 'valor' %>
+			    <%= subfield.text_field :valor %>
 			</p>
 			<p>
 			    <%= subfield.label :tipo_id, 'Tipo de Elemento:' %>
@@ -24,5 +23,5 @@
 <% end %>				
 				  					  
 </div>
-<a link="javascript:;" onClick="Toggle('elemento_valor');agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
+<a link="javascript:;" onClick="agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
 
