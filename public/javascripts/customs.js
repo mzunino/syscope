@@ -253,7 +253,7 @@ function obtenerOrdinalNuevosRegistros(){
 }
 
 
-function mostrarModalNuevoRegistro(url){
+function mostrarModalNuevoRegistro(url, contenido_id, elemento_id){
 
 	var http = createAjax();
 	var params = "";
@@ -263,8 +263,13 @@ function mostrarModalNuevoRegistro(url){
     var num = (document.getElementById("elementsCount").value - 1) + 2;
     numi.value = num;
 		
-	var urlCompleta = url + numi.value;
-
+	var urlCompleta = url + contenido_id;
+	
+	if(elemento_id != null){
+		urlCompleta += "?elemento_id=" + elemento_id;
+	}
+	
+	alert(urlCompleta);
 
 	http.open("GET", urlCompleta, true);
 

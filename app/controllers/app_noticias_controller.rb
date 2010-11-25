@@ -99,13 +99,22 @@ class AppNoticiasController < ApplicationController
   end
   
  
+  def prueba_call_remote
+   
+    render :text=>"FECHA: #{DateTime.now.strftime(fmt='%d/%m/%Y %H:%M:%S')}"
+   
+  end
+ 
+ 
     # GET /app_noticias/save
   def save_contenido
     
     uri = session[:original_uri]
     
     logger.debug("La uri original es: #{uri}")
-   
+    
+    version_terminada = params[:version_terminada]
+    
     Contenido.transaction do
       
       contenido_id = params[:contenido][:id]
@@ -126,13 +135,24 @@ class AppNoticiasController < ApplicationController
             if @contenido.update_attributes(params[:contenido])
               flash[:notice] = 'El contenido se actualizo correctamente'
             else
-              flash[:notice] = 'Ocurrió un error al actualizar el contenido: ' + @contenido.errors
+              logger.error("Errores: + #{@contenido.errors.size}" )
+              str_errores = ""
+              for error in @contenido.errors
+                logger.error("Error: " + error[1])
+                str_errores += error[1] + "<br>"
+              end
+              flash[:notice] = 'Ocurrió un error al actualizar el contenido: ' + str_errores 
+              raise ActiveRecord::RecordInvalid.new(@contenido)
             end
         
       else
         
             @contenido = Contenido.new(params[:contenido])
             
+                        if !version_terminada.nil?
+                            @contenido.fecha_creado = Date::today()
+                            @contenido.creador = session[:user_id]
+                        end
             # Salvando nuevo contenido
             @contenido.save!
             
@@ -146,15 +166,17 @@ class AppNoticiasController < ApplicationController
 #       asociarContenidoAPerfiles()
 
        # Si no hubieron errores vuelvo a la pantalla inicial
-      redirect_to :controller => :app_noticias, :action => "index"
-      
+        respond_to do |format|
+          format.html { redirect_to :controller => :app_noticias, :action => "index" }
+          format.js  { render :text=>"Registro guardado: FECHA: #{DateTime.now.strftime(fmt='%d/%m/%Y %H:%M:%S')}" }
+        end
     end
     
   rescue ActiveRecord::RecordInvalid => e
     # force checking of errors even if products failed
     
     flash[:notice] = "Error al dar de alta: " + e
-    redirect_to :controller => :app_noticias, :action => "edit"
+    redirect_to :controller => :app_noticias, :action => :edit
     
   end
   

@@ -13,7 +13,24 @@ class ElementosController < ApplicationController
 
   def nuevo_elemento
     
-    @id_elemento_actual = params[:id]
+    contenido_id = params[:id]
+    elemento_id = params[:elemento_id]
+    
+    logger.debug("contenido_id: #{contenido_id}")
+    logger.debug("elemento_id: #{elemento_id}")
+  
+    if elemento_id.nil?
+  
+      # Si no quiere editar un elemento existente, entonces 
+      # creo uno para empezar a editar
+      @elemento = Elemento.new()
+      @elemento.contenido_id = contenido_id
+      @elemento.tipo_id = TipoElemento.find(:last);
+      @elemento.save!
+  
+    else
+      @elemento = Elemento.find(elemento_id)
+    end 
     
     # muestra una noticia determinada
     render(:layout => false)

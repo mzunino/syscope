@@ -1,17 +1,7 @@
 
-<%
-
-logger.debug("contenido: #{@contenido}")
-	if @elemento.nil?
-		@elemento = Elemento.new()
-		@elemento.contenido_id = @contenido.id
-	end	
-	
-%>
-
 <h1>Nuevo elemento:</h1>
 
-<% form_for(@elemento) do |f| %>
+<% form_for @elemento, :url => { :controller => "elementos", :action => :save } do |f| %>
   <%= f.error_messages %>
 
   <p>
