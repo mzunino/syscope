@@ -1,3 +1,40 @@
+
+<%
+
+logger.debug("contenido: #{@contenido}")
+	if @elemento.nil?
+		@elemento = Elemento.new()
+		@elemento.contenido_id = @contenido.id
+	end	
+	
+%>
+
+<h1>Nuevo elemento:</h1>
+
+<% form_for(@elemento) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+
+  <p>
+    <%= f.label :tipo_id, 'Tipo de Elemento:' %>
+    <%= f.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+  </p>
+
+  <p>
+    <%= f.label :ubicacion %><br />
+    <%= f.text_field :ubicacion %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+
+<!--
 <div id="div_nuevo_modal">
 
 <%
@@ -27,4 +64,6 @@
 	  					  
 </div>
 <a link="javascript:;" onClick="mostrarValor();agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
+-->
+
 
