@@ -13,7 +13,7 @@ module ContenidosHelper
   # Recibe: elementos
   # Devuelve: @hash_elementos_renderizados
   def H_contenido_cargar_elementos_renderizados( elementos)
-    
+    logger.debug("Entró a H_contenido_cargar_elementos")
     # Hash que contiene la lista de elementos dispobibles para mostrar en el template
     @hash_elementos_renderizados = {}
     for @elemento in elementos 
@@ -33,6 +33,7 @@ module ContenidosHelper
       # en las posiciones estipuladas mas abajo en el código Html
       @hash_elementos_renderizados[@elemento.ubicacion] << render(:partial => render_elemento , :object => @elemento)
       
+
     end 
     
   end 

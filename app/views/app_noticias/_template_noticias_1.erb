@@ -41,14 +41,19 @@
 		        </div>
 		        <hr />
 		<% end %>
+		
+		
 
         <div id="div_template_1">
 
         		<% if ( !es_modalidad_muestra ) %> 
             			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
 	
-				<% else%>
-						Elem. #1
+				<% else %>
+						<div id="contenido_elemento_1">
+							<%= H_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
+						</div>
+						
 				<% end %>
 
         </div>
@@ -57,7 +62,11 @@
             	<% if ( !es_modalidad_muestra ) %> 
             			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
 				<% else %>
-						Elem. #2
+						<div id="contenido_elemento_2">
+							<%= H_mostrar_elemento_edicion(@elementos, @contenido.id, 2) %>
+							
+						</div>
+						
 				<% end %>
 
         </div>

@@ -13,8 +13,8 @@ class ElementosController < ApplicationController
 
   def nuevo_elemento
     
-    contenido_id = params[:id]
-    elemento_id = params[:elemento_id]
+    elemento_id = params[:id]
+    contenido_id = params[:contenido_id]
     
     logger.debug("contenido_id: #{contenido_id}")
     logger.debug("elemento_id: #{elemento_id}")
@@ -110,4 +110,24 @@ class ElementosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+
+  # PUT /elementos/1
+  # PUT /elementos/1.xml
+  def save_elemento
+    @elemento = Elemento.find(params[:id])
+
+    respond_to do |format|
+      if @elemento.update_attributes(params[:elemento])
+        flash[:notice] = 'Elemento was successfully updated.'
+        format.js 
+      else
+        #TODO pendiente redireccionar a donde corresponda
+        format.html { render :action => "nuevo_elemento" }
+        format.xml  { render :xml => @elemento.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
 end

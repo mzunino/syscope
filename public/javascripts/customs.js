@@ -60,7 +60,7 @@ function mostrarModal(url){
 function mostrarContenido(contenido){
 
 	
-
+	
 	var contenidoHTML = '<div><button class="btn_cerrar_modal" onclick=\"closeModal()\">X</button></div>' + contenido;
 
         var ancho = 600;
@@ -253,27 +253,28 @@ function obtenerOrdinalNuevosRegistros(){
 }
 
 
-function mostrarModalNuevoRegistro(url, contenido_id, elemento_id){
+function mostrarModalNuevoRegistro(url, elemento_id, contenido_id){
 
 	var http = createAjax();
 	var params = "";
 	var cont = "";
 	
- 	var numi = document.getElementById('elementsCount');
-    var num = (document.getElementById("elementsCount").value - 1) + 2;
-    numi.value = num;
-		
-	var urlCompleta = url + contenido_id;
+// 	var numi = document.getElementById('elementsCount');
+//    var num = (document.getElementById("elementsCount").value - 1) + 2;
 	
-	if(elemento_id != null){
-		urlCompleta += "?elemento_id=" + elemento_id;
-	}
+//    numi.value = num;
+
+	// Adjunto el id de elemento para editar
+	var urlCompleta = url + elemento_id;
 	
-	alert(urlCompleta);
+	// Adjunto el id de contenido para editar
+	urlCompleta += "?contenido_id=" + contenido_id;
+	
 
 	http.open("GET", urlCompleta, true);
-
+	
 	http.onreadystatechange = function() {//Call a function when the state changes.
+
 		
 		if(http.readyState == 4 && http.status == 200) {
 			mostrarContenido( http.responseText );

@@ -2,14 +2,9 @@
 begin
   if !@tipo_template.template.nil? && !@tipo_template.template.empty?
           page.replace_html 'template_seleccionado', render(:partial => @tipo_template.template)
-          logger.debug("Entro en if")
   else
-          logger.debug("Entro en else")
           page.replace_html 'template_seleccionado', "No se pudo cargar el template"
   end
 rescue Exception => err
           page.replace_html 'template_seleccionado', "No se pudo cargar el template"
-          logger.debug("Entro en exception #{err}")
 end
-
-logger.debug("estoy al final de mostrar_formato_template.js.rjs")

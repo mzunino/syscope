@@ -1,8 +1,12 @@
 
 <h1>Nuevo elemento:</h1>
 
-<% form_for @elemento, :url => { :controller => "elementos", :action => :save } do |f| %>
+<% form_remote_for @elemento, :url => { :controller => "elementos", :action => :update } do |f| %>
   <%= f.error_messages %>
+
+  <p>
+    <%= f.hidden_field :id %>
+  </p>
 
   <p>
     <%= f.label :valor %><br />
@@ -19,7 +23,7 @@
     <%= f.text_field :ubicacion %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Salvar' %>
   </p>
 <% end %>
 

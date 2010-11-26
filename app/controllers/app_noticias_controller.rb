@@ -188,6 +188,11 @@ class AppNoticiasController < ApplicationController
         # obtengo el tipo de template a partir del id pasado
         @tipo_template = TipoContenido.find(params[:id])
         
+        @contenido = Contenido.find(params[:contenido_id])
+        
+        @elementos = Elemento.find(:all, :conditions => "contenido_id = #{params[:contenido_id]}")
+        
+       
         logger.debug("Se encontro el tipo template: #{@tipo_template.id} con template: #{@tipo_template.template}")
     rescue ActiveRecord::RecordNotFound => err
         logger.debug("Error al buscar el template id : #{params[:id]}")
