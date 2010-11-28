@@ -1,27 +1,23 @@
 
 <h1>Nuevo elemento:</h1>
 
-<% form_remote_for @elemento, :url => { :controller => "elementos", :action => :update } do |f| %>
+<%# form_remote_tag :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
+
+<% form_remote_for @elemento, :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.hidden_field :id %>
-  </p>
-
-  <p>
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </p>
 
   <p>
     <%= f.label :tipo_id, 'Tipo de Elemento:' %>
     <%= f.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
   </p>
 
+    <%= f.hidden_field :ubicacion %>
+	
   <p>
-    <%= f.label :ubicacion %><br />
-    <%= f.text_field :ubicacion %>
+    <%= f.label :valor %><br />
+    <%= fckeditor_textarea(:elemento, :valor, :toolbarSet => "Basic2", :width => "100%", :height => "300px") %>
   </p>
+
   <p>
     <%= f.submit 'Salvar' %>
   </p>

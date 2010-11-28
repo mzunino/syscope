@@ -1,0 +1,10 @@
+#page.replace_html("contenedor_template_seleccionado" , :url => {:action => 'mostrar_formato_template'} ,'")
+
+
+#:controller => "app_noticias", :action => "mostrar_formato_template", :id => @elemento.id, :contenido_id => @contenido.id )
+#ht =  render(:controller => "app_noticias", :partial => "app_noticias/mostrar_formato_template", :id => @elemento.id, :contenido_id => @contenido.id) 
+#logger.debug( "Html: #{ht}" )
+#page.replace_html("contenedor_template_seleccionado" , ht)
+
+page << "alert('¡Elemento actualizado!');"
+page << "closeModal();"

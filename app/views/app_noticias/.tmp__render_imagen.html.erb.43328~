@@ -1,0 +1,5 @@
+<a href="<%=@elemento.valor%>" class="thickbox">
+     <img src="<%=@elemento.valor%>" />
+
+</a>
+

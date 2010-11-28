@@ -1,0 +1,15 @@
+
+<%# form_for :contenido, :url => { :controller => "app_noticias", :action => :save } do |@form| %>
+
+
+		<% 
+				# Incluyo el formulario para la creación y mantenimiento de contenidos de tipo noticias
+					
+		%>
+		<h3>Nueva noticia</h3>
+				
+		<%= render(:partial => "contenidos/frm_admin_contenido")%>
+		
+		<%#= submit_tag "Salvar" %>
+
+<%# end %>

@@ -81,22 +81,24 @@ class ElementosController < ApplicationController
       end
     end
   end
-
-  # PUT /elementos/1
-  # PUT /elementos/1.xml
-  def update
+  
+  
+  # PUT /elementos/salvar_elemento
+  def salvar_elemento
     @elemento = Elemento.find(params[:id])
 
-    respond_to do |format|
-      if @elemento.update_attributes(params[:elemento])
-        flash[:notice] = 'Elemento was successfully updated.'
-        format.html { redirect_to(@elemento) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @elemento.errors, :status => :unprocessable_entity }
-      end
+    
+    if @elemento.update_attributes(params[:elemento])
+
+      @contenido = Contenido.find(@elemento.contenido_id)
+      
+      @tipo_template = TipoContenido.find(@contenido.tipo_id)
+      
     end
+    
+     
+    respond_to { |format| format.js }
+  
   end
 
   # DELETE /elementos/1
@@ -110,24 +112,22 @@ class ElementosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 
-
-
-  # PUT /elementos/1
-  # PUT /elementos/1.xml
-  def save_elemento
+  def salvar
     @elemento = Elemento.find(params[:id])
 
     respond_to do |format|
       if @elemento.update_attributes(params[:elemento])
         flash[:notice] = 'Elemento was successfully updated.'
-        format.js 
+        format.html { redirect_to(@elemento) }
+        format.xml  { head :ok }
       else
-        #TODO pendiente redireccionar a donde corresponda
-        format.html { render :action => "nuevo_elemento" }
+        format.html { render :action => "edit" }
         format.xml  { render :xml => @elemento.errors, :status => :unprocessable_entity }
       end
     end
   end
+  
 
 end

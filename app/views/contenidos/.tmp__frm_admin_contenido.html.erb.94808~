@@ -1,0 +1,168 @@
+	
+<div id="div_mensajes">
+</div>
+
+<div class="divs_admin" id="admin_contenidos">
+	<% form_for @contenido, :url => { :controller => "app_noticias", :action => :save_contenido, :version_terminada => "true" } do |f| %>
+
+
+	<%
+		if @contenido.estado == Contenido::ESTADO_TMP
+			logger.debug("Se esta levantando el call remote") 
+	%>
+			<%#=periodically_call_remote(:url => { :controller => "app_noticias", :action => :save_contenido, "descripcion" => @contenido.descripcion }, :update => 'div_mensajes', :frequency => '5')%>
+	<%	
+		end
+	%>
+		
+		<fieldset>
+		    <legend>Información del contenido:</legend>
+				<%= f.text_field :id %>
+				<div class="divs_admin">
+					<%= label_tag "Título / Descripción:" %>
+					<br />
+				    <%= f.text_field :descripcion, :size => 30 %>
+				</div>
+				<hr />
+				<div class="divs_admin">
+					<%= label_tag "Fecha del contenido:" %>
+					<br />
+					<% 
+						 
+						hoy = Date::today()
+	
+						Date::DATE_FORMATS[:formato] = '%d/%m/%Y'
+	
+						s_hoy = hoy.to_s :formato
+		
+					%>
+				    <%= f.text_field :fecha, :size => 15, :class => "date-pick", :value => s_hoy %>
+	
+				</div>
+				<div class="divs_admin">
+					<%= label_tag "Fecha inicio emisión:" %>
+					<br />
+				    <%= f.text_field :fecha_inicio, :size => 14, :class => "date-pick" %>
+				</div>
+				<div class="divs_admin">
+					<%= label_tag "Fecha fin de emisión:" %>
+					<br />
+				    <%= f.text_field :fecha_fin, :size => 14, :class => "date-pick" %>
+				</div>
+				<div class="divs_admin">
+					<%= label_tag "Rotación:" %>
+					<br />
+				    <%= f.text_field :rotacion, :size => 2 %>
+				</div>
+				<div class="divs_admin">
+					<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+					<br />
+					<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+				</div>
+		
+		</fieldset>
+		
+			
+		<!-- start div partial elementos -->
+		<%
+			@contenedor_elementos = "contenedor_elementos"
+		%>
+		<div class="divs_admin" id="contenedor_elementos"> 
+			 <% 
+					if !@elementos.nil? 
+							@elementos.each do |elemento| -%>
+					 
+								
+								<% fields_for "elemento[]", elemento do |subfield| %>
+								
+								 	<div class="divs_admin" id="elemento_id_<%= elemento.id %>">
+										  <div class="divs_admin">
+										  		<%= subfield.hidden_field :id %>
+										  		<br />
+										  		<%= subfield.hidden_field :contenido_id %>
+										  </div>
+										
+										  <div class="divs_admin">
+										  		<%= subfield.label :ubicacion, 'Ubicacion:' %>
+												<br/>
+										        <%= subfield.text_field :ubicacion %>
+										  </div>
+										  
+										  <div class="divs_admin">		
+										  		<%= subfield.label :tipo_id, 'Tipo de elemento:' %>
+										  		<br />
+										  		<%= subfield.collection_select  :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+										  </div>
+					
+										  <div class="divs_admin">
+										  		<%= subfield.label :valor, 'Valor:' %>
+										  		<br />
+										  		<%= subfield.text_field :valor %>
+										  </div>
+										  <div class="divs_admin_hr">
+										  		<hr />
+										  </div>
+									</div>
+									
+     							  	  
+								 <% end -%>
+					
+					
+					<% end 
+				end %>
+		
+		<fieldset>
+			<legend>Template a utilizar: </legend>
+	
+	
+	
+					<%#= f.check_box  :tipo_id, TipoContenido.find(:all), :id, :descripcion, {:prompt => 'Seleccione un tipo de contenido'}, {:onchange =>  remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value")} %>
+					
+					<div class="divs_admin_tipo_contenidos">	
+						<% @tipo_contenidos_all.each do |tipo| -%>
+								
+							<%= f.radio_button :tipo_id, tipo.id, :onchange => remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value + '&contenido_id=#{@contenido.id}'") %>
+							 
+							<%= tipo.template %>
+							
+							<br />
+						<% end %>	
+					</div>
+	
+	
+			<div id="contenedor_template_seleccionado">Ejemplo Template:<div id="template_seleccionado"></div></div>
+		</fieldset>
+
+		
+		<fieldset>
+			<legend>Elementos del contenido: </legend>
+		
+			<div class="divs_admin_profiles">	
+				<% @profiles_all.each do |profile| -%>
+						
+					<% if @hash_profiles_asociados[profile.id].nil?  %>
+							<%= check_box_tag 'profiles[]', profile.id, false %> 
+					<% else %>
+							<%= check_box_tag 'profiles[]', profile.id, true %>
+					<% end %>
+					
+					<%= profile.descripcion %>
+					<br />
+				<% end %>	
+			</div>
+		</fieldset>
+			
+		<!-- ends div partial profiles -->	
+			
+		<div class="divs_admin">
+			<%= submit_tag 'save' %>
+		</div>
+		
+		<% if @contenido.estado == Contenido::ESTADO_TMP %>
+			<div class="divs_admin"> <%= link_to 'Descartar temporal', @contenido, :confirm => '¿Estas seguro de descartar las modificaciones realizadas?', :method => :delete %> </div>
+		<% end %>
+
+	<% end -%>
+
+</div>
+	
