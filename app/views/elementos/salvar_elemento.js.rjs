@@ -1,10 +1,16 @@
-#page.replace_html("contenedor_template_seleccionado" , :url => {:action => 'mostrar_formato_template'} ,'")
 
-
-#:controller => "app_noticias", :action => "mostrar_formato_template", :id => @elemento.id, :contenido_id => @contenido.id )
-#ht =  render(:controller => "app_noticias", :partial => "app_noticias/mostrar_formato_template", :id => @elemento.id, :contenido_id => @contenido.id) 
-#logger.debug( "Html: #{ht}" )
-#page.replace_html("contenedor_template_seleccionado" , ht)
+begin
+  if !@tipo_template.template.nil? && !@tipo_template.template.empty?
+          page.replace_html 'template_seleccionado', render(:partial => "app_noticias/#{@tipo_template.template}")
+          
+          page << "closeModal();"
+        
+  else
+          page.replace_html 'template_seleccionado', "No se pudo cargar el template"
+  end
+rescue Exception => err
+          logger.error(err)
+          page.replace_html 'template_seleccionado', "Error al cargar el template"
+end
 
 page << "alert('¡Elemento actualizado!');"
-page << "closeModal();"

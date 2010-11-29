@@ -1,6 +1,9 @@
 module AppNoticiasHelper
 
 
+
+
+
         # Dado un hash con elementos cargados, devuelve el que corresponda a la ubicación solicitada,
         # y dentro de la ubicación si habiera mas de uno devuelve el también solicitado.
         # Parametros: hash, ubicacion, elemento_dentro de la ubicación
@@ -60,7 +63,7 @@ module AppNoticiasHelper
                     tr_templates += "</td>"
                     
                     tr_templates += "<td > "
-                    tr_templates += render(:partial => tipo.template )
+                    tr_templates += render(:partial => "/app_noticias/#{tipo.template}" )
                     tr_templates += "</td>"
                     
         end   

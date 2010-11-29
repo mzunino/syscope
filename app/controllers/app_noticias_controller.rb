@@ -100,7 +100,7 @@ class AppNoticiasController < ApplicationController
   
  
   def prueba_call_remote
-   
+    logger.debug("Entro a prueba")
     render :text=>"FECHA: #{DateTime.now.strftime(fmt='%d/%m/%Y %H:%M:%S')}"
    
   end
@@ -163,7 +163,7 @@ class AppNoticiasController < ApplicationController
 #       actualizarElementosContenido()
 #
 #       # Salvando asociaciones del contenido con los profiles habilitados
-#       asociarContenidoAPerfiles()
+       asociarContenidoAPerfiles()
 
        # Si no hubieron errores vuelvo a la pantalla inicial
         respond_to do |format|
@@ -181,9 +181,10 @@ class AppNoticiasController < ApplicationController
   end
   
   
-  def mostrar_formato_template
+  def mostrar_formato_template(params = params)
     
-    logger.debug("Arrancó el mostrar_formato_template")
+    logger.debug("Arrancó el mostrar_formato_template, con los parametros: ")
+        
     begin
         # obtengo el tipo de template a partir del id pasado
         @tipo_template = TipoContenido.find(params[:id])
@@ -195,19 +196,24 @@ class AppNoticiasController < ApplicationController
        
         logger.debug("Se encontro el tipo template: #{@tipo_template.id} con template: #{@tipo_template.template}")
     rescue ActiveRecord::RecordNotFound => err
-        logger.debug("Error al buscar el template id : #{params[:id]}")
+        logger.debug("Error al buscar el template id : #{params[:id]}. #{err}")
         @tipo_template = nil
     end
     
     @modo_muestra_template = true
 
-    respond_to { |format| format.js }
+    respond_to do |format|
+      format.html {}
+      format.xml  { head :ok }
+      format.js   {}
+    end
+    
     
     logger.debug("Terminó el mostrar_formato_template")
        
   end
   
-    
+
   # DELETE /apps/1
   # DELETE /apps/1.xml
   def destroy

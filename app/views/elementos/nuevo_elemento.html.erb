@@ -3,7 +3,7 @@
 
 <%# form_remote_tag :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
 
-<% form_remote_for @elemento, :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
+<% form_remote_for :elemento, :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
   <%= f.error_messages %>
 
   <p>

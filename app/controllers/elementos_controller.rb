@@ -87,19 +87,38 @@ class ElementosController < ApplicationController
   def salvar_elemento
     @elemento = Elemento.find(params[:id])
 
-    
-    if @elemento.update_attributes(params[:elemento])
 
-      @contenido = Contenido.find(@elemento.contenido_id)
-      
-      @tipo_template = TipoContenido.find(@contenido.tipo_id)
-      
+    logger.debug("El valor que debería guardar es: #{params[:elemento]}")
+    if @elemento.update_attributes(params[:elemento])
+   
+        begin
+          @contenido = Contenido.find(@elemento.contenido_id)
+          
+          @tipo_template = TipoContenido.find(@contenido.tipo_id)
+          
+          # obtengo el tipo de template a partir del id pasado
+        
+          @elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
+
+        rescue ActiveRecord::RecordNotFound => err
+            logger.debug("Error: #{params[:id]}. #{err}")
+            @tipo_template = nil
+        end
+
+    else
+            logger.error("Error al guardar el elemento: #{@elemento.errs}" )
     end
+    logger.debug("Se encontro el tipo template: #{@tipo_template.id} con template: #{@tipo_template.template}")
     
-     
+    @modo_muestra_template = true
+      
     respond_to { |format| format.js }
   
-  end
+end
+
+
+
+
 
   # DELETE /elementos/1
   # DELETE /elementos/1.xml
@@ -114,7 +133,7 @@ class ElementosController < ApplicationController
   end
   
 
-  def salvar
+  def update
     @elemento = Elemento.find(params[:id])
 
     respond_to do |format|

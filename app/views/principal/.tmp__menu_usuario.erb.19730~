@@ -1,0 +1,49 @@
+
+<%= link_to 'Inicio', :controller => 'app_noticias' %><br />
+<hr />
+<% if !@aplicaciones_profile.nil? && @aplicaciones_profile.size() > 0 %>
+	<div class="menu-form">
+	  <fieldset>
+	    <legend>Aplicaciones:</legend>
+	
+		<div class="menu">
+	
+			<% for elemento in @aplicaciones_profile 
+				aplicacion = App.find(elemento.app_id)
+				texto_link_app = aplicacion.nombre
+				controller = aplicacion.controller
+				@lista_func_disponibles = FuncApp.find(:all, :conditions => "app_id = #{elemento.app_id}")
+
+			%>
+				<button onclick='mostrarFuncionalidad("div_menu_<%= elemento.app_id %>")' ><%=texto_link_app%></button> 
+					
+				<% if(!@lista_func_disponibles.nil? && @lista_func_disponibles.size() > 0) %>
+					<div  id="div_menu_<%= elemento.app_id %>" style="display:none">
+					
+						<%  
+						   for funcionalidad in @lista_func_disponibles  
+								texto_link_func = funcionalidad.nombre
+								action = funcionalidad.action
+							%>	
+	                        	<%= button_to (texto_link_func, {:controller => controller, :action => action}, :class => "button_func") %>
+	    					<%
+	 
+					   	   end 
+						%>
+						
+					</div>
+					<%					   
+				   end
+				%>
+			<% end %>
+		</div>
+	  </fieldset>
+	</div>
+<% end %>
+
+<hr />
+<% if @user %>
+   <%= link_to 'Logout', :controller => :admin, :action => 'logout' %>
+<% end %>
+
+

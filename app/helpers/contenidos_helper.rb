@@ -31,7 +31,7 @@ module ContenidosHelper
       
       # Cargo en el vector de elementos que tengo en el Hash para mostrar 
       # en las posiciones estipuladas mas abajo en el código Html
-      @hash_elementos_renderizados[@elemento.ubicacion] << render(:partial => render_elemento , :object => @elemento)
+      @hash_elementos_renderizados[@elemento.ubicacion] << render(:partial => "app_noticias/#{render_elemento}" , :object => @elemento)
       
 
     end 

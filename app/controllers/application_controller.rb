@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
 
-  
+  helper :all
   layout :obtener_layout_aplicacion
 
 
