@@ -411,6 +411,11 @@ font: 250% sans-serif;
 
 /** Formulario de aministración de contenidos **/
 
+.date-pick {
+	float: left;
+}
+
+
 #admin_contenidos {
 	padding: 1em;
 }
@@ -438,17 +443,18 @@ font: 250% sans-serif;
   margin-right: 3px;
   padding: 0.5em;
   text-align: center;
-  	border : 1px solid #000000;
+  border : 1px solid #000000; 
 }
 
 #template_seleccionado {
 	float: left;
 	border : 1px dashed #000000;
-	padding: 1em;
+	padding: 3em;
 	text-align: center;
 	width:50%;
-	height:8em;
+	height:10em;
 }
+
 
 .divs_admin_tipo_contenidos {
 	float: left;
@@ -461,7 +467,7 @@ font: 250% sans-serif;
 	overflow: auto;
 	border-style:solid;
 	border : 1px solid #000000;
-   vertical-align: middle;
+    vertical-align: middle;
 }
 
 .divs_admin_hr {
@@ -473,10 +479,10 @@ font: 250% sans-serif;
 }
 
 .divs_admin_profiles {
-	  float: left;
-	  margin-right: 3px;
-	  padding: 1em;
-	  text-align: left;
+	float: left;
+	margin-right: 3px;
+	padding: 1em;
+	text-align: left;
 }
 
 

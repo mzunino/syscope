@@ -111,7 +111,7 @@ class ElementosController < ApplicationController
     logger.debug("Se encontro el tipo template: #{@tipo_template.id} con template: #{@tipo_template.template}")
     
     @modo_muestra_template = true
-      
+    
     respond_to { |format| format.js }
   
 end

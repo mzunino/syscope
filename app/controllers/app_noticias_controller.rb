@@ -75,6 +75,8 @@ class AppNoticiasController < ApplicationController
         # Se cargan todos los profiles asociados al contenido actual
         @contenidos_profiles = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
         
+        mostrar_formato_template({:id => @contenido.tipo_id, :contenido_id => @contenido.id})
+        
         @hash_profiles_asociados = {}
         for contenido_profile in @contenidos_profiles
         

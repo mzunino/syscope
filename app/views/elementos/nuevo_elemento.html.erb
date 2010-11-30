@@ -1,9 +1,11 @@
 
-<h1>Nuevo elemento:</h1>
+<h3>Elemento posición: <%=@elemento.ubicacion%></h3>
 
-<%# form_remote_tag :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
 
-<% form_remote_for :elemento, :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id } do |f| %>
+<% form_remote_for :elemento, :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id }, 
+# El before realiza una actualización del campo fckeditor para grabar el nuevo elemento
+:before => "document.getElementById('elemento_#{@elemento.id}_valor_editor').value=FCKeditorAPI.GetInstance('elemento_25_valor_editor').GetXHTML();" do |f| %>
+
   <%= f.error_messages %>
 
   <p>
@@ -14,8 +16,8 @@
     <%= f.hidden_field :ubicacion %>
 	
   <p>
-    <%= f.label :valor %><br />
-    <%= fckeditor_textarea(:elemento, :valor, :toolbarSet => "Basic2", :width => "100%", :height => "300px") %>
+    <%= f.label "Contenido" %><br />
+    <%= fckeditor_textarea(:elemento, :valor, :toolbarSet => "Basic2", :width => "100%", :height => "200px") %>
   </p>
 
   <p>
@@ -23,37 +25,5 @@
   </p>
 <% end %>
 
-
-<!--
-<div id="div_nuevo_modal">
-
-<%
-	elemento = Elemento.new()
-	elemento.id = @id_elemento_actual
-%>
-
-<% fields_for "elemento[]", elemento do |subfield| %>
-			<p>
-			    <%= subfield.label :tipo_id, 'Tipo de Elemento:' %>
-			    <%= subfield.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
-			</p>
-			<p>
-			    <%= subfield.label :ubicacion %>
-			    <br/>
-			    <%= subfield.text_field :ubicacion %>
-			</p>
-			<p>
-			    <%= subfield.label :valor %>
-			    <br/>
-			    <%#= subfield.text_field :valor %>
-				<textarea id="DataFCKeditor" cols="80" rows="20"></textarea>
-				<%= javascript_tag( "var oFCKeditor = new FCKeditor('DataFCKeditor','100%','100%','Basic2');oFCKeditor.ReplaceTextarea()" ) %>
-			</p>
-
-<% end %>				
-	  					  
-</div>
-<a link="javascript:;" onClick="mostrarValor();agregarContenido('contenedor_elementos', 'div_nuevo_modal')">nuevo</a>
--->
 
 
