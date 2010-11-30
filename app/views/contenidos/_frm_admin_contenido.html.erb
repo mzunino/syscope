@@ -17,7 +17,7 @@
 		
 		<fieldset>
 		    <legend>Información del contenido:</legend>
-				<%= f.text_field :id %>
+				<%= f.hidden_field :id %>
 				<div class="divs_admin">
 					<%= label_tag "Título / Descripción:" %>
 					<br />
@@ -31,24 +31,25 @@
 						 
 						hoy = Date::today()
 	
-						Date::DATE_FORMATS[:formato] = '%d/%m/%Y'
+						Date::DATE_FORMATS[:formato] = '%Y-%m-%d'
 	
 						s_hoy = hoy.to_s :formato
 		
 					%>
-				    <%= f.text_field :fecha, :size => 15, :class => "date-pick", :value => s_hoy %>
+				    <%= f.text_field :fecha, :name => "uno", :disabled => "true", :size => 14, :class=> "date-pick" %>
 	
 				</div>
 				<div class="divs_admin">
 					<%= label_tag "Fecha inicio emisión:" %>
 					<br />
-				    <%= f.text_field :fecha_inicio, :size => 14, :class => "date-pick" %>
+					<%= f.text_field :fecha_inicio, :name => "dos", :disabled => "true", :size => 14, :class=> "date-pick"   %>
 				</div>
 				<div class="divs_admin">
 					<%= label_tag "Fecha fin de emisión:" %>
 					<br />
-				    <%= f.text_field :fecha_fin, :size => 14, :class => "date-pick" %>
+					<%= f.text_field :fecha_fin, :name => "tres", :disabled => "true", :size => 14, :class=> "date-pick"  %>				    
 				</div>
+				
 				<div class="divs_admin">
 					<%= label_tag "Rotación:" %>
 					<br />
@@ -63,7 +64,7 @@
 		</fieldset>
 		
 			
-		<!-- start div partial elementos -->
+		<!-- start div partial elementos 
 		<%
 			@contenedor_elementos = "contenedor_elementos"
 		%>
@@ -110,7 +111,7 @@
 					
 					<% end 
 				end %>
-		
+		-->
 		<fieldset>
 			<legend>Template a utilizar: </legend>
 	
@@ -130,12 +131,15 @@
 					</div>
 	
 	
-			<div id="contenedor_template_seleccionado">Ejemplo Template:<div id="template_seleccionado">hola</div></div>
+			<div id="contenedor_template_seleccionado">
+				<div id="template_seleccionado">
+				</div>
+			</div>
 		</fieldset>
 
 		
 		<fieldset>
-			<legend>Elementos del contenido: </legend>
+			<legend>Asignación de permiso para los perfiles: </legend>
 		
 			<div class="divs_admin_profiles">	
 				<% @profiles_all.each do |profile| -%>

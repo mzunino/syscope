@@ -16,12 +16,14 @@
 
 	<!-- Habilitación para el datePicker -->
 		<script type="text/javascript" charset="utf-8">
-			
+			Date.firstDayOfWeek = 0;
+			Date.format = 'yyyy-mm-dd';
+
             $(function()
             {
-				$('.date-pick').datePicker({autoFocusNextInput: true});
+				$('.date-pick').datePicker();
+					
 	
-				
             });
 		</script>
 
