@@ -1,18 +1,17 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
-    def fckeditor_text_field(object, method, options = {})
-      javascript_tag( "var oFCKeditor = new FCKeditor('" + object + "_" + method + "',300,300,'Basic2');oFCKeditor.ReplaceTextarea()" )
-    end
+  def h_custom_periodically_call_remote(formulario_submit, div_actualizar, url_invocar, segundos_intervalo = 20)
+      render :text => "<script type=\"text/javascript\">
+      //<![CDATA[
+      setInterval(function() {
+      
+      $.ajax({data:$.param($(document.getElementById('#{formulario_submit}')).serializeArray()) + '&amp;authenticity_token=' + encodeURIComponent('D5PxNReOi0sAJWUKWDTRPRj3DKnvZa6NrICKUz3bcMo='), dataType:'script', success:function(request){$('##{div_actualizar}').html(request);}, type:'post', url:'#{url_invocar}'});
+      
+      }, #{segundos_intervalo} * 1000)
+      //]]>
+      
+      </script>"
+  end
 
-          def h_helper_prueba()
-          
-#            render :text => "Resultado renderizado..."
-#            texto = AppNoticiasController.prueba_call_remote
-#            logger.debug("Este es el contenido de texto: #{texto}")
-#            return texto
-             texto = render :controller => "app_noticias", :action => "prueba_call_remote"
-             logger.debug("Este es el contenido de texto: #{texto}")
-            
-        end
 end

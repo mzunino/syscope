@@ -2,15 +2,19 @@
 <div id="div_mensajes">
 </div>
 
+<%= h_custom_periodically_call_remote("edit_contenido_#{@contenido.id}","div_mensajes","/app_noticias/save_contenido/#{@contenido.id}", 10) %>
+
 <div class="divs_admin" id="admin_contenidos">
-	<% form_for @contenido, :url => { :controller => "app_noticias", :action => :save_contenido, :version_terminada => "true" } do |f| %>
+	<% form_for @contenido, :url => { :controller => "app_noticias", :action => :save_contenido, :id => @contenido.id, :version_terminada => "true" }, :onsubmit => "return false;" do |f| %>
 
 
 	<%
 		if @contenido.estado == Contenido::ESTADO_TMP
 			logger.debug("Se esta levantando el call remote") 
 	%>
-			<%#=periodically_call_remote(:url => { :controller => "app_noticias", :action => :save_contenido, "descripcion" => @contenido.descripcion }, :update => 'div_mensajes', :frequency => '5')%>
+	
+		
+		<%#=periodically_call_remote(:url => { :controller => "app_noticias", :action => :save_contenido, "descripcion" => @contenido.descripcion }, :update => 'div_mensajes', :frequency => '5')%>
 	<%	
 		end
 	%>

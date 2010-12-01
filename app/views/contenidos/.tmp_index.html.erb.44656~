@@ -1,0 +1,28 @@
+<h1>Listing contenidos</h1>
+
+<table >
+  <tr>
+    <th>Tipo Contenido</th>
+    <th>Descripcion</th>
+    <th>Rotacion</th>
+    <th>Fecha</th>
+    <th>Aplicación</th>
+  </tr>
+
+<% @contenidos.each do |contenido| %>
+  <tr>
+    <td><%=h TipoContenido.find(contenido.tipo_id).descripcion %></td>
+    <td><%=h contenido.descripcion %></td>
+    <td><%=h contenido.rotacion %></td>
+    <td><%=h contenido.fecha %></td>
+    <td><%= h App.find(contenido.app_id).nombre %></td>
+    <td><%= link_to 'Show', contenido %></td>
+    <td><%= link_to 'Edit', edit_contenido_path(contenido) %></td>
+    <td><%= link_to 'Destroy', contenido, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contenido', new_contenido_path %>

@@ -1,0 +1,27 @@
+
+<p>
+  <b>Tipo de contenido:</b>
+  <%=h TipoContenido.find(@contenido.tipo_id).descripcion %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @contenido.descripcion %>
+</p>
+<p>
+  <b>Rotación:</b>
+  <%=h @contenido.rotacion %>
+</p>
+<p>
+  <b>Fecha:</b>
+  <%=h @contenido.fecha %>
+</p>
+
+<p>
+  <b>Aplicación:</b>
+  <%= h App.find(@contenido.app_id).nombre %>
+</p>
+
+
+<%= link_to 'Edit', edit_contenido_path(@contenido) %> |
+<%= link_to 'Back', contenidos_path %>

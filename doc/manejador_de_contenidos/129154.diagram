@@ -6,7 +6,7 @@ classcanvas 128002 class_ref 129154 // Perfil
 end
 classcanvas 128258 class_ref 129410 // Contenido
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_infonote default shadow default show_stereotype_properties default
-  xyz 350 184 2000
+  xyz 349 174 2000
 end
 note 129026 "El atributo template es html estático que representa la estructura del documento, que será completado con la lista de contenidos asociados al contenedor."
   xyzwh 542 103 2000 245 94
@@ -73,12 +73,12 @@ relationcanvas 132738 relation_ref 130818 // <directional composition>
   multiplicity_a_pos 161 124 3000 no_multiplicity_b
 end
 relationcanvas 140546 relation_ref 139138 // <directional composition>
-  decenter_begin 726
+  decenter_begin 717
   from ref 128258 z 2001 to point 492 364
   line 146690 z 2001 to point 492 324
   line 146818 z 2001 to ref 140290
   no_role_a no_role_b
-  multiplicity_a_pos 525 334 3000 multiplicity_b_pos 456 374 3000
+  multiplicity_a_pos 525 334 3000 multiplicity_b_pos 457 374 3000
 end
 relationcanvas 140930 relation_ref 139266 // <directional composition>
   decenter_begin 298
@@ -103,11 +103,11 @@ relationcanvas 143362 relation_ref 142210 // <directional composition>
 end
 relationcanvas 143490 relation_ref 142338 // <composition>
   decenter_begin 632
-  decenter_end 250
+  decenter_end 270
   from ref 128002 z 2001 to point 226 244
   line 143618 z 2001 to ref 128258
   no_role_a no_role_b
-  multiplicity_a_pos 334 254 3000 no_multiplicity_b
+  multiplicity_a_pos 333 254 3000 no_multiplicity_b
 end
 relationcanvas 143746 relation_ref 142466 // <composition>
   decenter_begin 291
@@ -147,24 +147,32 @@ relationcanvas 146050 relation_ref 146178 // <directional composition>
   multiplicity_a_pos 337 84 3000 multiplicity_b_pos 267 125 3000
 end
 relationcanvas 146946 relation_ref 147330 // <directional composition>
-  decenter_begin 633
+  decenter_begin 628
   decenter_end 517
   from ref 128258 z 2001 to ref 132610
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 147074 relation_ref 147458 // <directional composition>
-  decenter_begin 704
+  decenter_begin 694
   decenter_end 643
   from ref 128258 z 2001 to ref 132610
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
+relationcanvas 147202 relation_ref 148610 // <composition>
+  decenter_begin 939
+  decenter_end 801
+  from ref 128258 z 2001 to point 320 424
+  line 147330 z 2001 to point 320 387
+  line 147586 z 2001 to ref 128258
+  no_role_a no_role_b
+  multiplicity_a_pos 331 397 3000 multiplicity_b_pos 331 434 3000
+end
 line 129666 -_-_
   from ref 129282 z 1999 to ref 129026
 line 132482 -_-_ decenter_begin 879 decenter_end 500
-  from ref 128258 z 1999 to point 424 417
-  line 136066 z 1999 to point 682 417
+  from ref 128258 z 1999 to point 682 408
   line 137218 z 1999 to ref 132354
 line 133122 -_-_
   from ref 132610 z 1999 to ref 132994

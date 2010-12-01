@@ -10,7 +10,12 @@
   </tr>
 
 <% @contenidos.each do |contenido| %>
-  <tr>
+	<%if contenido.estado == Contenido::ESTADO_TMP %>
+  		<tr style="background-color:orange;">	
+  	<% else %>
+		<tr>
+			
+	<% end %>
     <td><%=h TipoContenido.find(contenido.tipo_id).descripcion %></td>
     <td><%=h contenido.descripcion %></td>
     <td><%=h contenido.rotacion %></td>

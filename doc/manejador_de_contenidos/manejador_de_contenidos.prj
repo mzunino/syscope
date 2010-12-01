@@ -1,6 +1,6 @@
 format 66
 "manejador_de_contenidos"
-  revision 23
+  revision 24
   modified_by 2 "mauricio"
 
 
@@ -378,6 +378,27 @@ format 66
 	  a role_name "" protected
 	    classrelation_ref 148738 // <directional composition>
 	  b parent class_ref 130946 // Usuario
+      end
+
+      attribute 151170 "idVersionPrevia"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 149890 // <composition>
+	relation 148610 *---
+	  a role_name "" multiplicity "1" protected
+	    classrelation_ref 149890 // <composition>
+	  b role_name "" multiplicity "1" protected
+	    classrelation_ref 150018 // <composition>
+      end
+
+      classrelation 150018 // <composition>
+	relation_ref 148610 // <composition>
       end
     end
 

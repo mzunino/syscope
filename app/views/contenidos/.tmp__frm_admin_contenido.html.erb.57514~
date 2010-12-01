@@ -1,0 +1,114 @@
+	
+<div id="div_mensajes">
+</div>
+
+<div class="divs_admin" id="admin_contenidos">
+	<% form_for @contenido, :url => { :controller => "app_noticias", :action => :save_contenido, :version_terminada => "true" } do |f| %>
+
+
+	<%
+		if @contenido.estado == Contenido::ESTADO_TMP
+			logger.debug("Se esta levantando el call remote") 
+	%>
+			<%#=periodically_call_remote(:url => { :controller => "app_noticias", :action => :save_contenido, "descripcion" => @contenido.descripcion }, :update => 'div_mensajes', :frequency => '5')%>
+	<%	
+		end
+	%>
+		
+		<fieldset>
+		    <legend>Información del contenido:</legend>
+				<%= f.hidden_field :id %>
+				<div class="divs_admin">
+					<%= label_tag "Título / Descripción:" %>
+					<br />
+				    <%= f.text_field :descripcion, :size => 30 %>
+				</div>
+				<hr />
+				<div class="divs_admin">
+					<%= label_tag "Fecha del contenido:" %>
+
+			    	<%= f.text_field :fecha, :disabled => "true", :size => 14, :class=> "date-pick" %>
+
+				</div>
+				<div class="divs_admin">
+					<%= label_tag "Fecha inicio emisión:" %>
+					<br />
+					<%= f.text_field :fecha_inicio, :disabled => "true", :size => 14, :class=> "date-pick"   %>
+				</div>
+				<div class="divs_admin">
+					<%= label_tag "Fecha fin de emisión:" %>
+					<br />
+					<%= f.text_field :fecha_fin, :disabled => "true", :size => 14, :class=> "date-pick"  %>				    
+				</div>
+				
+				<div class="divs_admin">
+					<%= label_tag "Rotación:" %>
+					<br />
+				    <%= f.text_field :rotacion, :size => 2 %>
+				</div>
+				<div class="divs_admin">
+					<%= label_tag  "Seleccione la aplicación a la que pertenece :" %>
+					<br />
+					<%= f.collection_select  :app_id, App.find(:all), :id, :nombre %>
+				</div>
+		
+		</fieldset>
+		
+	
+		<fieldset>
+			<legend>Template a utilizar: </legend>
+	
+					<div class="divs_admin_tipo_contenidos">	
+						<% @tipo_contenidos_all.each do |tipo| -%>
+								
+							<%= f.radio_button :tipo_id, tipo.id, :onchange => remote_function(:url => {:action => 'mostrar_formato_template'} , :with => "'id=' + this.value + '&contenido_id=#{@contenido.id}'") %>
+							 
+							<%= tipo.descripcion %>
+							
+							<br />
+						<% end %>	
+					</div>
+	
+	
+			<div id="contenedor_template_seleccionado" >
+				<div id="template_seleccionado" >
+					<% if !@tipo_template.nil? %>
+						<%= render(:partial => "app_noticias/#{@tipo_template.template}")%>
+					<% end %>
+				</div>
+			</div>
+		</fieldset>
+
+		
+		<fieldset>
+			<legend>Asignación de permiso para los perfiles: </legend>
+		
+			<div class="divs_admin_profiles">	
+				<% @profiles_all.each do |profile| -%>
+						
+					<% if @hash_profiles_asociados[profile.id].nil?  %>
+							<%= check_box_tag 'profiles[]', profile.id, false %> 
+					<% else %>
+							<%= check_box_tag 'profiles[]', profile.id, true %>
+					<% end %>
+					
+					<%= profile.descripcion %>
+					<br />
+				<% end %>	
+			</div>
+		</fieldset>
+			
+		<!-- ends div partial profiles -->	
+			
+		<div class="divs_admin">
+			<%= submit_tag 'save' %>
+		</div>
+		
+		<% if @contenido.estado == Contenido::ESTADO_TMP %>
+			<div class="divs_admin"> <%= link_to 'Descartar temporal', @contenido, :confirm => '¿Estas seguro de descartar las modificaciones realizadas?', :method => :delete %> </div>
+		<% end %>
+
+	<% end -%>
+
+</div>
+	

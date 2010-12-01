@@ -5,13 +5,14 @@ class Contenido < ActiveRecord::Base
   has_one :tipo_contenido
   
   validates_presence_of :app_id, :message => 'Se debe especificar una aplicación para este contenido'
-  validate :fecha?
+  #validate :fecha?
   
   
   # Constantes con los diferentes estados de un contenido
   ESTADO_TMP = 0
   ESTADO_SIN_AUDITAR = 1
   ESTADO_AUDITADO = 2
+  ESTADO_REEMPLAZADO_POR_NUEVA_VERSION = 3
 
 
   def fecha?

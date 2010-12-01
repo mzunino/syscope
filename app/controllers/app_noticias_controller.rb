@@ -30,13 +30,13 @@ class AppNoticiasController < ApplicationController
            # Creo un nuevo contenido en estado borrador para que comience la edición del mismo
                 @contenido = Contenido.new() 
                 @contenido.estado = Contenido::ESTADO_TMP
-                logger.debug("Aplicacion elegida:  #{App.find(:all)[0]}")
-                @contenido.app_id = App.find(:all)[0]
+                logger.debug("Aplicacion elegida:  #{App.find(:first)}")
+                @contenido.app_id = App.find(:first)
                     
                 hoy = Date::today()
         
                 @contenido.fecha = hoy
-                @contenido.tipo_id = TipoContenido.find(:all)[0]
+                @contenido.tipo_id = TipoContenido.find(:first)
                 
                 @contenido.creador = session[:user_id]
                     
@@ -63,41 +63,159 @@ class AppNoticiasController < ApplicationController
         
   end
 
+  def crear_borrador_contenido(contenido_original_id)
+    
+        # Se obtienen el contenido por el id indicado
+        @contenido_original = Contenido.find(contenido_original_id)
+        
+        #quito el id para que lo grabe como nuevo contenido
+        @contenido_original.id = nil
+        
+        logger.debug("Se desea editar el contenido original id #{contenido_original_id}")
+
+        logger.debug("voy a crear un borrador a partir de: #{@contenido_original}")
+        nuevo_contenido = Contenido.new(@contenido_original.attributes)
+        
+        nuevo_contenido.id_version_previa = contenido_original_id
+        nuevo_contenido.estado = Contenido::ESTADO_TMP
+        nuevo_contenido.save!
+        logger.debug("Generé una versión borrador con id: #{nuevo_contenido.id}")
+        
+        return nuevo_contenido
+    
+  end
+
+  def crear_borrador_elementos_contenido(id_contenido_original, id_contenido_borrador)
+    
+      # Se obtienen los elementos asociados al contenido original para generar un borrador para los mismos.
+      
+      elementos_original = Elemento.find(:all, :conditions => "contenido_id = #{id_contenido_original}")
+      logger.debug("Cargando los elementos originales asociados al contenido #{id_contenido_original}")
+      
+      elementos_nuevos = Array.new
+      
+      if !elementos_original.nil?
+        
+        for elemento in elementos_original
+          
+            logger.debug("Generando nuevo borrador para el elemento id: #{elemento.id}")
+            elemento_nuevo = Elemento.new(elemento.attributes)
+            elemento_nuevo.contenido_id = id_contenido_borrador
+            elemento_nuevo.save!
+            
+            elementos_nuevos << elemento_nuevo
+        end
+
+        logger.debug("Se generaron elementos borradores para #{elementos_original.size} elementos.")
+      else
+        logger.debug("No hay elementos asociados al contenido id: #{id_contenido_original}.")
+      end
+        
+      return elementos_nuevos
+      
+  end
+
+  def crear_borrador_perfiles_contenido(id_contenido_original, id_contenido_borrador)
+    
+    # Se obtienen los profiles asociados al contenido original para generar un borrador para los mismos.
+        
+        profiles_original = ContenidoProfile.find(:all, :conditions => "contenido_id = #{id_contenido_original}")
+        logger.debug("Cargando los profiles originales asociados al contenido #{id_contenido_original}")
+        
+        profiles_nuevos = Array.new
+        
+        if !profiles_original.nil?
+          
+          for profile in profiles_original
+            
+              logger.debug("Generando profiles asociados al borrador, ProfileId: #{profile.id}")
+              profile_nuevo = ContenidoProfile.new(profile.attributes)
+              profile_nuevo.contenido_id = id_contenido_borrador
+              profile_nuevo.save!
+              
+              profiles_nuevos << profile_nuevo
+              
+          end
+
+          logger.debug("Se genero asociacion para #{profiles_original.size} perfiles con el nuevo borrador")
+        else
+          logger.debug("No hay perfiles asociados al contenido id: #{id_contenido_original}")
+      end
+      
+      return profiles_nuevos
+          
+  end
+
+
   # GET /apps/edit
   def edit
     
-        # Se obtienen el contenido por el id indicado
-        @contenido = Contenido.find(params[:contenido][:id])
-        
-        # Se obtienen los elementos asociados al contenido
-        @elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
-        
-        # Se cargan todos los profiles asociados al contenido actual
-        @contenidos_profiles = ContenidoProfile.find(:all, :conditions => "contenido_id = #{params[:contenido][:id]}")
-        
-        mostrar_formato_template({:id => @contenido.tipo_id, :contenido_id => @contenido.id})
-        
-        @hash_profiles_asociados = {}
-        for contenido_profile in @contenidos_profiles
-        
-              profile = Profile.find_by_id(contenido_profile.profile_id)
-              @hash_profiles_asociados[profile.id] = profile
-         
-        end
-       
-        # Obtengo todos los profiles de la Organización
-        #@profiles = Profile.find(:all, :conditions => "entidad_id = #{}");
-        if(!session[:profile_id].nil?)
-          @profiles_all = Profile.obtener_profiles_entidad_actual(session[:profile_id]);
-        end
-        
-        if(@profiles_all.nil?)
-            flash[:notice]= "No hay perfiles disponibles para asociar los contenidos"
-            uri = session[:original_uri]
-            redirect_to(uri || { :controller => "app_noticias" })
-        end
     
-        @tipo_contenidos_all = TipoContenido.find(:all)
+      begin
+        
+         Contenido.transaction do
+              logger.debug("Voy a buscar si no hay un borrador en edición previo...")
+              
+              # Recupero si existe una versión borrador del contenido y si no la hay creo una nueva
+              @contenido = Contenido.find(:first, :conditions => "id_version_previa = #{params[:contenido][:id]} and estado = #{Contenido::ESTADO_TMP}")
+              
+                if @contenido.nil?
+                    
+                    logger.debug("No hay una versión previa que se haya querido editar, entonces voy a generar una nueva...")
+                    
+                    # se crea un borrador para la nueva edición del contenido en base a los datos del original
+                    @contenido = crear_borrador_contenido(params[:contenido][:id])
+              
+                    @elementos = crear_borrador_elementos_contenido(params[:contenido][:id], @contenido.id)
+              
+                    @contenidos_profiles = crear_borrador_perfiles_contenido(params[:contenido][:id], @contenido.id)
+                
+              else
+                    flash[:notice] = "Atención: Modificaciones pendientes de guardar"
+                    logger.debug("Se encontró una versión borrador con ID: #{@contenido.id}")
+                    
+                    # Se obtienen los elementos asociados al contenido borrador
+                    @elementos = Elemento.find(:all, :conditions => "contenido_id = #{@contenido.id}")
+              
+                    # Se cargan todos los profiles asociados al contenido borrador encontrado
+                    @contenidos_profiles = ContenidoProfile.find(:all, :conditions => "contenido_id = #{@contenido.id}")
+                  
+                end
+                
+              @hash_profiles_asociados = {}
+              for contenido_profile in @contenidos_profiles
+              
+                    profile = Profile.find_by_id(contenido_profile.profile_id)
+                    @hash_profiles_asociados[profile.id] = profile
+               
+              end
+             
+              # Obtengo todos los profiles de la Organización
+              #@profiles = Profile.find(:all, :conditions => "entidad_id = #{}");
+              if(!session[:profile_id].nil?)
+                @profiles_all = Profile.obtener_profiles_entidad_actual(session[:profile_id]);
+              end
+              
+              if(@profiles_all.nil?)
+                  flash[:notice]= "No hay perfiles disponibles para asociar los contenidos"
+                  uri = session[:original_uri]
+                  redirect_to(uri || { :controller => "app_noticias" })
+              end
+          
+              @tipo_contenidos_all = TipoContenido.find(:all)
+              
+              #Se ejecuta mostrar formato template para poder mostrar el template seleccionado cuando cargue la página
+              mostrar_formato_template({:id => @contenido.tipo_id, :contenido_id => @contenido.id})
+
+           end
+      rescue Exception => e
+        # force checking of errors even if products failed
+        logger.error("Error al cargar la edición: #{e}")        
+        flash[:notice] = "Error al guardar: " + e
+        redirect_to :controller => :app_noticias, :action => :index
+      end
+         
+         
   end
   
  
@@ -111,32 +229,40 @@ class AppNoticiasController < ApplicationController
     # GET /app_noticias/save
   def save_contenido
     
-    uri = session[:original_uri]
+        uri = session[:original_uri]
+        
+        logger.debug("La uri original es: #{uri}")
+        
+      # Inicia la transacción
+      begin
+        
+        Contenido.transaction do
+          
+          contenido_id = params[:contenido][:id]
+          
+          logger.debug(" Salvando contenido existente id: #{contenido_id}")
+          @contenido = Contenido.find(contenido_id)
     
-    logger.debug("La uri original es: #{uri}")
+          if  !params[:version_terminada].nil?
+              
+              logger.debug("Se trata de una version final, entonces se cambia el estado actual del borrador, para a estado sin auditar")
+              @contenido.estado = Contenido::ESTADO_SIN_AUDITAR
+              @contenido.save!
     
-    version_terminada = params[:version_terminada]
-    
-    Contenido.transaction do
-      
-      contenido_id = params[:contenido][:id]
-      
-      if(!contenido_id.empty?)
-      
-             logger.debug(" Salvando contenido existente id: #{params[:contenido][:id]}")
-            @contenido = Contenido.find(params[:contenido][:id])
-
-       # Cargando nuevos valores
-            @contenido.id = params[:contenido][:id]
-            @contenido.tipo_id = params[:contenido][:template_id] 
-            @contenido.descripcion = params[:contenido][:descripcion]
-            @contenido.rotacion = params[:contenido][:rotacion]
-            @contenido.fecha = params[:contenido][:fecha_ingreso]
-            @contenido.app_id = params[:contenido][:app_id]
-
-            if @contenido.update_attributes(params[:contenido])
-              flash[:notice] = 'El contenido se actualizo correctamente'
-            else
+              logger.debug("La versión anterior del contenido se marca como tal (Contenido::ESTADO_REEMPLAZADO_POR_NUEVA_VERSION) ")
+              if !@contenido.id_version_previa.nil?
+                @contenido_version_anterior = Contenido.find(@contenido.id_version_previa)
+                @contenido_version_anterior.estado = Contenido::ESTADO_REEMPLAZADO_POR_NUEVA_VERSION
+                @contenido_version_anterior.save!
+              end
+              
+          else
+            logger.debug("No es una version final, es una actualización del contenido borrador id: #{contenido_id}")
+          end
+            
+          # Actualizando los atributos del mismo 
+          if !@contenido.update_attributes(params[:contenido])
+              
               logger.error("Errores: + #{@contenido.errors.size}" )
               str_errores = ""
               for error in @contenido.errors
@@ -145,43 +271,30 @@ class AppNoticiasController < ApplicationController
               end
               flash[:notice] = 'Ocurrió un error al actualizar el contenido: ' + str_errores 
               raise ActiveRecord::RecordInvalid.new(@contenido)
+           end
+    
+    #       # Salvando los elementos del contenido
+    #       actualizarElementosContenido()
+    #
+           # Salvando asociaciones del contenido con los profiles habilitados
+           asociarContenidoAPerfiles()
+    
+           # Si no hubieron errores vuelvo a la pantalla inicial
+            respond_to do |format|
+              format.html { redirect_to :controller => :app_noticias, :action => "index" }
+              format.js  { render :text=>"Registro guardado: FECHA: #{DateTime.now.strftime(fmt='%d/%m/%Y %H:%M:%S')}" }
+              
             end
+        end
+      rescue ActiveRecord::RecordInvalid => e
+        # force checking of errors even if products failed
         
-      else
-        
-            @contenido = Contenido.new(params[:contenido])
-            
-                        if !version_terminada.nil?
-                            @contenido.fecha_creado = Date::today()
-                            @contenido.creador = session[:user_id]
-                        end
-            # Salvando nuevo contenido
-            @contenido.save!
-            
-            flash[:notice] = "El contenido se creó correctamente "
+        flash[:notice] = "Error al guardar: " + e
+        redirect_to :controller => :app_noticias, :action => :edit
       end
 
-#       # Salvando los elementos del contenido
-#       actualizarElementosContenido()
-#
-#       # Salvando asociaciones del contenido con los profiles habilitados
-       asociarContenidoAPerfiles()
-
-       # Si no hubieron errores vuelvo a la pantalla inicial
-        respond_to do |format|
-          format.html { redirect_to :controller => :app_noticias, :action => "index" }
-          format.js  { render :text=>"Registro guardado: FECHA: #{DateTime.now.strftime(fmt='%d/%m/%Y %H:%M:%S')}" }
-        end
-    end
-    
-  rescue ActiveRecord::RecordInvalid => e
-    # force checking of errors even if products failed
-    
-    flash[:notice] = "Error al dar de alta: " + e
-    redirect_to :controller => :app_noticias, :action => :edit
-    
   end
-  
+
   
   def mostrar_formato_template(params = params)
     
