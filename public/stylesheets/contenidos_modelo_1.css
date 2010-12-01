@@ -4,7 +4,7 @@
 
 body{
 
- font-family: smaller sans-serif;
+ font-family: smaller verdana;
 
  background: url(/images/cope_vira_1.jpg); 
 
@@ -146,14 +146,14 @@ font: 250% sans-serif;
 #notice {
   border: 2px solid red;
   border-radius: 5px;
-  -moz-border-radius: 5px;  font:  small sans-serif
+  -moz-border-radius: 5px;  /*font:  small sans-serif*/
   height:auto;
   max-height: 400px;
   padding: 1em;
   margin-bottom: 2em;
   margin-right: 1em;
   background-color: #f0f0f0;
-  font: bold smaller sans-serif;
+  font: bold smaller /*sans-serif*/;
 }
 
 

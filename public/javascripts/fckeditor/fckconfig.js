@@ -121,8 +121,8 @@ FCKConfig.ToolbarSets["Basic2"] = [
 	['Bold','Italic']
 ] ;
 
-FCKConfig.EnterMode = 'p' ;			// p | div | br
-FCKConfig.ShiftEnterMode = 'br' ;	// p | div | br
+FCKConfig.EnterMode = 'br' ;			// p | div | br
+FCKConfig.ShiftEnterMode = 'p' ;	// p | div | br
 
 FCKConfig.Keystrokes = [
 	[ CTRL + 65 /*A*/, true ],
