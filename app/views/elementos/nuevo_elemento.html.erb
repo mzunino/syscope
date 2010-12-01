@@ -4,7 +4,7 @@
 
 <% form_remote_for :elemento, :url => { :controller => 'elementos', :action => "salvar_elemento", :id => @elemento.id }, 
 # El before realiza una actualización del campo fckeditor para grabar el nuevo elemento
-:before => "document.getElementById('elemento_#{@elemento.id}_valor_editor').value=FCKeditorAPI.GetInstance('elemento_25_valor_editor').GetXHTML();" do |f| %>
+:before => "document.getElementById('elemento_#{@elemento.id}_valor_editor').value=FCKeditorAPI.GetInstance('elemento_#{@elemento.id}_valor_editor').GetXHTML();" do |f| %>
 
   <%= f.error_messages %>
 
@@ -17,7 +17,7 @@
 	
   <p>
     <%= f.label "Contenido" %><br />
-    <%= fckeditor_textarea(:elemento, :valor, :toolbarSet => "Basic2", :width => "100%", :height => "200px") %>
+    <%= fckeditor_textarea(:elemento, :valor, :width => "100%", :toolbarSet => "Basic2", :height => "200px") %>
   </p>
 
   <p>
