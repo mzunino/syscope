@@ -1,4 +1,4 @@
-# Methods added to this helper will be available to all templates in the application.
+# Methods added to this helper will be available to all templates in the application ###
 module ApplicationHelper
   
   def h_custom_periodically_call_remote(formulario_submit, div_actualizar, url_invocar, segundos_intervalo = 20)

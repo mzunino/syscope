@@ -1,5 +1,5 @@
  
-/** Para la ventana modal **/
+/** Para la ventana modal  ********/
 
 $(document).ready(function(){
         //parametros principales
