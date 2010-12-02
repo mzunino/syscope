@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+       <head>
+         <title>Sitio Oficial de Contenidos</title>
+	 <%=javascript_include_tag :defaults%>
+ 	 <%=javascript_include_tag :fckeditor %>
+	 <%=javascript_include_tag "customs.js"%>
+
+	 <%=javascript_include_tag "date.js"%>
+	 <%=javascript_include_tag "jquery.datePicker.js"%>
+
+	 <%= stylesheet_link_tag "datePicker.css" , :media => "all" %>
+	 <%= stylesheet_link_tag "contenidos_modelo_1" , :media => "all" %>
+	 <%= stylesheet_link_tag "modal" , :media => "all" %>
+   	 <%#= stylesheet_link_tag "thickbox" , :media => "all" %>
+
+	<!-- Habilitación para el datePicker -->
+		<script type="text/javascript" charset="utf-8">
+			Date.firstDayOfWeek = 0;
+			Date.format = 'yyyy-mm-dd';
+
+            $(function()
+            {
+				$('.date-pick').datePicker({autoFocusNextInput: true});
+					
+	
+            });
+		</script>
+
+
+       </head>
+       <body id="principal">
+         <div id="banner">
+           <%#= image_tag("logo.png" ) %>
+           <%= @page_title || "Virazón" %>
+         </div>
+	<table id="tabla-principal" border=0>
+	  <tr>
+	    <td id="td-menu">
+	           <div id="side">
+		      
+		      <% @user = session[:user_id] 
+	
+			if session[:user_id] 
+	                   @user=User.find(session[:user_id])
+	                   if @user
+	                        @nombre_usuario=@user.name
+			   end
+			end
+		      %>
+	
+		      <% if @nombre_usuario %>	
+			     <p>Usuario Logueado: <%= @nombre_usuario %></p>
+	 	      <% else %>
+			      <%= link_to 'Login', :controller => 'admin/login' %><br />	 	
+		      <% end %>
+	
+	<%#Se carga aplicación menú de usuario %>
+			<% @aplicaciones_profile = AppProfile.find_aplicaciones_del_perfil(@user.profile_id) %>
+			<%= render(:partial => "principal/menu_usuario", :object => @aplicaciones_profile)%>	
+	           
+		   </div>
+	     </td>
+	     <td id="td-main">
+	           <div id="main">
+		       <% if flash[:notice] -%>
+			  <div id="notice"><%= flash[:notice] %></div>
+		       <% end -%>	
+	
+	<%# Se carga aplicación principal (index/noticias/admin/etc) %>
+	              <%= yield :layout %>
+	
+	           </div>
+		</div>
+	     </td>
+	  </tr>
+	</table>
+       </body>
+</html>
+

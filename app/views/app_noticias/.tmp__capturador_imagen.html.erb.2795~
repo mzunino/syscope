@@ -1,0 +1,5 @@
+<a href="<%=@elemento.valor%>" >
+     <img src="<%=@elemento.valor%>" />
+
+</a>
+

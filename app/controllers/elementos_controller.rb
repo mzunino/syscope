@@ -118,7 +118,11 @@ end
 
 
 
-
+  def actualizar_capturador_tipo_elemento
+     # Se implementa en actualizar_capturador_tipo_elemento.js.rjs
+#     @tipo_elemento = TipoElemento.find(params[:id])
+#     @form_actual = params[:form]
+  end
 
   # DELETE /elementos/1
   # DELETE /elementos/1.xml

@@ -1,0 +1,15 @@
+<h1>Listado de noticias:</h1>
+
+
+<!-- // @noticias: lista de contenidos correspondiente a las noticias a presentar -->
+<% for @noticia in @noticias -%>
+
+	<%
+	    @contenido_modal = "app_noticias/mostrar_noticia/#{@noticia.id}"
+	%>
+		
+    <!-- Utilizo el helper para mostrar la noticia actual -->
+    <%= render(:partial => "generar_contenido", :locals => { :noticia_id => @noticia.id, :profile_id => @profile_id }) %>
+    
+<% end %>
+

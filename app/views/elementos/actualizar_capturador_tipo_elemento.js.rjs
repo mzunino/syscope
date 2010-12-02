@@ -1,0 +1,2 @@
+
+page.replace_html 'capturador_elemento', render(:partial => "app_noticias/#{@tipo_elemento.capturador}")

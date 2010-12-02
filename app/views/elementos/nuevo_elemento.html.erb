@@ -10,14 +10,19 @@
 
   <p>
     <%= f.label :tipo_id, 'Tipo de Elemento:' %>
-    <%= f.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion %>
+	
+    <%= f.collection_select :tipo_id, TipoElemento.find(:all), :id, :descripcion,{}, {:onchange => remote_function(:url => {:action => 'actualizar_capturador_tipo_elemento'} , :with => "'id=' + this.value + '&form=' + '#{f}'")} %>
   </p>
 
     <%= f.hidden_field :ubicacion %>
 	
   <p>
     <%= f.label "Contenido" %><br />
-    <%= fckeditor_textarea(:elemento, :valor, :width => "100%", :toolbarSet => "Basic2", :height => "200px") %>
+	<%= fckeditor_textarea(:elemento, :valor, :width => "100%", :toolbarSet => "Basic2", :height => "200px") %>
+	<!--
+	<div id="capturador_elemento">
+	</div>
+	-->
   </p>
 
   <p>

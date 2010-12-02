@@ -45,17 +45,17 @@
 		
 
         <div id="div_template_1">
-
-        		<% if ( !es_modalidad_muestra ) %> 
-            			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
-	
-				<% else %>
-						<div class="div_elemento_muestra">
-							<%= H_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
-						</div>
-						
-				<% end %>
-
+				
+	        		<% if ( !es_modalidad_muestra ) %> 
+	            			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
+		
+					<% else %>
+							<div class="div_elemento_muestra">
+								<%= H_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
+							</div>
+							
+					<% end %>
+				
         </div>
         <div id="div_template_2">
 

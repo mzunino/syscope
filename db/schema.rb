@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201123323) do
+ActiveRecord::Schema.define(:version => 20101202021910) do
 
   create_table "app_profiles", :force => true do |t|
     t.integer  "app_id"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20101201123323) do
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "capturador"
   end
 
   create_table "users", :force => true do |t|
