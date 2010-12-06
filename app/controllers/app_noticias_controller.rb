@@ -11,11 +11,15 @@ class AppNoticiasController < ApplicationController
   
   	logger.debug("Entre al controler del index, user: #{@profile_id}")
   
-  	@modo_listado = true;
+  	@modo_muestra_template = Contenido::MUESTRA_MODALIDAD_NORMAL;
+    
  end
  
  
   def mostrar_noticia
+    
+    @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA;
+    
   	# muestra una noticia determinada
   	render(:layout => false)
 	
@@ -150,6 +154,7 @@ class AppNoticiasController < ApplicationController
   # GET /apps/edit
   def edit
     
+      @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_EDICION;
     
       begin
         

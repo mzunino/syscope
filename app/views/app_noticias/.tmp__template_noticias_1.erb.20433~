@@ -1,0 +1,67 @@
+<% # Agrego tag para que se muestre el estilo asociado al formato de template %>
+<%= stylesheet_link_tag "template_noticias_1" %>
+
+<%
+	modalidad_muestra = @modo_muestra_template || 0
+
+# Por defecto muestro en modalidad normal, para el listado    
+	div_modalidad = "div_modalidad_normal"
+	case condition
+	  when Contenido::MUESTRA_MODALIDAD_EDICION
+	    # Modalidad presentacion edicion
+		div_modalidad = "div_modalidad_edicion"
+
+	  when Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA
+		# Modalidad Pantalla completa
+		div_modalidad = "div_modalidad_modal"
+	end
+
+%>
+
+<div id="<%=div_modalidad %>"  >
+
+   		<% if ( modalidad_muestra == Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA ) %>
+		        <div id="titulo-noticia">
+		        		<% if !@noticia.nil? %>
+		                	<%= @noticia.descripcion %>
+						<% end %>
+		        </div>
+		        <hr />
+		<% end %>
+		
+		
+
+        <div id="div_template_1">
+				
+	        		<% if ( modalidad_muestra == Contenido::MODALIDAD_MUESTRA ) %> 
+	            			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
+		
+					<% else %>
+							<div class="div_elemento_muestra">
+								<%= h_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
+							</div>
+							
+					<% end %>
+				
+        </div>
+        <div id="div_template_2">
+
+            	<% if ( !es_modalidad_muestra ) %> 
+            			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
+				<% else %>
+						<div class="div_elemento_muestra">
+							<%= h_mostrar_elemento_edicion(@elementos, @contenido.id, 2) %>
+							
+						</div>
+						
+				<% end %>
+
+        </div>
+		
+  		<% if ( !es_modalidad_muestra ) %>
+				<hr />
+   		<% end  %>
+		
+</div>
+
+

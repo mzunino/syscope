@@ -20,7 +20,7 @@ module AppNoticiasHelper
         end
 
 
-       def H_mostrar_elemento_edicion(elementos_contenido, contenido_id, ubicacion_elemento) 
+       def h_mostrar_elemento_edicion(elementos_contenido, contenido_id, ubicacion_elemento) 
          
          str_contenido = ""
          

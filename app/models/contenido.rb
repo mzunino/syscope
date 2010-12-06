@@ -14,6 +14,10 @@ class Contenido < ActiveRecord::Base
   ESTADO_AUDITADO = 2
   ESTADO_REEMPLAZADO_POR_NUEVA_VERSION = 3
 
+  # Definicion constantes con diferentes muestreos
+  MUESTRA_MODALIDAD_NORMAL = 0
+  MUESTRA_MODALIDAD_EDICION = 1
+  MUESTRA_MODALIDAD_PANTALLA_COMPLETA = 2
 
   def fecha?
     unless Chronic.parse(fecha)

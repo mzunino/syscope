@@ -1,10 +1,10 @@
-window_sizes 1280 673 208 1066 530 64
+window_sizes 1270 669 208 1056 526 64
 diagrams
   active  classdiagram_ref 129154 // Manejador de Contenidos
     1066 613 100 4 120 0
 end
 show_stereotypes
-selected attribute_ref 150018 // estado
+selected attribute_ref 151170 // idVersionPrevia
 open
   class_ref 129154 // Perfil
   class_ref 129282 // Container

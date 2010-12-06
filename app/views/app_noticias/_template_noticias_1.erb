@@ -2,41 +2,60 @@
 <%= stylesheet_link_tag "template_noticias_1" %>
 
 <%
-	es_modal = @modo_listado.nil?   
-	es_modalidad_muestra = !@modo_muestra_template.nil?
+	modalidad = @modo_muestra_template || 0
 
-	if ( es_modalidad_muestra ) 
-			div_modalidad = "div_modalidad_muestra"	
-	else
-			if ( es_modal )
-					div_modalidad = "div_modalidad_modal"
-			else
-					div_modalidad = "div_modalidad_normal"				
-			end
-	end 
+	case modalidad
+	  when Contenido::MUESTRA_MODALIDAD_EDICION
+	    # Modalidad presentacion edicion
+		div_modalidad = "div_modalidad_edicion"
+
+
+	  when Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA
+		# Modalidad Pantalla completa
+		div_modalidad = "div_modalidad_modal"
+	  
+	  when Contenido::MUESTRA_MODALIDAD_NORMAL
+			# Por defecto muestro en modalidad normal, para el listado    
+			div_modalidad = "div_modalidad_normal"
+
+
+	end
 
 %>
 
+
+<%
+
+
+	case modalidad
+
+	  when Contenido::MUESTRA_MODALIDAD_EDICION
+	    # Modalidad presentacion edicion
+		div_modalidad = "div_modalidad_edicion"
+
+
+	  when Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA
+		# Modalidad Pantalla completa
+		div_modalidad = "div_modalidad_modal"
+	  
+
+	  when Contenido::MUESTRA_MODALIDAD_NORMAL
+			# Por defecto muestro en modalidad normal, para el listado    
+			div_modalidad = "div_modalidad_normal"
+
+
+	end
+
+%>
+
+
+
 <div id="<%=div_modalidad %>"  >
 
-   		<% if ( !es_modalidad_muestra ) %>
+   		<% if ( modalidad == Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA ) %>
 		        <div id="titulo-noticia">
 		        		<% if !@noticia.nil? %>
 		                	<%= @noticia.descripcion %>
-									<% if(!es_modal) %>
-									            <input type="button" id="button" value="Mostrar Ventana" onClick='mostrarModal("<%=@contenido_modal%>")'/>
-												<% #  %>
-														<%#= :contenido.hidden_field :id, @noticia.id  %>
-														<%#= submit_tag "edit" %>
-												<%# end %>
-												<% form_for :contenido, :url => { :controller => "app_noticias", :action => :edit } do |f| %>
-													  <p>
-													    <%= f.hidden_field :id, :value => @noticia.id %><br />
-													    <%= submit_tag "edit" %>
-													  </p>
-													<% end %>
-												
-									<% end %>
 						<% end %>
 		        </div>
 		        <hr />
@@ -46,12 +65,12 @@
 
         <div id="div_template_1">
 				
-	        		<% if ( !es_modalidad_muestra ) %> 
+	        		<% if ( modalidad == Contenido::MUESTRA_MODALIDAD_NORMAL ) %> 
 	            			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
 		
 					<% else %>
 							<div class="div_elemento_muestra">
-								<%= H_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
+								<%= h_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
 							</div>
 							
 					<% end %>
@@ -59,21 +78,18 @@
         </div>
         <div id="div_template_2">
 
-            	<% if ( !es_modalidad_muestra ) %> 
-            			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
-				<% else %>
-						<div class="div_elemento_muestra">
-							<%= H_mostrar_elemento_edicion(@elementos, @contenido.id, 2) %>
+	        		<% if ( modalidad == Contenido::MUESTRA_MODALIDAD_NORMAL ) %> 
+	            			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
+		
+					<% else %>
+							<div class="div_elemento_muestra">
+								<%= h_mostrar_elemento_edicion(@elementos, @contenido.id, 2) %>
+							</div>
 							
-						</div>
-						
-				<% end %>
+					<% end %>
 
         </div>
 		
-  		<% if ( !es_modalidad_muestra ) %>
-				<hr />
-   		<% end  %>
 		
 </div>
 
