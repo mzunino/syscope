@@ -11,14 +11,14 @@ class AppNoticiasController < ApplicationController
   
   	logger.debug("Entre al controler del index, user: #{@profile_id}")
   
-  	@modo_muestra_template = Contenido::MUESTRA_MODALIDAD_NORMAL;
+  	@modo_muestra_template = Contenido::MUESTRA_MODALIDAD_REDUCIDA
     
  end
  
  
   def mostrar_noticia
     
-    @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA;
+    @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_COMPLETA;
     
   	# muestra una noticia determinada
   	render(:layout => false)

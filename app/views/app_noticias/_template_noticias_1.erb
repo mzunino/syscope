@@ -1,96 +1,74 @@
-<% # Agrego tag para que se muestre el estilo asociado al formato de template %>
-<%= stylesheet_link_tag "template_noticias_1" %>
 
+<% # Agrego tag para que se muestre el estilo asociado al formato de template 
+	if @estilo_cargado.nil?
+		logger.debug("estilo es null...")
+%>
+		<%= stylesheet_link_tag "template_noticias_1" %>
+<% 
+		@estilo_cargado = "true" 
+	end
+%>
+
+ 												
+													
+<%= link_to "Editar", :url => { :controller => "app_noticias", :action => :edit }, :id => @noticia.id %> 
 <%
+	### Se obtiene el formato de lo que se va a mostrar posteriormente ###
+
+
 	modalidad = @modo_muestra_template || 0
 
-	case modalidad
-	  when Contenido::MUESTRA_MODALIDAD_EDICION
-	    # Modalidad presentacion edicion
-		div_modalidad = "div_modalidad_edicion"
-
-
-	  when Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA
-		# Modalidad Pantalla completa
-		div_modalidad = "div_modalidad_modal"
-	  
-	  when Contenido::MUESTRA_MODALIDAD_NORMAL
-			# Por defecto muestro en modalidad normal, para el listado    
-			div_modalidad = "div_modalidad_normal"
-
-
-	end
-
-%>
-
-
-<%
-
+	elemento_1 = ""
+	elemento_2 = ""
+	pie = ""
 
 	case modalidad
 
 	  when Contenido::MUESTRA_MODALIDAD_EDICION
 	    # Modalidad presentacion edicion
-		div_modalidad = "div_modalidad_edicion"
+			div_modalidad = "div_modalidad_edicion"
+	
+			elemento_1 = "Elemento #1"
+			elemento_2 = "Elemento #2"
 
+	  when Contenido::MUESTRA_MODALIDAD_COMPLETA
+		# Modalidad Noticia Completa
+			div_modalidad = "div_modalidad_completa"
+	
+			cabezal = "<div id='titulo-noticia'>" + @noticia.descripcion + "</div><hr />"	 
+			cabezal +=  "#{link_to("Editar", :action => "edit", :id => @noticia.id)}"
 
-	  when Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA
-		# Modalidad Pantalla completa
-		div_modalidad = "div_modalidad_modal"
-	  
+			elemento_1 = mostrarElemento(@hash_elementos_renderizados, 1,0) 
+			elemento_2 = mostrarElemento(@hash_elementos_renderizados, 2,0) 
 
-	  when Contenido::MUESTRA_MODALIDAD_NORMAL
-			# Por defecto muestro en modalidad normal, para el listado    
-			div_modalidad = "div_modalidad_normal"
+	  when Contenido::MUESTRA_MODALIDAD_REDUCIDA
+		# Por defecto muestro en modalidad normal, para el listado    
+			div_modalidad = "columnistas"
 
-
+			cabezal = "<div id='titulo-noticia'>" + @noticia.descripcion + "</div><hr />"	  
+			elemento_1 = mostrarElemento(@hash_elementos_renderizados, 1,0) 
+			elemento_2 = mostrarElemento(@hash_elementos_renderizados, 2,0) 
+			
 	end
 
 %>
 
 
+<% 
+	# Se define la estructura de los divs para mostrar el contenido  
+%>
 
-<div id="<%=div_modalidad %>"  >
-
-   		<% if ( modalidad == Contenido::MUESTRA_MODALIDAD_PANTALLA_COMPLETA ) %>
-		        <div id="titulo-noticia">
-		        		<% if !@noticia.nil? %>
-		                	<%= @noticia.descripcion %>
-						<% end %>
-		        </div>
-		        <hr />
-		<% end %>
+<div id="<%= div_modalidad %>" >
+		<div id="cabezal">
+			<%= cabezal%>
+		</div>
 		
-		
-
         <div id="div_template_1">
-				
-	        		<% if ( modalidad == Contenido::MUESTRA_MODALIDAD_NORMAL ) %> 
-	            			<%= mostrarElemento(@hash_elementos_renderizados, 1,0) %>
-		
-					<% else %>
-							<div class="div_elemento_muestra">
-								<%= h_mostrar_elemento_edicion(@elementos, @contenido.id, 1) %>
-							</div>
-							
-					<% end %>
-				
+			<%= elemento_1 %>			
         </div>
+		
         <div id="div_template_2">
-
-	        		<% if ( modalidad == Contenido::MUESTRA_MODALIDAD_NORMAL ) %> 
-	            			<%= mostrarElemento(@hash_elementos_renderizados, 2,0) %>
-		
-					<% else %>
-							<div class="div_elemento_muestra">
-								<%= h_mostrar_elemento_edicion(@elementos, @contenido.id, 2) %>
-							</div>
-							
-					<% end %>
-
+			<%= elemento_2 %>
         </div>
-		
-		
 </div>
-
 
