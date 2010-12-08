@@ -154,26 +154,26 @@ class AppNoticiasController < ApplicationController
   # GET /apps/edit
   def edit
     
-      @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_EDICION;
-    
+      @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_EDICION
+      
       begin
         
          Contenido.transaction do
               logger.debug("Voy a buscar si no hay un borrador en edición previo...")
               
               # Recupero si existe una versión borrador del contenido y si no la hay creo una nueva
-              @contenido = Contenido.find(:first, :conditions => "id_version_previa = #{params[:contenido][:id]} and estado = #{Contenido::ESTADO_TMP}")
+              @contenido = Contenido.find(:first, :conditions => "id_version_previa = #{params[:id]} and estado = #{Contenido::ESTADO_TMP}")
               
                 if @contenido.nil?
                     
                     logger.debug("No hay una versión previa que se haya querido editar, entonces voy a generar una nueva...")
                     
                     # se crea un borrador para la nueva edición del contenido en base a los datos del original
-                    @contenido = crear_borrador_contenido(params[:contenido][:id])
+                    @contenido = crear_borrador_contenido(params[:id])
               
-                    @elementos = crear_borrador_elementos_contenido(params[:contenido][:id], @contenido.id)
+                    @elementos = crear_borrador_elementos_contenido(params[:id], @contenido.id)
               
-                    @contenidos_profiles = crear_borrador_perfiles_contenido(params[:contenido][:id], @contenido.id)
+                    @contenidos_profiles = crear_borrador_perfiles_contenido(params[:id], @contenido.id)
                 
               else
                     flash[:notice] = "Atención: Modificaciones pendientes de guardar"

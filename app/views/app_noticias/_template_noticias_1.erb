@@ -10,13 +10,11 @@
 %>
 
  												
-													
-<%= link_to "Editar", :url => { :controller => "app_noticias", :action => :edit }, :id => @noticia.id %> 
 <%
 	### Se obtiene el formato de lo que se va a mostrar posteriormente ###
+logger.debug("supuestamente modo_muestra_template muestra: #{@modo_muestra_template}")
 
-
-	modalidad = @modo_muestra_template || 0
+	modalidad = @modo_muestra_template ||= 0
 
 	elemento_1 = ""
 	elemento_2 = ""
@@ -31,12 +29,14 @@
 			elemento_1 = "Elemento #1"
 			elemento_2 = "Elemento #2"
 
+logger.debug("Este es el valor de elemento 1: #{elemento_1}")
+
 	  when Contenido::MUESTRA_MODALIDAD_COMPLETA
 		# Modalidad Noticia Completa
 			div_modalidad = "div_modalidad_completa"
 	
 			cabezal = "<div id='titulo-noticia'>" + @noticia.descripcion + "</div><hr />"	 
-			cabezal +=  "#{link_to("Editar", :action => "edit", :id => @noticia.id)}"
+			
 
 			elemento_1 = mostrarElemento(@hash_elementos_renderizados, 1,0) 
 			elemento_2 = mostrarElemento(@hash_elementos_renderizados, 2,0) 
@@ -45,7 +45,9 @@
 		# Por defecto muestro en modalidad normal, para el listado    
 			div_modalidad = "columnistas"
 
-			cabezal = "<div id='titulo-noticia'>" + @noticia.descripcion + "</div><hr />"	  
+			cabezal = "<div id='titulo-noticia'>" + @noticia.descripcion + "</div><hr />"	
+			cabezal += "<a href=\"/app_noticias/edit/#{@noticia.id}\">Edit</a>"  
+														
 			elemento_1 = mostrarElemento(@hash_elementos_renderizados, 1,0) 
 			elemento_2 = mostrarElemento(@hash_elementos_renderizados, 2,0) 
 			
