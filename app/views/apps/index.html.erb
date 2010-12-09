@@ -13,7 +13,7 @@
     <td><%=h app.id %></td>
     <td><%=h app.nombre %></td>
     <td><%=h app.controller %></td>
-    <%=h Profile::NIVELES_DE_USUARIO[app.nivel][0] %>
+    <td><%=h Profile::NIVELES_DE_USUARIO[app.nivel][0] %></td>
     <td><%= link_to 'Show', app %></td>
     <td><%= link_to 'Edit', edit_app_path(app) %></td>
     <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>

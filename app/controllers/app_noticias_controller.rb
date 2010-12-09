@@ -7,7 +7,7 @@ class AppNoticiasController < ApplicationController
                     @profile_id = @user.profile_id
               end 
         end
-  	@noticias = Contenido.find_noticias_del_perfil(@profile_id)
+  	@noticias = Contenido.find_noticias_activas_del_perfil(@profile_id)
   
   	logger.debug("Entre al controler del index, user: #{@profile_id}")
   

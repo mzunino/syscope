@@ -1,5 +1,5 @@
 
-<%= link_to 'Inicio', :controller => 'app_noticias' %><br />
+<%= link_to 'Inicio', :controller => "application", :action => "ejecutar_funcionalidad_menu", :controller_f => "app_noticias", :action_f => "index", :func_id => "0", :app_id => "0" %> 
 <hr />
 <% if !@aplicaciones_profile.nil? && @aplicaciones_profile.size() > 0 %>
 	<div class="menu-form">
@@ -18,17 +18,21 @@
 				<button onclick='mostrarFuncionalidad("div_menu_<%= elemento.app_id %>")' ><%=texto_link_app%></button> 
 					
 				<% if(!@lista_func_disponibles.nil? && @lista_func_disponibles.size() > 0) %>
-					<div  id="div_menu_<%= elemento.app_id %>" style="display:none">
+					<% if "#{session[:id_app_seleccionada]}" == "#{elemento.app_id}" %>
+						<div  id="div_menu_<%= elemento.app_id %>">
+					<% else %>
+						<div  id="div_menu_<%= elemento.app_id %>" style="display:none">
+					<% end %>
 					
 						<%  
 						   for funcionalidad in @lista_func_disponibles  
 								texto_link_func = funcionalidad.nombre
 								action = funcionalidad.action
 							%>	
-	                        	<%= button_to (texto_link_func, {:controller => controller, :action => action}, :class => "button_func") %>
+	                        	<%= button_to (texto_link_func, {:controller => "application", :action => "ejecutar_funcionalidad_menu", :controller_f => controller, :action_f => action, :func_id => funcionalidad.id, :app_id => elemento.app_id }, :class => "button_func") %>
 	    					<%
 	 
-					   	   end 
+					   	   end  
 						%>
 						
 					</div>

@@ -73,16 +73,18 @@ class Contenido < ActiveRecord::Base
     
   end 
   
-  def self.find_noticias_del_perfil(profile_id)
+  def self.find_noticias_activas_del_perfil(profile_id)
     
     #logger.debug("Buscando noticias para el perfil: " + profile_id)
     
     if profile_id.nil?
       
-      self.find(:all, :joins => " left join contenido_profiles as cont_pro on contenidos.id = cont_pro.contenido_id ", :conditions => " cont_pro.contenido_id is null ")
+      self.find(:all, :joins => " left join contenido_profiles as cont_pro on contenidos.id = cont_pro.contenido_id ",
+                                :conditions => " cont_pro.contenido_id is null and estado = #{Contenido::ESTADO_AUDITADO}")
       
     else
-      self.find(:all, :conditions => "profile_id = #{profile_id}" , :joins => " as contenidos join contenido_profiles as cont_pro on cont_pro.contenido_id = contenidos.id" )
+      self.find(:all, :conditions => "profile_id = #{profile_id} and estado = #{Contenido::ESTADO_AUDITADO}" , 
+                            :joins => " as contenidos join contenido_profiles as cont_pro on cont_pro.contenido_id = contenidos.id" )
     end
     
   end

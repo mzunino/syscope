@@ -20,6 +20,20 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery :secret => '8c3e099237e6366fd2f5366e9c430e79'
 
+
+  def ejecutar_funcionalidad_menu
+    
+    id_opcion = params[:func_id]
+    app_id = params[:app_id]
+    controller = params[:controller_f]
+    action = params[:action_f]
+    
+    
+    session[:id_menu_seleccionada] = id_opcion
+    session[:id_app_seleccionada] = app_id
+    
+    redirect_to :controller => controller, :action => action
+  end
   
   def cargar_menu_usuario
         # Carga el menu dependiendo del usuario logueado en el sistema
