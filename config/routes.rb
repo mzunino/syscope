@@ -71,7 +71,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/app_noticias/save', :controller=>'app_noticias', :action=>'save'
 
-  map.connect ':controller/:action/:id'
   map.connect ':controller/:action'
+  map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

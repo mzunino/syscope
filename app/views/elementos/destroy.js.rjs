@@ -1,0 +1,4 @@
+
+
+page.replace_html 'template_seleccionado', render(:partial => "app_noticias/#{@tipo_template.template}")
+logger.debug("Aca estoy... y ahora!?")          

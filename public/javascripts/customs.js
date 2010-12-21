@@ -253,7 +253,7 @@ function obtenerOrdinalNuevosRegistros(){
 }
 
 
-function mostrarModalNuevoRegistro(url, elemento_id, contenido_id){
+function mostrarModalNuevoRegistro(url, elemento_id, contenido_id, ubicacion){
 
 	var http = createAjax();
 	var params = "";
@@ -269,6 +269,9 @@ function mostrarModalNuevoRegistro(url, elemento_id, contenido_id){
 	
 	// Adjunto el id de contenido para editar
 	urlCompleta += "?contenido_id=" + contenido_id;
+	
+	urlCompleta += "&ubicacion=" + ubicacion;
+	
 	
 
 	http.open("GET", urlCompleta, true);

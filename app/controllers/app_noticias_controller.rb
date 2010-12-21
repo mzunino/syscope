@@ -1,20 +1,38 @@
 class AppNoticiasController < ApplicationController
   def index
-
-        if session[:user_id]
-              @user=User.find(session[:user_id])
-              if @user
-                    @profile_id = @user.profile_id
-              end 
-        end
-  	@noticias = Contenido.find_noticias_activas_del_perfil(@profile_id)
-  
-  	logger.debug("Entre al controler del index, user: #{@profile_id}")
-  
-  	@modo_muestra_template = Contenido::MUESTRA_MODALIDAD_REDUCIDA
     
- end
- 
+    if session[:user_id]
+      @user=User.find(session[:user_id])
+      if @user
+        @profile_id = @user.profile_id
+      end 
+    end
+    @noticias = Contenido.find_noticias_activas_del_perfil(@profile_id)
+    
+    logger.debug("Entre al controler del index, user: #{@profile_id}")
+    
+    @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_REDUCIDA
+    
+  end
+  
+  def show
+    
+    
+    if session[:user_id]
+      @user=User.find(session[:user_id])
+      if @user
+        @profile_id = @user.profile_id
+      end 
+    end
+    @noticias = Contenido.find_noticias_activas_del_perfil(@profile_id)
+    
+    logger.debug("Entre al controler del index, user: #{@profile_id}")
+    
+    @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_EDICION
+    
+    render "index"
+    
+  end
  
   def mostrar_noticia
     
@@ -29,7 +47,7 @@ class AppNoticiasController < ApplicationController
   def new
     
         @contenido = Contenido.buscar_ultimo_tmp(session[:user_id])
-	
+        
         if @contenido.nil?
            # Creo un nuevo contenido en estado borrador para que comience la edición del mismo
                 @contenido = Contenido.new() 
@@ -53,6 +71,8 @@ class AppNoticiasController < ApplicationController
         end  
    # Alta de una nueva noticia
 
+        logger.debug("############   Este es el contenido nuevo cargado: #{@contenido.id}")
+
         @hash_profiles_asociados = {}
         
         @profiles_all = Profile.obtener_profiles_entidad_actual(session[:profile_id]);
@@ -64,6 +84,11 @@ class AppNoticiasController < ApplicationController
         end
         
         @tipo_contenidos_all = TipoContenido.find(:all)
+        
+        @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_EDICION
+        
+        #Se ejecuta mostrar formato template para poder mostrar el template seleccionado cuando cargue la página
+        mostrar_formato_template({:id => @contenido.tipo_id, :contenido_id => @contenido.id})
         
   end
 
@@ -303,7 +328,7 @@ class AppNoticiasController < ApplicationController
   
   def mostrar_formato_template(params = params)
     
-    logger.debug("Arrancó el mostrar_formato_template, con los parametros: ")
+    logger.debug("Arrancó el mostrar_formato_template, con los parametros: #{params}")
         
     begin
         # obtengo el tipo de template a partir del id pasado
@@ -320,7 +345,7 @@ class AppNoticiasController < ApplicationController
         @tipo_template = nil
     end
     
-    @modo_muestra_template = true
+    @modo_muestra_template = Contenido::MUESTRA_MODALIDAD_EDICION
 
     respond_to do |format|
       format.html {}

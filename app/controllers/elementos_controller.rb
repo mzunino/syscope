@@ -15,17 +15,21 @@ class ElementosController < ApplicationController
     
     elemento_id = params[:id]
     contenido_id = params[:contenido_id]
+    ubicacion = params[:ubicacion]
     
     logger.debug("contenido_id: #{contenido_id}")
     logger.debug("elemento_id: #{elemento_id}")
+    logger.debug("ubicacion: #{ubicacion}")
+    
   
-    if elemento_id.nil?
+    if elemento_id.nil? || elemento_id == "0"
   
       # Si no quiere editar un elemento existente, entonces 
       # creo uno para empezar a editar
       @elemento = Elemento.new()
       @elemento.contenido_id = contenido_id
       @elemento.tipo_id = TipoElemento.find(:last);
+      @elemento.ubicacion = ubicacion
       @elemento.save!
   
     else
@@ -128,12 +132,18 @@ end
   # DELETE /elementos/1.xml
   def destroy
     @elemento = Elemento.find(params[:id])
+
+    # Se carga el contenido y el tipo de contenido para actualizar la página luego
+    @contenido = Contenido.find(@elemento.contenido_id)
+    @tipo_template = TipoContenido.find(@contenido.tipo_id)
+    
+    @modo_muestra_template = true
+    
     @elemento.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(elementos_url) }
-      format.xml  { head :ok }
-    end
+    logger.debug("Ejecutando destroy de elemento!!!")
+
+    respond_to { |format| format.js }
   end
   
 

@@ -29,10 +29,9 @@
 	  when Contenido::MUESTRA_MODALIDAD_EDICION
 	    # Modalidad presentacion edicion
 			div_modalidad = "div_modalidad_edicion"
-
-
-			elemento_1 = h_mostrar_elemento_edicion(@elementos, @contenido.id,1) 
-			elemento_2 = h_mostrar_elemento_edicion(@elementos, @contenido.id,2)
+	
+			elemento_1 = h_mostrar_elemento_edicion(@hash_elementos_renderizados, 1,0) 
+			elemento_2 = h_mostrar_elemento_edicion(@hash_elementos_renderizados, 2,0)
 
 	  when Contenido::MUESTRA_MODALIDAD_COMPLETA
 		# Modalidad Noticia Completa

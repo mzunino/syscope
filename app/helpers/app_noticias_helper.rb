@@ -25,19 +25,37 @@ module AppNoticiasHelper
          str_contenido = ""
          
          #Cargo hash con lista de elementos para mostrarlos 
-         H_contenido_cargar_elementos_renderizados(@elementos)
+         H_contenido_cargar_elementos_renderizados(elementos_contenido)
          
-         for elem in elementos_contenido
-           
-            if elem.ubicacion == ubicacion_elemento
-               str_contenido += "<a href=\"javascript:mostrarModalNuevoRegistro('/elementos/nuevo_elemento/', #{elem.id}, #{contenido_id});\">" 
-               str_contenido += mostrarElemento(@hash_elementos_renderizados, ubicacion_elemento,0)
-               str_contenido += "</a>"
-               #str_contenido += mostrarElemento(@hash_elementos_renderizados, ubicacion_elemento,0)
+         # La lista contiene elementos para la misma posición (ubicacion_elemento)
+         encontro_elemento = false
+         if !elementos_contenido.nil? && elementos_contenido.size > 0
+             
+             for elem in elementos_contenido
                
-            end
+                if elem.ubicacion == ubicacion_elemento
+                   str_contenido += "<a href=\"javascript:mostrarModalNuevoRegistro('/elementos/nuevo_elemento/', #{elem.id}, #{contenido_id}, #{elem.ubicacion});\">" 
+                   str_contenido += "Elemento ##{ubicacion_elemento}"
+                   str_contenido += "</a>" 
+                   str_contenido += "<br />"
+                   str_contenido += "<a href=\"javascript:mostrarModalNuevoRegistro('/elementos/destroy/', #{elem.id}, #{contenido_id}, #{elem.ubicacion});\">" 
+                   str_contenido += "Eliminar"
+                   str_contenido += "</a>"
+                   #str_contenido += link_to 'Eliminar', elem, :confirm => '¿Esta seguro de descartar el elemento?', :method => :delete, :remote => true 
+                   
+                   encontro_elemento = true
+               end
+               
+             end
          end
-         
+   
+         if !encontro_elemento
+           str_contenido += "<a href=\"javascript:mostrarModalNuevoRegistro('/elementos/nuevo_elemento/', 0, #{contenido_id}, #{ubicacion_elemento});\">" 
+           str_contenido += "Elemento ##{ubicacion_elemento} - Sin cargar"
+           str_contenido += "</a>"
+         end              
+   
+           
          
          return str_contenido
          

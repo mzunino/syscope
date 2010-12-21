@@ -1,5 +1,4 @@
 
-
 begin
   if !@tipo_template.template.nil? && !@tipo_template.template.empty?
           page.replace_html 'template_seleccionado', render(:partial => @tipo_template.template)
